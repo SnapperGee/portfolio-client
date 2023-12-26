@@ -4,6 +4,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import SnapperGeeIcon from "../assets/snapper_g_icon.png";
 import SnapLibLogo from "../assets/snaplib_logo_fullrez.png";
 
+const EMAIL = "gauger1992@gmail.com";
+
 const classNames = (...classes: string[]): string => classes.join(" ");
 
 const Navbar = () =>
@@ -175,7 +177,7 @@ const Navbar = () =>
                     </div>
                     <div className="ml-3">
                         <div className="text-base font-medium text-white">Graham Auger</div>
-                        <div className="text-sm font-medium text-gray-400">XxSnapperGeexX@gmail.com</div>
+                        <div className="text-sm font-medium text-gray-400">{EMAIL}</div>
                     </div>
                 </div>
             </div>
