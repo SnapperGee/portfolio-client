@@ -185,6 +185,6 @@ const Navbar = () =>
         </>
     )}
     </Disclosure>
-)
+);
 
 export default Navbar;
