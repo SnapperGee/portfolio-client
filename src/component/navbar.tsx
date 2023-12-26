@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import SnapperGeeIcon from "../assets/snapper_g_icon.png";
+import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 import SnapLibLogo from "../assets/snaplib_logo_fullrez.png";
 
 const EMAIL = "gauger1992@gmail.com";
@@ -59,7 +59,7 @@ const Navbar = () =>
                                     <span className="absolute -inset-1.5" />
                                     <span className="sr-only">Open user menu</span>
                                     <img
-                                    className="h-8 w-8 rounded-full"
+                                    className="h-8 w-8 rounded-full bg-white"
                                     src={SnapperGeeIcon}
                                     alt="Snapper G"
                                     />
@@ -170,7 +170,7 @@ const Navbar = () =>
                 <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                         <img
-                            className="h-10 w-10 rounded-full"
+                            className="h-10 w-10 rounded-full bg-white"
                             src={SnapperGeeIcon}
                             alt="Snapper G"
                         />
