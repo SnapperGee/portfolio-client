@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./component/navbar.tsx";
-import AboutMe from "./component/about-me.tsx";
+import AboutMe from "./page/about-me.tsx";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
