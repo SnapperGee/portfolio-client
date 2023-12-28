@@ -1,6 +1,7 @@
+import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
+import { Link } from "react-router-dom";
 
 const EMAIL = "gauger1992@gmail.com";
 
@@ -28,17 +29,6 @@ const NAV_LINKS = [
     }
 ];
 
-const clickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-{
-    // If nav button is for current page
-    if (event.currentTarget.value === window.location.pathname)
-    {
-        event.currentTarget.classList.remove("bg-gray-900");
-    }
-
-    console.log(`${event.currentTarget.value}\n${window.location.pathname}`);
-}
-
 const Navbar = () =>
 (
     <Disclosure as="nav" className="bg-gray-800 mb-24">
@@ -57,17 +47,15 @@ const Navbar = () =>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 {
-                                    NAV_LINKS.map((navBtn) =>
+                                    NAV_LINKS.map((navLink) =>
                                     (
-                                        <button
-                                            key={navBtn.to}
-                                            type="button"
-                                            value={navBtn.to}
-                                            className={`rounded-md px-3 py-2 text-sm font-medium ${window.location.pathname === navBtn.to ? ACTIVE_NAV_BTN_CLASSES.join(" ") : INACTIVE_NAV_BTN_CLASSES.join(" ")}`}
-                                            onClick={clickHandler}
+                                        <Link
+                                            key={navLink.to}
+                                            to={navLink.to}
+                                            className={`rounded-md px-3 py-2 text-sm font-medium ${window.location.pathname === navLink.to ? ACTIVE_NAV_BTN_CLASSES.join("\u0020") : INACTIVE_NAV_BTN_CLASSES.join("\u0020")}`}
                                         >
-                                            {navBtn.text}
-                                        </button>
+                                            {navLink.text}
+                                        </Link>
                                     ))
                                 }
                             </div>
