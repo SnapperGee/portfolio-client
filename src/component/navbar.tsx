@@ -1,7 +1,7 @@
 import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const EMAIL = "gauger1992@gmail.com";
 
@@ -49,13 +49,15 @@ const Navbar = () =>
                                 {
                                     NAV_LINKS.map((navLink) =>
                                     (
-                                        <Link
+                                        <NavLink
                                             key={navLink.to}
                                             to={navLink.to}
-                                            className={`rounded-md px-3 py-2 text-sm font-medium ${window.location.pathname === navLink.to ? ACTIVE_NAV_BTN_CLASSES.join("\u0020") : INACTIVE_NAV_BTN_CLASSES.join("\u0020")}`}
+                                            className={({ isActive }) =>
+                                                `rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES.join("\u0020") : INACTIVE_NAV_BTN_CLASSES.join("\u0020")}`
+                                            }
                                         >
                                             {navLink.text}
-                                        </Link>
+                                        </NavLink>
                                     ))
                                 }
                             </div>
