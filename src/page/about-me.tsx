@@ -14,7 +14,7 @@ const MoreBtn = () =>
     <button
         type="button"
         onClick={moreBtnClickHandler}
-        className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="inline-flex items-center my-4 gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
     >
         {ArrowRight}
         More
@@ -33,15 +33,17 @@ const AboutMe = () =>
         </div>
         <div className="self-center sm:text-left text-gray-300">
             <h4 className="text-lg font-bold">Graham Auger</h4>
-            <div className="mt-1 space-y-4">
-                <p>
-                    As a passionate software developer with a few years of programming experience primarily as a hobbyist, I
-                    have honed a diverse skill set that encompasses both front-end and back-end technologies. My technical
-                    proficiency includes a range of programming languages such as C#, Java, JavaScript, TypeScript, Python,
-                    and SQL, along with in-depth knowledge of web development standards like HTML and CSS complemented by
-                    SASS.
-                </p>
+            <p className="mt-1">
+                As a passionate software developer with a few years of programming experience primarily as a hobbyist, I
+                have honed a diverse skill set that encompasses both front-end and back-end technologies. My technical
+                proficiency includes a range of programming languages such as C#, Java, JavaScript, TypeScript, Python,
+                and SQL, along with in-depth knowledge of web development standards like HTML and CSS complemented by
+                SASS.
+            </p>
 
+            <MoreBtn />
+
+            <div className="space-y-4">
                 <p>
                     I am proficient in utilizing build tools and package managers such as Gradle and Node/npm, and have
                     experience in implementing robust testing solutions using Junit Jupiter and Mocha with Chai testing
@@ -62,7 +64,6 @@ const AboutMe = () =>
                     contribute to impactful projects and continue my journey of learning and growth in the field of software
                     development.
                 </p>
-                <MoreBtn />
             </div>
         </div>
     </div>
