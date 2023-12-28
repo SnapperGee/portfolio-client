@@ -1,0 +1,13 @@
+#arrow {
+    transition: transform 1s ease-in-out;
+    transform: rotate(0deg);
+
+    &.rotateDown {
+      transform: rotate(90deg);
+    }
+
+    // When the class is not present
+    &:not(.rotateDown) {
+      transform: rotate(0deg);
+    }
+  }

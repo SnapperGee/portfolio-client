@@ -1,4 +1,25 @@
-import SnapperGeeIcon from '../assets/snapper_g_icon.svg';
+import "../sass/about-me.scss";
+import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
+import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
+
+const ArrowRight = <ArrowRightCircleIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" id="arrow"/>;
+
+const moreBtnClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+{
+    event.currentTarget.querySelector("#arrow")?.classList.toggle("rotateDown");
+};
+
+const MoreBtn = () =>
+(
+    <button
+        type="button"
+        onClick={moreBtnClickHandler}
+        className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    >
+        {ArrowRight}
+        More
+    </button>
+);
 
 const AboutMe = () =>
 (
@@ -41,6 +62,7 @@ const AboutMe = () =>
                     contribute to impactful projects and continue my journey of learning and growth in the field of software
                     development.
                 </p>
+                <MoreBtn />
             </div>
         </div>
     </div>
