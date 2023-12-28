@@ -83,7 +83,21 @@ const Navbar = () =>
             <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Disclosure.Button
+                    {
+                        NAV_LINKS.map((navLink) =>
+                        (
+                            <NavLink
+                                key={navLink.to}
+                                to={navLink.to}
+                                className={({ isActive }) =>
+                                    `block rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES.join("\u0020") : INACTIVE_NAV_BTN_CLASSES.join("\u0020")}`
+                                }
+                            >
+                                {navLink.text}
+                            </NavLink>
+                        ))
+                    }
+                    {/* <Disclosure.Button
                         as="a"
                         href="#"
                         className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
@@ -110,7 +124,7 @@ const Navbar = () =>
                         className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                         Resume
-                    </Disclosure.Button>
+                    </Disclosure.Button> */}
                 </div>
                 <div className="border-t border-gray-700 pb-3 pt-4">
                     <div className="flex items-center px-5">
