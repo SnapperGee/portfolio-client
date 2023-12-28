@@ -2,7 +2,7 @@ import SnapperGeeIcon from '../assets/snapper_g_icon.svg';
 
 const AboutMe = () =>
 (
-    <div className="flex flex-col sm:flex-row justify-center items-center mt-24 px-8">
+    <div className="flex flex-col sm:flex-row justify-center items-center px-8">
         <div className="mb-4 sm:mb-0 sm:mr-4">
             <img
                 className="h-32 bg-white min-w-32 rounded-lg"
