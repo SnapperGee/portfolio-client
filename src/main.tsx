@@ -1,12 +1,8 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import Navbar from "./component/navbar.tsx";
-import AboutMe from "./page/about-me.tsx";
+import router from "./router";
 import "./index.scss";
+import { RouterProvider } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Navbar />
-    <AboutMe />
-  </React.StrictMode>,
+  <RouterProvider router={router} />
 )
