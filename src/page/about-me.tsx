@@ -49,7 +49,11 @@ const AboutMe = () =>
                 SASS.
             </p>
 
-            <div className="mx-auto w-full rounded-2xl p-2 mt-4">
+            <div className="hidden md:block mt-4 space-y-4">
+                <Paragraphs />
+            </div>
+
+            <div className="md:hidden mx-auto w-full rounded-2xl p-2 mt-4">
                 <Disclosure>
                 {({ open }) => (
                     <>
