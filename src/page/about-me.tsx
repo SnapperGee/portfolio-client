@@ -1,25 +1,7 @@
 import "../sass/about-me.scss";
 import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
-import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
-
-const ArrowRight = <ArrowRightCircleIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" id="arrow"/>;
-
-const moreBtnClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-{
-    event.currentTarget.querySelector("#arrow")?.classList.toggle("rotateDown");
-};
-
-const MoreBtn = () =>
-(
-    <button
-        type="button"
-        onClick={moreBtnClickHandler}
-        className="inline-flex items-center my-4 gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-    >
-        {ArrowRight}
-        More
-    </button>
-);
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const AboutMe = () =>
 (
@@ -41,29 +23,44 @@ const AboutMe = () =>
                 SASS.
             </p>
 
-            <MoreBtn />
+            <div className="mx-auto w-full rounded-2xl p-2">
+                <Disclosure>
+                {({ open }) => (
+                    <>
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-indigo-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-indigo-500 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                        <span>More info</span>
+                        <ChevronUpIcon
+                            id="arrow"
+                            className={`${
+                                open ? "rotateDown" : ""
+                            } h-5 w-5 text-white`}
+                        />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-300 space-y-4">
+                        <p>
+                            I am proficient in utilizing build tools and package managers such as Gradle and Node/npm, and have
+                            experience in implementing robust testing solutions using Junit Jupiter and Mocha with Chai testing
+                            frameworks. My expertise extends to styling with frameworks like Bootstrap and Tailwind, which enables
+                            me to create visually appealing and responsive user interfaces.
+                        </p>
 
-            <div className="space-y-4">
-                <p>
-                    I am proficient in utilizing build tools and package managers such as Gradle and Node/npm, and have
-                    experience in implementing robust testing solutions using Junit Jupiter and Mocha with Chai testing
-                    frameworks. My expertise extends to styling with frameworks like Bootstrap and Tailwind, which enables
-                    me to create visually appealing and responsive user interfaces.
-                </p>
+                        <p>
+                            I have further strengthened my full-stack development capabilities by completing a comprehensive
+                            Node-based course, where I received certification. This course enriched my understanding of ReactJS,
+                            ExpressJS, Handlebars, Webpack, and jQuery, equipping me with the skills to build and deploy dynamic,
+                            scalable applications.
+                        </p>
 
-                <p>
-                    I have further strengthened my full-stack development capabilities by completing a comprehensive
-                    Node-based course, where I received certification. This course enriched my understanding of ReactJS,
-                    ExpressJS, Handlebars, Webpack, and jQuery, equipping me with the skills to build and deploy dynamic,
-                    scalable applications.
-                </p>
-
-                <p>
-                    With a strong foundation in both the theoretical and practical aspects of software development, I am
-                    eager to bring my blend of skills and passion for coding to a professional setting, where I can
-                    contribute to impactful projects and continue my journey of learning and growth in the field of software
-                    development.
-                </p>
+                        <p>
+                            With a strong foundation in both the theoretical and practical aspects of software development, I am
+                            eager to bring my blend of skills and passion for coding to a professional setting, where I can
+                            contribute to impactful projects and continue my journey of learning and growth in the field of software
+                            development.
+                        </p>
+                    </Disclosure.Panel>
+                    </>
+                )}
+                </Disclosure>
             </div>
         </div>
     </div>
