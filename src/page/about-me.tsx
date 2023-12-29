@@ -10,7 +10,7 @@ const AboutMe = () =>
             <img
                 className="h-32 bg-white min-w-32 rounded-lg"
                 src={SnapperGeeIcon}
-                alt="Snapper G"
+                alt="Snapper G profile icon picture"
             />
         </div>
         <div className="self-center sm:text-left text-gray-300">
@@ -27,7 +27,11 @@ const AboutMe = () =>
                 <Disclosure>
                 {({ open }) => (
                     <>
-                    <Disclosure.Button className="flex w-full justify-between rounded-lg bg-indigo-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-indigo-500 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                    <Disclosure.Button
+                        className="flex w-full justify-between rounded-lg bg-indigo-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-indigo-500 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75"
+                        aria-expanded={String(open)}
+                        aria-controls="additionalInfo"
+                    >
                         <span>More info</span>
                         <ChevronUpIcon
                             id="arrow"
@@ -36,7 +40,7 @@ const AboutMe = () =>
                             } h-5 w-5 text-white`}
                         />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-300 space-y-4">
+                    <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-300 space-y-4" id="additionalInfo">
                         <p>
                             I am proficient in utilizing build tools and package managers such as Gradle and Node/npm, and have
                             experience in implementing robust testing solutions using Junit Jupiter and Mocha with Chai testing
