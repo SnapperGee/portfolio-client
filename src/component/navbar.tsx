@@ -7,8 +7,8 @@ const EMAIL = "gauger1992@gmail.com";
 
 // Current: "bg-gray-900 text-white"
 // Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
-const INACTIVE_NAV_BTN_CLASSES = ["text-gray-300", "hover:bg-gray-700", "hover:text-white"];
-const ACTIVE_NAV_BTN_CLASSES = ["bg-gray-900", "text-white"];
+const INACTIVE_NAV_BTN_CLASSES = "text-gray-300 hover:bg-gray-700 hover:text-white";
+const ACTIVE_NAV_BTN_CLASSES = "bg-gray-900 text-white";
 
 const NAV_LINKS = [
     {
@@ -53,7 +53,7 @@ const Navbar = () =>
                                             key={navLink.to}
                                             to={navLink.to}
                                             className={({ isActive }) =>
-                                                `rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES.join("\u0020") : INACTIVE_NAV_BTN_CLASSES.join("\u0020")}`
+                                                `rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
                                             }
                                         >
                                             {navLink.text}
@@ -90,7 +90,7 @@ const Navbar = () =>
                                 key={navLink.to}
                                 to={navLink.to}
                                 className={({ isActive }) =>
-                                    `block rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES.join("\u0020") : INACTIVE_NAV_BTN_CLASSES.join("\u0020")}`
+                                    `block rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
                                 }
                             >
                                 {navLink.text}
