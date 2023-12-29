@@ -96,34 +96,6 @@ const Navbar = () =>
                             </NavLink>
                         ))
                     }
-                    {/* <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-                    >
-                        About me
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    >
-                        Portfolio
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    >
-                        Contact
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    >
-                        Resume
-                    </Disclosure.Button> */}
                 </div>
                 <div className="border-t border-gray-700 pb-3 pt-4">
                     <div className="flex items-center px-5">
