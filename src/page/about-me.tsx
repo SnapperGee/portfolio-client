@@ -49,7 +49,7 @@ const AboutMe = () =>
                 SASS.
             </p>
 
-            <div className="mx-auto w-full rounded-2xl p-2">
+            <div className="mx-auto w-full rounded-2xl p-2 mt-4">
                 <Disclosure>
                 {({ open }) => (
                     <>
