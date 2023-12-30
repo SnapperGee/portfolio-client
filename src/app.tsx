@@ -1,11 +1,12 @@
-import Navbar from "./component/navbar";
+import HeaderNav from "./component/header-nav";
+
 import { Outlet } from "react-router-dom";
 
 const App = () =>
 (
     <>
         <header>
-            <Navbar />
+            <HeaderNav />
         </header>
         <main>
             <Outlet />

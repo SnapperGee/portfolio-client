@@ -29,7 +29,7 @@ const NAV_LINKS = [
     }
 ];
 
-const Navbar = () =>
+const HeaderNav = () =>
 (
     <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
@@ -118,4 +118,4 @@ const Navbar = () =>
     </Disclosure>
 );
 
-export default Navbar;
+export default HeaderNav;
