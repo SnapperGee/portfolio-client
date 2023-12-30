@@ -1,5 +1,5 @@
 import HeaderNav from "./component/header-nav";
-
+import FooterNav from "./component/footer-nav";
 import { Outlet } from "react-router-dom";
 
 const App = () =>
@@ -11,6 +11,9 @@ const App = () =>
         <main>
             <Outlet />
         </main>
+        <footer>
+            <FooterNav />
+        </footer>
     </>
 );
 
