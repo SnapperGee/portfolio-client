@@ -30,7 +30,7 @@ const links = [
 
 const Error = () =>
 (
-    <main className="mx-auto w-full max-w-7xl px-6 pb-16 pt-10 sm:pb-24 lg:px-8">
+    <div className="mx-auto w-full max-w-7xl px-6 pb-16 pt-10 sm:pb-24 lg:px-8">
         <div className="mx-auto mt-20 max-w-2xl text-center sm:mt-24">
             <p className="text-5xl font-semibold leading-8 text-indigo-600">404</p>
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">This page does not exist</h1>
@@ -63,7 +63,7 @@ const Error = () =>
                 }
             </ul>
         </div>
-    </main>
+    </div>
   );
 
 export default Error;

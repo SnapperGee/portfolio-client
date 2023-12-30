@@ -4,8 +4,12 @@ import { Outlet } from "react-router-dom";
 const App = () =>
 (
     <>
-        <Navbar />
-        <Outlet />
+        <header>
+            <Navbar />
+        </header>
+        <main>
+            <Outlet />
+        </main>
     </>
 );
 
