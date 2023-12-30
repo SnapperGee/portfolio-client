@@ -28,7 +28,11 @@ export const router = createBrowserRouter([
           path: "/resume",
           element: <Resume />,
         },
-      ],
+        {
+          path: "/*",
+          element: <Error />,
+        }
+      ]
     }
 ]);
 
