@@ -31,7 +31,7 @@ const Paragraphs = () =>
 
 const AboutMe = () =>
 (
-    <div className="flex flex-col sm:flex-row justify-center items-center px-8 mt-24">
+    <div className="flex flex-col sm:flex-row justify-center items-center px-8 my-24">
         <div className="mb-4 sm:mb-0 sm:mr-4">
             <img
                 className="h-32 bg-white min-w-32 rounded-lg"
