@@ -63,30 +63,16 @@ const Contact = () =>
             <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
                 <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                        <div>
-                            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
-                                First name
+                        <div className="sm:col-span-2">
+                            <label htmlFor="name" className="block text-sm font-semibold leading-6 text-white">
+                                Name
                             </label>
                             <div className="mt-2.5">
                                 <input
                                     type="text"
-                                    name="first-name"
-                                    id="first-name"
+                                    name="name"
+                                    id="name"
                                     autoComplete="given-name"
-                                    className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
-                                Last name
-                            </label>
-                            <div className="mt-2.5">
-                                <input
-                                    type="text"
-                                    name="last-name"
-                                    id="last-name"
-                                    autoComplete="family-name"
                                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                 />
                             </div>
