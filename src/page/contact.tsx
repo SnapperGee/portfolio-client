@@ -1,4 +1,4 @@
-import { EnvelopeIcon } from '@heroicons/react/24/outline'
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 const Contact = () =>
 (
@@ -36,7 +36,7 @@ const Contact = () =>
                             className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20"
                             style={{
                                 clipPath:
-                                'polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)',
+                                "polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)",
                             }}
                         />
                         </div>
@@ -115,7 +115,7 @@ const Contact = () =>
                                     id="message"
                                     rows={4}
                                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                    defaultValue={''}
+                                    defaultValue={""}
                                 />
                             </div>
                         </div>
