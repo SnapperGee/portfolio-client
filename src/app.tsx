@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 const App = () =>
 (
     <>
-        <header>
+        <header className="shrink-0">
             <HeaderNav />
         </header>
-        <main>
+        <main className="flex-1">
             <Outlet />
         </main>
-        <footer>
+        <footer className="shrink-0">
             <FooterNav />
         </footer>
     </>
