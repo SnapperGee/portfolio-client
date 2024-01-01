@@ -1,10 +1,45 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import isEmail from "validator/lib/isEmail";
 
-const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
+const handleContactFormSubmit = async (event: React.FormEvent<HTMLFormElement>) =>
 {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
+
+    const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
+
+    if (formattedName === undefined || formattedName.length === 0)
+    {
+        console.log("Invalid name");
+    }
+
+    const formattedEmail = form.get("email")?.toString().trim();
+
+    if (formattedEmail === undefined || (formattedEmail.length !== 0 && ! isEmail(formattedEmail)) )
+    {
+        console.log("Invalid email");
+    }
+
+    const formattedPhoneNumber = form.get("phoneNumber")?.toString().trim();
+
+    if (formattedPhoneNumber === undefined || (formattedPhoneNumber.length !== 0 && /^.*\D.*$/g.test(formattedPhoneNumber)))
+    {
+        console.log("Invalid phone number");
+    }
+
+    if (formattedEmail?.length === 0 && formattedPhoneNumber?.length === 0)
+    {
+        console.log("A phone number or email address is required");
+    }
+
+    const formattedMessage = form.get("message")?.toString().trim();
+
+    if (formattedMessage === undefined || formattedMessage.length === 0)
+    {
+        console.log("Invalid message");
+    }
+
     console.log(form);
 };
 
