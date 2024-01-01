@@ -4,6 +4,13 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SnapperGee/portfolio-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SnapperGee/portfolio-client/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
