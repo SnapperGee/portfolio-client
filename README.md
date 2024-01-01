@@ -1,3 +1,3 @@
-# Portfolio
+# Portfolio Client
 
-Portfolio for Graham Auger.
+Client side of my portfolio website.
