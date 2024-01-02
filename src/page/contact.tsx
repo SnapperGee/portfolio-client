@@ -57,7 +57,7 @@ const Contact = () =>
         setEmail(event.target.value.toLowerCase());
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setPhoneNumber(event.target.value);
+        setPhoneNumber(event.target.value.replace(/\D/g, ""));
 
     const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
         setMessage(event.target.value);
