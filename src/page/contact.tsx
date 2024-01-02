@@ -112,16 +112,19 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 
     const formattedMessage = form.get("message")?.toString().trim();
     const messageInput = event.currentTarget.querySelector<HTMLTextAreaElement>("#message");
+    const msgErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#messageErrorMessage");
 
     if (formattedMessage === undefined || formattedMessage.length === 0)
     {
         messageInput?.classList.replace("ring-1", "ring-2");
         messageInput?.classList.add("ring-red-600/80");
+        msgErrMsg?.classList.remove("hidden");
     }
     else
     {
         messageInput?.classList.replace("ring-2", "ring-1");
         messageInput?.classList.remove("ring-red-600/80");
+        msgErrMsg?.classList.add("hidden");
     }
 
     console.log(form);
@@ -278,6 +281,10 @@ const Contact = () =>
                                         rows={4}
                                         className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                     />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="messageErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm">Message can&apos;t be blank.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
