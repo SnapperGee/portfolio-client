@@ -134,10 +134,13 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 
 const Contact = () =>
 {
+    // State for contact form inputs
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ phoneNumber, setPhoneNumber ] = useState("");
     const [ message, setMessage ] = useState("");
+
+    // Visibility state for contact form submission notification panel
     const [show, setShow] = useState(true)
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>
