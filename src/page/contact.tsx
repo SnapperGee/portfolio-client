@@ -5,10 +5,10 @@ import isEmail from "validator/lib/isEmail";
 const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 {
     event.preventDefault();
+
     const form = new FormData(event.currentTarget);
 
     const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
-
     const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
 
     if (formattedName === undefined || formattedName.length === 0)
@@ -26,7 +26,6 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
     const phoneNumberInputValue = form.get("phoneNumber")?.toString();
     const emailInput = event.currentTarget.querySelector<HTMLInputElement>("#email");
     const phoneNumberInput = event.currentTarget.querySelector<HTMLInputElement>("#phoneNumber");
-
 
     if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
     {
@@ -78,7 +77,6 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
             phoneNumberInput?.classList.remove("ring-red-600");
         }
     }
-
 
     const formattedMessage = form.get("message")?.toString().trim();
     const messageInput = event.currentTarget.querySelector<HTMLTextAreaElement>("#message");
