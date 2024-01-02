@@ -4,6 +4,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "author": "Snap <XxSnapperGeexX@gmail.com> (https://github.com/SnapperGee)",
   "repository": "github:SnapperGee/portfolio-client",
   "bugs": {
     "url": "https://github.com/SnapperGee/portfolio-client/issues"
