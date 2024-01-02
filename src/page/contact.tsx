@@ -54,7 +54,7 @@ const Contact = () =>
         setName(event.target.value);
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setEmail(event.target.value);
+        setEmail(event.target.value.toLowerCase());
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) =>
         setPhoneNumber(event.target.value);
