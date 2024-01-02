@@ -1,4 +1,4 @@
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import isEmail from "validator/lib/isEmail";
 
@@ -10,16 +10,19 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 
     const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
     const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
+    const nameErrorMsg = event.currentTarget.querySelector<HTMLDivElement>("#nameErrorMessage");
 
     if (formattedName === undefined || formattedName.length === 0)
     {
         nameInput?.classList.replace("ring-1", "ring-2");
-        nameInput?.classList.add("ring-red-600");
+        nameInput?.classList.add("ring-red-600/80");
+        nameErrorMsg?.classList.remove("hidden");
     }
     else
     {
         nameInput?.classList.replace("ring-2", "ring-1");
-        nameInput?.classList.remove("ring-red-600");
+        nameInput?.classList.remove("ring-red-600/80");
+        nameErrorMsg?.classList.add("hidden");
     }
 
     const emailInputValue = form.get("email")?.toString();
@@ -30,9 +33,9 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
     if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
     {
         emailInput?.classList.replace("ring-1", "ring-2");
-        emailInput?.classList.add("ring-red-600");
+        emailInput?.classList.add("ring-red-600/80");
         phoneNumberInput?.classList.replace("ring-1", "ring-2");
-        phoneNumberInput?.classList.add("ring-red-600");
+        phoneNumberInput?.classList.add("ring-red-600/80");
     }
     else
     {
@@ -44,18 +47,18 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
             if (formattedEmailInputValue === undefined || ! isEmail(formattedEmailInputValue))
             {
                 emailInput?.classList.replace("ring-1", "ring-2");
-                emailInput?.classList.add("ring-red-600");
+                emailInput?.classList.add("ring-red-600/80");
             }
             else
             {
                 emailInput?.classList.replace("ring-2", "ring-1");
-                emailInput?.classList.remove("ring-red-600");
+                emailInput?.classList.remove("ring-red-600/80");
             }
         }
         else
         {
             emailInput?.classList.replace("ring-2", "ring-1");
-            emailInput?.classList.remove("ring-red-600");
+            emailInput?.classList.remove("ring-red-600/80");
         }
 
         if (formattedPhoneNumberInputValue?.length !== 0)
@@ -63,18 +66,18 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
             if (formattedPhoneNumberInputValue === undefined || /^.*\D.*$/g.test(formattedPhoneNumberInputValue))
             {
                 phoneNumberInput?.classList.replace("ring-1", "ring-2");
-                phoneNumberInput?.classList.add("ring-red-600");
+                phoneNumberInput?.classList.add("ring-red-600/80");
             }
             else
             {
                 phoneNumberInput?.classList.replace("ring-2", "ring-1");
-                phoneNumberInput?.classList.remove("ring-red-600");
+                phoneNumberInput?.classList.remove("ring-red-600/80");
             }
         }
         else
         {
             phoneNumberInput?.classList.replace("ring-2", "ring-1");
-            phoneNumberInput?.classList.remove("ring-red-600");
+            phoneNumberInput?.classList.remove("ring-red-600/80");
         }
     }
 
@@ -84,12 +87,12 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
     if (formattedMessage === undefined || formattedMessage.length === 0)
     {
         messageInput?.classList.replace("ring-1", "ring-2");
-        messageInput?.classList.add("ring-red-600");
+        messageInput?.classList.add("ring-red-600/80");
     }
     else
     {
         messageInput?.classList.replace("ring-2", "ring-1");
-        messageInput?.classList.remove("ring-red-600");
+        messageInput?.classList.remove("ring-red-600/80");
     }
 
     console.log(form);
@@ -189,6 +192,10 @@ const Contact = () =>
                                         onChange={handleNameChange}
                                         className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                     />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="nameErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm">Name can&apos;t be blank</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
