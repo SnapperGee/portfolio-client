@@ -2,6 +2,14 @@ import { EnvelopeIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outli
 import { useState } from "react";
 import isEmail from "validator/lib/isEmail";
 
+const enum ErrorMessageText
+{
+    MISSING_EMAIL = "A non-blank email address is required if no phone number is provided.",
+    EMAIL_FORMAT = 'Email in the format of "address@domain.com" expected.',
+    MISSING_PHONE_NUMBER = "A non-blank phone number is required if no email address is provided.",
+    PHONE_NUMBER_FORMAT = "Only digit characters expected."
+}
+
 const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 {
     event.preventDefault();
@@ -10,25 +18,30 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 
     const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
     const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
-    const nameErrorMsg = event.currentTarget.querySelector<HTMLDivElement>("#nameErrorMessage");
+    const nameErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#nameErrorMessage");
 
     if (formattedName === undefined || formattedName.length === 0)
     {
         nameInput?.classList.replace("ring-1", "ring-2");
         nameInput?.classList.add("ring-red-600/80");
-        nameErrorMsg?.classList.remove("hidden");
+        nameErrMsg?.classList.remove("hidden");
     }
     else
     {
         nameInput?.classList.replace("ring-2", "ring-1");
         nameInput?.classList.remove("ring-red-600/80");
-        nameErrorMsg?.classList.add("hidden");
+        nameErrMsg?.classList.add("hidden");
     }
 
     const emailInputValue = form.get("email")?.toString();
     const phoneNumberInputValue = form.get("phoneNumber")?.toString();
     const emailInput = event.currentTarget.querySelector<HTMLInputElement>("#email");
     const phoneNumberInput = event.currentTarget.querySelector<HTMLInputElement>("#phoneNumber");
+    const emailErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#emailErrorMessage");
+    const phoneNumberErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#phoneNumberErrorMessage");
+    const emailErrMsgParagraph = emailErrMsg?.querySelector("p");
+    const phoneNumberErrMsgParagraph = phoneNumberErrMsg?.querySelector("p");
+
 
     if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
     {
@@ -36,6 +49,10 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
         emailInput?.classList.add("ring-red-600/80");
         phoneNumberInput?.classList.replace("ring-1", "ring-2");
         phoneNumberInput?.classList.add("ring-red-600/80");
+        emailErrMsgParagraph!.textContent = ErrorMessageText.MISSING_EMAIL;
+        phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.MISSING_PHONE_NUMBER;
+        emailErrMsg?.classList.remove("hidden");
+        phoneNumberErrMsg?.classList.remove("hidden");
     }
     else
     {
@@ -48,17 +65,23 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
             {
                 emailInput?.classList.replace("ring-1", "ring-2");
                 emailInput?.classList.add("ring-red-600/80");
+                emailErrMsgParagraph!.textContent = ErrorMessageText.EMAIL_FORMAT;
+                emailErrMsg?.classList.remove("hidden");
             }
             else
             {
                 emailInput?.classList.replace("ring-2", "ring-1");
                 emailInput?.classList.remove("ring-red-600/80");
+                emailErrMsg?.classList.add("hidden");
+                emailErrMsgParagraph!.textContent = "";
             }
         }
         else
         {
             emailInput?.classList.replace("ring-2", "ring-1");
             emailInput?.classList.remove("ring-red-600/80");
+            emailErrMsg?.classList.add("hidden");
+            emailErrMsgParagraph!.textContent = "";
         }
 
         if (formattedPhoneNumberInputValue?.length !== 0)
@@ -67,17 +90,23 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
             {
                 phoneNumberInput?.classList.replace("ring-1", "ring-2");
                 phoneNumberInput?.classList.add("ring-red-600/80");
+                phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.PHONE_NUMBER_FORMAT;
+                phoneNumberErrMsg?.classList.remove("hidden");
             }
             else
             {
                 phoneNumberInput?.classList.replace("ring-2", "ring-1");
                 phoneNumberInput?.classList.remove("ring-red-600/80");
+                phoneNumberErrMsg?.classList.add("hidden");
+                phoneNumberErrMsgParagraph!.textContent = "";
             }
         }
         else
         {
             phoneNumberInput?.classList.replace("ring-2", "ring-1");
             phoneNumberInput?.classList.remove("ring-red-600/80");
+            phoneNumberErrMsg?.classList.add("hidden");
+            phoneNumberErrMsgParagraph!.textContent = "";
         }
     }
 
@@ -194,7 +223,7 @@ const Contact = () =>
                                     />
                                     <div className="hidden mt-2 ps-4 text-red-600" id="nameErrorMessage">
                                         <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                        <p className="inline ps-2 text-sm">Name can&apos;t be blank</p>
+                                        <p className="inline ps-2 text-sm">Name can&apos;t be blank.</p>
                                     </div>
                                 </div>
                             </div>
@@ -204,13 +233,17 @@ const Contact = () =>
                                 </label>
                                 <div className="mt-2.5">
                                     <input
-                                        type="email"
+                                        type="text"
                                         name="email"
                                         id="email"
                                         value={email}
                                         onChange={handleEmailChange}
                                         className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                     />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="emailErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm"></p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
@@ -226,6 +259,10 @@ const Contact = () =>
                                         onChange={handlePhoneNumberChange}
                                         className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                     />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="phoneNumberErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm"></p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
