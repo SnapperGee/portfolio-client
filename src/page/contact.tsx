@@ -2,7 +2,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import isEmail from "validator/lib/isEmail";
 
-const handleContactFormSubmit = async (event: React.FormEvent<HTMLFormElement>) =>
+const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
