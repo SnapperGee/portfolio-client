@@ -9,35 +9,89 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
 
     const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
 
+    const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
+
     if (formattedName === undefined || formattedName.length === 0)
     {
-        console.log("Invalid name");
+        nameInput?.classList.replace("ring-1", "ring-2");
+        nameInput?.classList.add("ring-red-600");
     }
-
-    const formattedEmail = form.get("email")?.toString().trim();
-
-    if (formattedEmail === undefined || (formattedEmail.length !== 0 && ! isEmail(formattedEmail)) )
+    else
     {
-        console.log("Invalid email");
+        nameInput?.classList.replace("ring-2", "ring-1");
+        nameInput?.classList.remove("ring-red-600");
     }
 
-    const formattedPhoneNumber = form.get("phoneNumber")?.toString().trim();
+    const emailInputValue = form.get("email")?.toString();
+    const phoneNumberInputValue = form.get("phoneNumber")?.toString();
+    const emailInput = event.currentTarget.querySelector<HTMLInputElement>("#email");
+    const phoneNumberInput = event.currentTarget.querySelector<HTMLInputElement>("#phoneNumber");
 
-    if (formattedPhoneNumber === undefined || (formattedPhoneNumber.length !== 0 && /^.*\D.*$/g.test(formattedPhoneNumber)))
+
+    if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
     {
-        console.log("Invalid phone number");
+        emailInput?.classList.replace("ring-1", "ring-2");
+        emailInput?.classList.add("ring-red-600");
+        phoneNumberInput?.classList.replace("ring-1", "ring-2");
+        phoneNumberInput?.classList.add("ring-red-600");
+    }
+    else
+    {
+        const formattedEmailInputValue = emailInputValue?.toLowerCase().trim();
+        const formattedPhoneNumberInputValue = phoneNumberInputValue?.replace(/\D/g, "");
+
+        if (formattedEmailInputValue?.length !== 0)
+        {
+            if (formattedEmailInputValue === undefined || ! isEmail(formattedEmailInputValue))
+            {
+                emailInput?.classList.replace("ring-1", "ring-2");
+                emailInput?.classList.add("ring-red-600");
+            }
+            else
+            {
+                emailInput?.classList.replace("ring-2", "ring-1");
+                emailInput?.classList.remove("ring-red-600");
+            }
+        }
+        else
+        {
+            emailInput?.classList.replace("ring-2", "ring-1");
+            emailInput?.classList.remove("ring-red-600");
+        }
+
+        if (formattedPhoneNumberInputValue?.length !== 0)
+        {
+            if (formattedPhoneNumberInputValue === undefined || /^.*\D.*$/g.test(formattedPhoneNumberInputValue))
+            {
+                phoneNumberInput?.classList.replace("ring-1", "ring-2");
+                phoneNumberInput?.classList.add("ring-red-600");
+            }
+            else
+            {
+                phoneNumberInput?.classList.replace("ring-2", "ring-1");
+                phoneNumberInput?.classList.remove("ring-red-600");
+            }
+        }
+        else
+        {
+            phoneNumberInput?.classList.replace("ring-2", "ring-1");
+            phoneNumberInput?.classList.remove("ring-red-600");
+        }
     }
 
-    if (formattedEmail?.length === 0 && formattedPhoneNumber?.length === 0)
-    {
-        console.log("A phone number or email address is required");
-    }
 
     const formattedMessage = form.get("message")?.toString().trim();
+    const messageInput = event.currentTarget.querySelector<HTMLTextAreaElement>("#message");
 
     if (formattedMessage === undefined || formattedMessage.length === 0)
     {
-        console.log("Invalid message");
+        messageInput?.classList.replace("ring-1", "ring-2");
+        messageInput?.classList.add("ring-red-600");
+    }
+    else
+    {
+        messageInput?.classList.replace("ring-2", "ring-1");
+        messageInput?.classList.remove("ring-red-600");
     }
 
     console.log(form);
@@ -51,16 +105,16 @@ const Contact = () =>
     const [ message, setMessage ] = useState("");
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setName(event.target.value);
+        setName(event.currentTarget.value);
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setEmail(event.target.value.toLowerCase());
+        setEmail(event.currentTarget.value.toLowerCase());
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setPhoneNumber(event.target.value.replace(/\D/g, ""));
+        setPhoneNumber(event.currentTarget.value.replace(/\D/g, ""));
 
     const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
-        setMessage(event.target.value);
+        setMessage(event.currentTarget.value);
 
     return (
         <div className="relative isolate">
@@ -121,7 +175,7 @@ const Contact = () =>
                         </dl>
                     </div>
                 </div>
-                <form onSubmit={handleContactFormSubmit} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+                <form onSubmit={handleContactFormSubmit} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
                     <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                             <div className="sm:col-span-2">
