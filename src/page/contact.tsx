@@ -1,4 +1,4 @@
-import { EnvelopeIcon, ExclamationTriangleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, ExclamationTriangleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
 import { Transition } from "@headlessui/react";
@@ -12,63 +12,75 @@ const enum ErrorMessageText
     PHONE_NUMBER_FORMAT = "Only digit characters expected."
 }
 
-const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
+const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => void,
+                                  setSentMsgNotificationHeader: (arg: string) => void,
+                                  setSentMsgNotificationBody: (arg: string) => void,
+                                  showSentMsgNotification: (arg: boolean) => void ) =>
 {
-    event.preventDefault();
+    return async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
+        const form = new FormData(event.currentTarget);
 
-    const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
-    const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
-    const nameErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#nameErrorMessage");
+        const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
+        const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
+        const nameErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#nameErrorMessage");
 
-    if (formattedName === undefined || formattedName.length === 0)
-    {
-        nameInput?.classList.replace("ring-1", "ring-2");
-        nameInput?.classList.add("ring-red-600/80");
-        nameErrMsg?.classList.remove("hidden");
-    }
-    else
-    {
-        nameInput?.classList.replace("ring-2", "ring-1");
-        nameInput?.classList.remove("ring-red-600/80");
-        nameErrMsg?.classList.add("hidden");
-    }
+        if (formattedName === undefined || formattedName.length === 0)
+        {
+            nameInput?.classList.replace("ring-1", "ring-2");
+            nameInput?.classList.add("ring-red-600/80");
+            nameErrMsg?.classList.remove("hidden");
+        }
+        else
+        {
+            nameInput?.classList.replace("ring-2", "ring-1");
+            nameInput?.classList.remove("ring-red-600/80");
+            nameErrMsg?.classList.add("hidden");
+        }
 
-    const emailInputValue = form.get("email")?.toString();
-    const phoneNumberInputValue = form.get("phoneNumber")?.toString();
-    const emailInput = event.currentTarget.querySelector<HTMLInputElement>("#email");
-    const phoneNumberInput = event.currentTarget.querySelector<HTMLInputElement>("#phoneNumber");
-    const emailErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#emailErrorMessage");
-    const phoneNumberErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#phoneNumberErrorMessage");
-    const emailErrMsgParagraph = emailErrMsg?.querySelector("p");
-    const phoneNumberErrMsgParagraph = phoneNumberErrMsg?.querySelector("p");
+        const emailInputValue = form.get("email")?.toString();
+        const phoneNumberInputValue = form.get("phoneNumber")?.toString();
+        const emailInput = event.currentTarget.querySelector<HTMLInputElement>("#email");
+        const phoneNumberInput = event.currentTarget.querySelector<HTMLInputElement>("#phoneNumber");
+        const emailErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#emailErrorMessage");
+        const phoneNumberErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#phoneNumberErrorMessage");
+        const emailErrMsgParagraph = emailErrMsg?.querySelector("p");
+        const phoneNumberErrMsgParagraph = phoneNumberErrMsg?.querySelector("p");
 
-
-    if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
-    {
-        emailInput?.classList.replace("ring-1", "ring-2");
-        emailInput?.classList.add("ring-red-600/80");
-        phoneNumberInput?.classList.replace("ring-1", "ring-2");
-        phoneNumberInput?.classList.add("ring-red-600/80");
-        emailErrMsgParagraph!.textContent = ErrorMessageText.MISSING_EMAIL;
-        phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.MISSING_PHONE_NUMBER;
-        emailErrMsg?.classList.remove("hidden");
-        phoneNumberErrMsg?.classList.remove("hidden");
-    }
-    else
-    {
         const formattedEmailInputValue = emailInputValue?.toLowerCase().trim();
         const formattedPhoneNumberInputValue = phoneNumberInputValue?.replace(/\D/g, "");
 
-        if (formattedEmailInputValue?.length !== 0)
+
+        if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
         {
-            if (formattedEmailInputValue === undefined || ! isEmail(formattedEmailInputValue))
+            emailInput?.classList.replace("ring-1", "ring-2");
+            emailInput?.classList.add("ring-red-600/80");
+            phoneNumberInput?.classList.replace("ring-1", "ring-2");
+            phoneNumberInput?.classList.add("ring-red-600/80");
+            emailErrMsgParagraph!.textContent = ErrorMessageText.MISSING_EMAIL;
+            phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.MISSING_PHONE_NUMBER;
+            emailErrMsg?.classList.remove("hidden");
+            phoneNumberErrMsg?.classList.remove("hidden");
+        }
+        else
+        {
+            if (formattedEmailInputValue?.length !== 0)
             {
-                emailInput?.classList.replace("ring-1", "ring-2");
-                emailInput?.classList.add("ring-red-600/80");
-                emailErrMsgParagraph!.textContent = ErrorMessageText.EMAIL_FORMAT;
-                emailErrMsg?.classList.remove("hidden");
+                if (formattedEmailInputValue === undefined || ! isEmail(formattedEmailInputValue))
+                {
+                    emailInput?.classList.replace("ring-1", "ring-2");
+                    emailInput?.classList.add("ring-red-600/80");
+                    emailErrMsgParagraph!.textContent = ErrorMessageText.EMAIL_FORMAT;
+                    emailErrMsg?.classList.remove("hidden");
+                }
+                else
+                {
+                    emailInput?.classList.replace("ring-2", "ring-1");
+                    emailInput?.classList.remove("ring-red-600/80");
+                    emailErrMsg?.classList.add("hidden");
+                    emailErrMsgParagraph!.textContent = "";
+                }
             }
             else
             {
@@ -77,23 +89,23 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
                 emailErrMsg?.classList.add("hidden");
                 emailErrMsgParagraph!.textContent = "";
             }
-        }
-        else
-        {
-            emailInput?.classList.replace("ring-2", "ring-1");
-            emailInput?.classList.remove("ring-red-600/80");
-            emailErrMsg?.classList.add("hidden");
-            emailErrMsgParagraph!.textContent = "";
-        }
 
-        if (formattedPhoneNumberInputValue?.length !== 0)
-        {
-            if (formattedPhoneNumberInputValue === undefined || /^.*\D.*$/g.test(formattedPhoneNumberInputValue))
+            if (formattedPhoneNumberInputValue?.length !== 0)
             {
-                phoneNumberInput?.classList.replace("ring-1", "ring-2");
-                phoneNumberInput?.classList.add("ring-red-600/80");
-                phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.PHONE_NUMBER_FORMAT;
-                phoneNumberErrMsg?.classList.remove("hidden");
+                if (formattedPhoneNumberInputValue === undefined || /^.*\D.*$/g.test(formattedPhoneNumberInputValue))
+                {
+                    phoneNumberInput?.classList.replace("ring-1", "ring-2");
+                    phoneNumberInput?.classList.add("ring-red-600/80");
+                    phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.PHONE_NUMBER_FORMAT;
+                    phoneNumberErrMsg?.classList.remove("hidden");
+                }
+                else
+                {
+                    phoneNumberInput?.classList.replace("ring-2", "ring-1");
+                    phoneNumberInput?.classList.remove("ring-red-600/80");
+                    phoneNumberErrMsg?.classList.add("hidden");
+                    phoneNumberErrMsgParagraph!.textContent = "";
+                }
             }
             else
             {
@@ -103,37 +115,63 @@ const handleContactFormSubmit = (event: React.FormEvent<HTMLFormElement>) =>
                 phoneNumberErrMsgParagraph!.textContent = "";
             }
         }
+
+        const formattedMessage = form.get("message")?.toString().trim();
+        const messageInput = event.currentTarget.querySelector<HTMLTextAreaElement>("#message");
+        const msgErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#messageErrorMessage");
+
+        if (formattedMessage === undefined || formattedMessage.length === 0)
+        {
+            messageInput?.classList.replace("ring-1", "ring-2");
+            messageInput?.classList.add("ring-red-600/80");
+            msgErrMsg?.classList.remove("hidden");
+        }
         else
         {
-            phoneNumberInput?.classList.replace("ring-2", "ring-1");
-            phoneNumberInput?.classList.remove("ring-red-600/80");
-            phoneNumberErrMsg?.classList.add("hidden");
-            phoneNumberErrMsgParagraph!.textContent = "";
+            messageInput?.classList.replace("ring-2", "ring-1");
+            messageInput?.classList.remove("ring-red-600/80");
+            msgErrMsg?.classList.add("hidden");
         }
-    }
 
-    const formattedMessage = form.get("message")?.toString().trim();
-    const messageInput = event.currentTarget.querySelector<HTMLTextAreaElement>("#message");
-    const msgErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#messageErrorMessage");
+        const res = await fetch("/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: formattedName,
+                email: formattedEmailInputValue,
+                phoneNumber: formattedPhoneNumberInputValue,
+                message: formattedMessage
+            })
+        });
 
-    if (formattedMessage === undefined || formattedMessage.length === 0)
-    {
-        messageInput?.classList.replace("ring-1", "ring-2");
-        messageInput?.classList.add("ring-red-600/80");
-        msgErrMsg?.classList.remove("hidden");
-    }
-    else
-    {
-        messageInput?.classList.replace("ring-2", "ring-1");
-        messageInput?.classList.remove("ring-red-600/80");
-        msgErrMsg?.classList.add("hidden");
-    }
+        if (res.ok)
+        {
+            setSentMsgNotificationIcon(true);
+            setSentMsgNotificationHeader("Message sent");
+            setSentMsgNotificationBody("Your message has been successfully sent.");
+        }
+        else
+        {
+            setSentMsgNotificationIcon(false);
+            setSentMsgNotificationHeader("Unable to send message");
+            setSentMsgNotificationBody("Your message could not be sent. Please try again later.");
+        }
 
-    console.log(form);
+        showSentMsgNotification(true);
+
+        setTimeout(
+            () => showSentMsgNotification(false),
+            5000);
+
+        console.log(await res.json());
+    };
 };
 
 const Contact = () =>
 {
+    const [sentMsgNotificationIcon, setSentMsgNotificationIcon] = useState(true);
+    const [sentMsgNotificationHeader, setSentMsgNotificationHeader] = useState("");
+    const [sentMsgNotificationBody, setSentMsgNotificationBody] = useState("");
     // State for contact form inputs
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -141,7 +179,7 @@ const Contact = () =>
     const [ message, setMessage ] = useState("");
 
     // Visibility state for contact form submission notification panel
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>
         setName(event.currentTarget.value);
@@ -215,7 +253,7 @@ const Contact = () =>
                             </dl>
                         </div>
                     </div>
-                    <form onSubmit={handleContactFormSubmit} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
+                    <form onSubmit={handleContactFormSubmit(setSentMsgNotificationIcon, setSentMsgNotificationHeader, setSentMsgNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div className="sm:col-span-2">
@@ -328,11 +366,15 @@ const Contact = () =>
                             <div className="p-4">
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0">
-                                        <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+                                        {
+                                            sentMsgNotificationIcon
+                                            ? <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+                                            : <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
+                                        }
                                     </div>
                                     <div className="ml-3 w-0 flex-1 pt-0.5">
-                                        <p className="text-sm font-medium text-gray-900">Message sent</p>
-                                        <p className="mt-1 text-sm text-gray-400">Your message has been successfully sent.</p>
+                                        <p className="text-sm font-medium text-gray-900">{sentMsgNotificationHeader}</p>
+                                        <p className="mt-1 text-sm text-gray-400">{sentMsgNotificationBody}</p>
                                     </div>
                                     <div className="ml-4 flex flex-shrink-0">
                                         <button
