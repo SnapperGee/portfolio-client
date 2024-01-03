@@ -144,7 +144,7 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
             })
         });
 
-        if (res.ok)
+        if (res.ok && res.status === 200)
         {
             setSentMsgNotificationIcon(true);
             setSentMsgNotificationHeader("Message sent");
@@ -162,8 +162,6 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
         setTimeout(
             () => showSentMsgNotification(false),
             5000);
-
-        console.log(await res.json());
     };
 };
 
