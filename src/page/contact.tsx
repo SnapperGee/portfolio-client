@@ -162,6 +162,8 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
         setTimeout(
             () => showSentMsgNotification(false),
             5000);
+
+        console.log(await res.json());
     };
 };
 
