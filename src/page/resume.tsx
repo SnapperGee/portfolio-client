@@ -98,6 +98,8 @@ const Resume = () =>
                 })
             }
             </ul>
+
+            <p className="mt-10 mb-14 text-sm text-gray-400 opacity-60">References available on request.</p>
         </div>
     </>
 );
