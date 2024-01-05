@@ -1,3 +1,5 @@
+import "../sass/contact.scss";
+
 const jobHistory = [
     {
         title: "Best Buy Geek Squad Technician",
@@ -78,7 +80,7 @@ const Resume = () =>
                 I&apos;m passionate about.
             </p>
             <p className="mt-10 font-bold">PROFESSIONAL EXPERIENCE</p>
-            <ul className="list-disc ms-20 space-y-4">
+            <ul className="listSquare ms-20 space-y-4">
             {
                 jobHistory.map((job, index) => {
                     const TitleSpan = () => <span className="font-semibold">{job.title} ({job.startDate}-{job.endDate}):</span>;
