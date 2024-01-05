@@ -132,11 +132,9 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
             msgErrMsg?.classList.add("hidden");
         }
 
-        let res = undefined;
-
         if (formattedName && formattedMessage && (formattedEmail || formattedPhoneNumber))
         {
-            res = await fetch("/api/contact", {
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
