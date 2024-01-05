@@ -17,19 +17,19 @@ export const router = createBrowserRouter([
           element: <AboutMe />,
         },
         {
-          path: "/portfolio",
+          path: "portfolio",
           element: <Portfolio />,
         },
         {
-          path: "/contact",
+          path: "contact",
           element: <Contact />,
         },
         {
-          path: "/resume",
+          path: "resume",
           element: <Resume />,
         },
         {
-          path: "/*",
+          path: "*",
           element: <Error />,
         }
       ]
