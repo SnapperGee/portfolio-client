@@ -48,9 +48,8 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
         const emailErrMsgParagraph = emailErrMsg?.querySelector("p");
         const phoneNumberErrMsgParagraph = phoneNumberErrMsg?.querySelector("p");
 
-        const formattedEmailInputValue = emailInputValue?.toLowerCase().trim();
-        const formattedPhoneNumberInputValue = phoneNumberInputValue?.replace(/\D/g, "");
-
+        const formattedEmail = emailInputValue?.toLowerCase().trim();
+        const formattedPhoneNumber = phoneNumberInputValue?.replace(/\D/g, "");
 
         if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
         {
@@ -65,9 +64,9 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
         }
         else
         {
-            if (formattedEmailInputValue?.length !== 0)
+            if (formattedEmail?.length !== 0)
             {
-                if (formattedEmailInputValue === undefined || ! isEmail(formattedEmailInputValue))
+                if (formattedEmail === undefined || ! isEmail(formattedEmail))
                 {
                     emailInput?.classList.replace("ring-1", "ring-2");
                     emailInput?.classList.add("ring-red-600/80");
@@ -90,9 +89,9 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
                 emailErrMsgParagraph!.textContent = "";
             }
 
-            if (formattedPhoneNumberInputValue?.length !== 0)
+            if (formattedPhoneNumber?.length !== 0)
             {
-                if (formattedPhoneNumberInputValue === undefined || /^.*\D.*$/g.test(formattedPhoneNumberInputValue))
+                if (formattedPhoneNumber === undefined || /^.*\D.*$/g.test(formattedPhoneNumber))
                 {
                     phoneNumberInput?.classList.replace("ring-1", "ring-2");
                     phoneNumberInput?.classList.add("ring-red-600/80");
@@ -133,28 +132,39 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
             msgErrMsg?.classList.add("hidden");
         }
 
-        const res = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name: formattedName,
-                email: formattedEmailInputValue,
-                phoneNumber: formattedPhoneNumberInputValue,
-                message: formattedMessage
-            })
-        });
+        let res = undefined;
 
-        if (res.ok && res.status === 200)
+        if (formattedName && formattedMessage && (formattedEmail || formattedPhoneNumber))
         {
-            setSentMsgNotificationIcon(true);
-            setSentMsgNotificationHeader("Message sent");
-            setSentMsgNotificationBody("Your message has been successfully sent.");
+            res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formattedName,
+                    email: formattedEmail,
+                    phoneNumber: formattedPhoneNumber,
+                    message: formattedMessage
+                })
+            });
+
+            if (res?.ok && res?.status === 200)
+            {
+                setSentMsgNotificationIcon(true);
+                setSentMsgNotificationHeader("Message sent");
+                setSentMsgNotificationBody("Your message has been successfully sent.");
+            }
+            else
+            {
+                setSentMsgNotificationIcon(false);
+                setSentMsgNotificationHeader("Unable to send message");
+                setSentMsgNotificationBody("Your message could not be sent. Please try again later.");
+            }
         }
         else
         {
             setSentMsgNotificationIcon(false);
-            setSentMsgNotificationHeader("Unable to send message");
-            setSentMsgNotificationBody("Your message could not be sent. Please try again later.");
+            setSentMsgNotificationHeader("Message is missing required fields");
+            setSentMsgNotificationBody("Please ensure that all required fields are filled out and try again.");
         }
 
         showSentMsgNotification(true);
@@ -162,8 +172,6 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
         setTimeout(
             () => showSentMsgNotification(false),
             5000);
-
-        console.log(await res.json());
     };
 };
 
