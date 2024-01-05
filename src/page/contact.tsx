@@ -193,10 +193,10 @@ const Contact = () =>
         setName(event.currentTarget.value);
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setEmail(event.currentTarget.value.toLowerCase());
+        setEmail(event.currentTarget.value.trim().toLowerCase());
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setPhoneNumber(event.currentTarget.value.replace(/\D/g, ""));
+        setPhoneNumber(event.currentTarget.value.trim().replace(/\D/g, ""));
 
     const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
         setMessage(event.currentTarget.value);
