@@ -162,14 +162,14 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
         {
             setSentMsgNotificationIcon(false);
             setSentMsgNotificationHeader("Message is missing required fields");
-            setSentMsgNotificationBody("Please ensure that all required fields are filled out and try again.");
+            setSentMsgNotificationBody("Please ensure that all required message form fields are filled out correctly and try again.");
         }
 
         showSentMsgNotification(true);
 
         setTimeout(
             () => showSentMsgNotification(false),
-            5000);
+            6000);
     };
 };
 
