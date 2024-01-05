@@ -79,7 +79,7 @@ const Resume = () =>
                 productivity of a company&apos;s technical infrastructure while gaining valuable experience in an industry
                 I&apos;m passionate about.
             </p>
-            <p className="mt-10 font-bold">PROFESSIONAL EXPERIENCE</p>
+            <p className="mt-10 font-bold text-lg">PROFESSIONAL EXPERIENCE</p>
             <ul className="listSquare ms-20 space-y-4">
             {
                 jobHistory.map((job, index) => {
