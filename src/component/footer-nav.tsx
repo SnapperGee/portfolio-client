@@ -36,7 +36,7 @@ const navigation = {
             name: "LinkedIn",
             href: "https://www.linkedin.com/in/graham-auger-a8401367/",
             icon: (props: Record<string, unknown>) => (
-                <svg fill="currentColor" viewBox="0 0 86 72" {...props}>
+                <svg viewBox="0 0 86 72" {...props}>
                     <mask id="myMask">
                         <rect x="0" y="0" width="100%" height="100%" fill="#000"/>
                         <path
