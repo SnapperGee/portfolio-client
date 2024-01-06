@@ -7,24 +7,25 @@ const Paragraphs = () =>
 (
     <>
         <p>
-            I am proficient in utilizing build tools and package managers such as Gradle and Node/npm, and have
-            experience in implementing robust testing solutions using Junit Jupiter and Mocha with Chai testing
-            frameworks. My expertise extends to styling with frameworks like Bootstrap and Tailwind, which enables
-            me to create visually appealing and responsive user interfaces.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui assumenda veritatis deleniti ad est illum in
+            aut non nostrum vel ex neque nulla harum, reiciendis ipsum. Dolore nam, obcaecati deserunt fuga minus libero
+            eligendi! Nulla perspiciatis molestias dicta, pariatur quo quidem obcaecati quisquam veniam nam optio, esse
+            voluptatem consequuntur maiores odio. Blanditiis voluptas sequi, hic odio fuga autem quisquam corporis.
         </p>
 
         <p>
-            I have further strengthened my full-stack development capabilities by completing a comprehensive
-            Node-based course, where I received certification. This course enriched my understanding of ReactJS,
-            ExpressJS, Handlebars, Webpack, and jQuery, equipping me with the skills to build and deploy dynamic,
-            scalable applications.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum maiores eius nobis sapiente modi eligendi
+            fugiat impedit soluta voluptatem doloremque animi pariatur laudantium, velit ipsam. Atque impedit optio sit
+            dignissimos tenetur, ipsum accusamus distinctio architecto incidunt sed id sunt velit culpa ab dolores
+            veritatis mollitia. Mollitia in nostrum, temporibus vitae quidem fuga, itaque deserunt dicta deleniti ex
+            maiores, neque eius.
         </p>
 
         <p>
-            With a strong foundation in both the theoretical and practical aspects of software development, I am
-            eager to bring my blend of skills and passion for coding to a professional setting, where I can
-            contribute to impactful projects and continue my journey of learning and growth in the field of software
-            development.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate labore minus rem eaque commodi minima
+            optio? Est dolor placeat eaque, aliquid aliquam delectus ipsam fugiat eos maxime possimus, quasi repellendus
+            dolorem corrupti iusto optio illum ea beatae esse facere dicta nostrum temporibus? Odit repellat quas,
+            possimus soluta reprehenderit at nobis et eos cumque, voluptate a. Hic illo soluta magni quia?
         </p>
     </>
 );
@@ -42,11 +43,11 @@ const About = () =>
         <div className="self-center sm:text-left text-gray-300">
             <h4 className="text-lg font-bold">Graham Auger</h4>
             <p className="mt-1">
-                As a passionate software developer with a few years of programming experience primarily as a hobbyist, I
-                have honed a diverse skill set that encompasses both front-end and back-end technologies. My technical
-                proficiency includes a range of programming languages such as C#, Java, JavaScript, TypeScript, Python,
-                and SQL, along with in-depth knowledge of web development standards like HTML and CSS complemented by
-                SASS.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. At commodi distinctio deserunt facilis
+                suscipit porro dolore quas voluptatem sit animi! Optio nostrum provident sequi dicta dolorum quaerat
+                omnis, explicabo sit nihil, voluptate dignissimos, minima officia repudiandae tempore quam similique
+                neque magnam beatae? Non doloribus necessitatibus sunt fuga vel, autem earum. Itaque tempora dicta
+                labore voluptas! Ut autem dolor a corporis?
             </p>
 
             <div className="hidden md:block mt-4 space-y-4">
