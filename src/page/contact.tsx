@@ -16,7 +16,7 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
                                   setSentMsgNotificationIcon: (arg: boolean) => void,
                                   setSentMsgNotificationHeader: (arg: string) => void,
                                   setSentMsgNotificationBody: (arg: string) => void,
-                                  showSentMsgNotification: (arg: boolean) => void ) =>
+                                  showMsgSentNotification: (arg: boolean) => void ) =>
 {
     return async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -170,10 +170,10 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
             setSentMsgNotificationBody("Please ensure that all required message form fields are filled out correctly and try again.");
         }
 
-        showSentMsgNotification(true);
+        showMsgSentNotification(true);
 
         setTimeout(
-            () => showSentMsgNotification(false),
+            () => showMsgSentNotification(false),
             6000);
     };
 };
@@ -185,7 +185,7 @@ const Contact = () =>
     // Sets contents of contact form submission notification panel
     const [sentMsgNotificationIcon, setSentMsgNotificationIcon] = useState(true);
     const [sentMsgNotificationHeader, setSentMsgNotificationHeader] = useState("");
-    const [sentMsgNotificationBody, setSentMsgNotificationBody] = useState("");
+    const [msgSentNotificationBody, setMsgSentNotificationBody] = useState("");
 
     // State for contact form inputs
     const [ name, setName ] = useState("");
@@ -268,7 +268,7 @@ const Contact = () =>
                             </dl>
                         </div>
                     </div>
-                    <form onSubmit={handleContactFormSubmit(setSendingMessage, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setSentMsgNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
+                    <form onSubmit={handleContactFormSubmit(setSendingMessage, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setMsgSentNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div className="sm:col-span-2">
@@ -402,7 +402,7 @@ const Contact = () =>
                                     </div>
                                     <div className="ml-3 w-0 flex-1 pt-0.5">
                                         <p className="text-sm font-medium text-gray-900">{sentMsgNotificationHeader}</p>
-                                        <p className="mt-1 text-sm text-gray-400">{sentMsgNotificationBody}</p>
+                                        <p className="mt-1 text-sm text-gray-400">{msgSentNotificationBody}</p>
                                     </div>
                                     <div className="ml-4 flex flex-shrink-0">
                                         <button
