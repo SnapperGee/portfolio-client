@@ -1,7 +1,11 @@
 const Portfolio = () =>
 (
     <>
-        <h1>Portfolio</h1>
+        <p>Quiz</p>
+        <p>Password Generator</p>
+        <p>Readme Generator</p>
+        <p>Day Planner</p>
+        <p>Weather</p>
     </>
 );
 
