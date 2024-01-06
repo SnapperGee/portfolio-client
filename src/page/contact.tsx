@@ -351,7 +351,7 @@ const Contact = () =>
                             <div className="mt-8 flex justify-end">
                                 <button
                                     type="submit"
-                                    className={`inline-flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500${changeBtnToSending ? "": " hover:bg-indigo-400"}`} disabled={changeBtnToSending ? true : false}
+                                    className={`inline-flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500${changeBtnToSending ? " cursor-not-allowed": " hover:bg-indigo-400"}`} disabled={changeBtnToSending ? true : false}
                                 >
                                     {
                                         changeBtnToSending
