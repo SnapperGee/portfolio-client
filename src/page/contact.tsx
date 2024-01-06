@@ -12,7 +12,8 @@ const enum ErrorMessageText
     PHONE_NUMBER_FORMAT = "Only digit characters expected."
 }
 
-const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => void,
+const handleContactFormSubmit = ( setChangeBtnToSending: (arg: boolean) => void,
+                                  setSentMsgNotificationIcon: (arg: boolean) => void,
                                   setSentMsgNotificationHeader: (arg: string) => void,
                                   setSentMsgNotificationBody: (arg: string) => void,
                                   showSentMsgNotification: (arg: boolean) => void ) =>
@@ -134,6 +135,8 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
 
         if (formattedName && formattedMessage && (formattedEmail || formattedPhoneNumber))
         {
+            setChangeBtnToSending(true);
+
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -157,6 +160,8 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
                 setSentMsgNotificationHeader("Unable to send message");
                 setSentMsgNotificationBody("Your message could not be sent. Please try again later.");
             }
+
+            setChangeBtnToSending(false);
         }
         else
         {
@@ -175,9 +180,13 @@ const handleContactFormSubmit = ( setSentMsgNotificationIcon: (arg: boolean) => 
 
 const Contact = () =>
 {
+    const [changeBtnToSending, setChangeBtnToSending] = useState(false);
+
+    // Sets contents of contact form submission notification panel
     const [sentMsgNotificationIcon, setSentMsgNotificationIcon] = useState(true);
     const [sentMsgNotificationHeader, setSentMsgNotificationHeader] = useState("");
     const [sentMsgNotificationBody, setSentMsgNotificationBody] = useState("");
+
     // State for contact form inputs
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -185,7 +194,7 @@ const Contact = () =>
     const [ message, setMessage ] = useState("");
 
     // Visibility state for contact form submission notification panel
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>
         setName(event.currentTarget.value);
@@ -259,7 +268,7 @@ const Contact = () =>
                             </dl>
                         </div>
                     </div>
-                    <form onSubmit={handleContactFormSubmit(setSentMsgNotificationIcon, setSentMsgNotificationHeader, setSentMsgNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
+                    <form onSubmit={handleContactFormSubmit(setChangeBtnToSending, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setSentMsgNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div className="sm:col-span-2">
@@ -342,10 +351,22 @@ const Contact = () =>
                             <div className="mt-8 flex justify-end">
                                 <button
                                     type="submit"
-                                    className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                                    className={`inline-flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500${changeBtnToSending ? "": " hover:bg-indigo-400"}`} disabled={changeBtnToSending ? true : false}
                                 >
-                                    <EnvelopeIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
-                                    Send message
+                                    {
+                                        changeBtnToSending
+                                        ? <>
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            Sending...
+                                          </>
+                                        : <>
+                                              <EnvelopeIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
+                                              Send message
+                                          </>
+                                    }
                                 </button>
                             </div>
                         </div>
