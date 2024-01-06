@@ -4,9 +4,9 @@ import { BookOpenIcon, DocumentTextIcon, EnvelopeIcon, UserIcon } from "@heroico
 
 const links = [
     {
-        name: "About me",
+        name: "About",
         to: "/",
-        description: "My developer background information.",
+        description: "My general background information.",
         icon: UserIcon,
     },
     {
