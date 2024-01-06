@@ -286,7 +286,7 @@ const Contact = () =>
                                         />
                                         <div className="hidden mt-2 ps-4 text-red-600" id="nameErrorMessage">
                                             <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                            <p className="inline ps-2 text-sm">Name can&apos;t be blank.</p>
+                                            <p className="inline ps-2 text-sm">A non-blank name is required.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -343,7 +343,7 @@ const Contact = () =>
                                         />
                                         <div className="hidden mt-2 ps-4 text-red-600" id="messageErrorMessage">
                                             <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                            <p className="inline ps-2 text-sm">Message can&apos;t be blank.</p>
+                                            <p className="inline ps-2 text-sm">A non-blank message is required.</p>
                                         </div>
                                     </div>
                                 </div>
