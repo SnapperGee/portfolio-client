@@ -12,7 +12,7 @@ const ACTIVE_NAV_BTN_CLASSES = "bg-gray-900 text-white";
 
 const NAV_LINKS = [
     {
-        text: "About me",
+        text: "About",
         to: "/"
     },
     {

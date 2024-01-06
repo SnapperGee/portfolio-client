@@ -29,7 +29,7 @@ const Paragraphs = () =>
     </>
 );
 
-const AboutMe = () =>
+const About = () =>
 (
     <div className="flex flex-col sm:flex-row justify-center items-center px-8 my-24">
         <div className="mb-4 sm:mb-0 sm:mr-4">
@@ -81,4 +81,4 @@ const AboutMe = () =>
     </div>
 );
 
-export default AboutMe;
+export default About;
