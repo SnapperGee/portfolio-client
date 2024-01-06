@@ -12,7 +12,7 @@ const enum ErrorMessageText
     PHONE_NUMBER_FORMAT = "Only digit characters expected."
 }
 
-const handleContactFormSubmit = ( setChangeBtnToSending: (arg: boolean) => void,
+const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
                                   setSentMsgNotificationIcon: (arg: boolean) => void,
                                   setSentMsgNotificationHeader: (arg: string) => void,
                                   setSentMsgNotificationBody: (arg: string) => void,
@@ -135,7 +135,7 @@ const handleContactFormSubmit = ( setChangeBtnToSending: (arg: boolean) => void,
 
         if (formattedName && formattedMessage && (formattedEmail || formattedPhoneNumber))
         {
-            setChangeBtnToSending(true);
+            setSendingMessage(true);
 
             const res = await fetch("/api/contact", {
                 method: "POST",
@@ -161,7 +161,7 @@ const handleContactFormSubmit = ( setChangeBtnToSending: (arg: boolean) => void,
                 setSentMsgNotificationBody("Your message could not be sent. Please try again later.");
             }
 
-            setChangeBtnToSending(false);
+            setSendingMessage(false);
         }
         else
         {
@@ -180,7 +180,7 @@ const handleContactFormSubmit = ( setChangeBtnToSending: (arg: boolean) => void,
 
 const Contact = () =>
 {
-    const [changeBtnToSending, setChangeBtnToSending] = useState(false);
+    const [sendingMessage, setSendingMessage] = useState(false);
 
     // Sets contents of contact form submission notification panel
     const [sentMsgNotificationIcon, setSentMsgNotificationIcon] = useState(true);
@@ -268,7 +268,7 @@ const Contact = () =>
                             </dl>
                         </div>
                     </div>
-                    <form onSubmit={handleContactFormSubmit(setChangeBtnToSending, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setSentMsgNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
+                    <form onSubmit={handleContactFormSubmit(setSendingMessage, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setSentMsgNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div className="sm:col-span-2">
@@ -351,10 +351,10 @@ const Contact = () =>
                             <div className="mt-8 flex justify-end">
                                 <button
                                     type="submit"
-                                    className={`inline-flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500${changeBtnToSending ? " cursor-not-allowed": " hover:bg-indigo-400"}`} disabled={changeBtnToSending ? true : false}
+                                    className={`inline-flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500${sendingMessage ? " cursor-not-allowed": " hover:bg-indigo-400"}`} disabled={sendingMessage ? true : false}
                                 >
                                     {
-                                        changeBtnToSending
+                                        sendingMessage
                                         ? <>
                                             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
