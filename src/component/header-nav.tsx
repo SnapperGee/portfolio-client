@@ -7,8 +7,8 @@ const EMAIL = "gauger1992@gmail.com";
 
 // Current: "bg-gray-900 text-white"
 // Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
-const INACTIVE_NAV_BTN_CLASSES = "text-gray-300 hover:bg-gray-700 hover:text-white";
-const ACTIVE_NAV_BTN_CLASSES = "bg-gray-900 text-white";
+const INACTIVE_NAV_BTN_CLASSES = " text-gray-300 hover:bg-gray-700 hover:text-white";
+const ACTIVE_NAV_BTN_CLASSES = " bg-gray-900 text-white";
 
 const NAV_LINKS = [
     {
@@ -44,30 +44,33 @@ const HeaderNav = () =>
                                 alt="Snapper G"
                             />
                         </div>
+
+                        {/* visible when screen is wide */}
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
-                                {
-                                    NAV_LINKS.map((navLink) =>
-                                    (
-                                        <NavLink
-                                            key={navLink.to}
-                                            to={navLink.to}
-                                            className={({ isActive }) =>
-                                                `rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
-                                            }
-                                        >
-                                            {navLink.text}
-                                        </NavLink>
-                                    ))
-                                }
+                            {
+                                NAV_LINKS.map((navLink) =>
+                                (
+                                    <NavLink
+                                        key={navLink.to}
+                                        to={navLink.to}
+                                        className={({ isActive }) =>
+                                            `rounded-md px-3 py-2 text-sm font-medium active:scale-95${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
+                                        }
+                                    >
+                                        {navLink.text}
+                                    </NavLink>
+                                ))
+                            }
                             </div>
                         </div>
                     </div>
+
+                    {/* Nav menu toggle displayed on narrow screens */}
                     <div className="hidden sm:ml-6 sm:block">
                     </div>
                     <div className="-mr-2 flex sm:hidden">
-                        {/* Mobile menu button */}
-                        <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white active:scale-95">
                         <span className="absolute -inset-0.5" />
                         <span className="sr-only">Open main menu</span>
                         {open ? (
@@ -89,7 +92,7 @@ const HeaderNav = () =>
                                 key={navLink.to}
                                 to={navLink.to}
                                 className={({ isActive }) =>
-                                    `block rounded-md px-3 py-2 text-sm font-medium ${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
+                                    `block rounded-md px-3 py-2 text-sm font-medium${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
                                 }
                             >
                                 {navLink.text}
