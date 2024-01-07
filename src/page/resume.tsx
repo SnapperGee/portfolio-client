@@ -68,8 +68,8 @@ const Resume = () =>
         <div className="text-center text-gray-200 my-10">
             <p>Graham Auger</p>
             <p>Email:&#160;
-                <a className="hover:text-white underline" href="mailto:gauger1992@gmail.com">
-                    gauger1992@gmail.com
+                <a className="hover:text-white underline" href="mailto:contact@graham-auger.dev">
+                    contact@graham-auger.dev
                 </a>
             </p>
         </div>

@@ -260,8 +260,8 @@ const Contact = () =>
                                         <EnvelopeIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                                     </dt>
                                     <dd>
-                                        <a className="hover:text-white" href="mailto:gauger1992@gmail.com">
-                                            gauger1992@gmail.com
+                                        <a className="hover:text-white" href="mailto:contact@graham-auger.dev">
+                                            contact@graham-auger.dev
                                         </a>
                                     </dd>
                                 </div>
