@@ -8,7 +8,6 @@
 
 const repos = [
     {
-        id: 1,
         title: "Title",
         href: "#",
         description:
@@ -28,8 +27,8 @@ const Portfolio = () =>
             </div>
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-800 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {
-                repos.map((repo) => (
-                    <article key={repo.id} className="flex max-w-xl flex-col items-start justify-between p-4 border border-gray-600">
+                repos.map((repo, index) => (
+                    <article key={index} className="flex max-w-xl flex-col items-start justify-between p-4 border border-gray-600">
                         <div className="group relative">
                             <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-200 group-hover:text-gray-100">
                                 <a href={repo.href}>
