@@ -63,20 +63,20 @@ const FooterNav = () =>
             {
                 navigation.main.map((item) => (
                     <div key={item.name} className="pb-6">
-                        <NavLink to={item.to} className={({isActive}) => `text-sm leading-6 ${isActive ? "text-gray-500" : "hover:text-gray-500 text-gray-300"}`}>
+                        <NavLink to={item.to} className={({isActive}) => `text-sm leading-6 ${isActive ? "text-gray-500" : "text-gray-300 hover:text-gray-100"}`}>
                             {item.name}
                         </NavLink>
                     </div>
             ))}
         </nav>
         <div className="mt-10 flex justify-center space-x-10">
-            {
-                navigation.social.map((item) => (
-                    <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
-                        <span className="sr-only">{item.name}</span>
-                        <item.icon className="h-6 w-6" aria-hidden="true" />
-                    </a>
-            ))}
+        {
+            navigation.social.map((item) => (
+                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">
+                    <span className="sr-only">{item.name}</span>
+                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                </a>
+        ))}
         </div>
     </div>
 );
