@@ -1,4 +1,4 @@
-import "../sass/about-me.scss";
+import "../sass/about.scss";
 import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
