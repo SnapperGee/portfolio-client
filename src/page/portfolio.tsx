@@ -12,6 +12,16 @@ const projects = [
             "Weather app to look up the weather conditions by city."
     },
     {
+        title: "Bookworm",
+        href: {
+            app: "https://snappergee.github.io/bookworm/",
+            github: "https://github.com/SnapperGee/bookworm"
+
+        },
+        description:
+            "Find book recommendations based on best sellers and genre/topics."
+    },
+    {
         title: "Day Planner",
         href: {
             app: "https://snappergee.github.io/day-planner/",
@@ -28,6 +38,24 @@ const projects = [
         },
         description:
             "Generate a string of text with constraints."
+    },
+    {
+        title: "Compare",
+        href: {
+            app: null,
+            github: "https://github.com/SnapLib/typescript-compare"
+        },
+        description:
+            "Compare 2 JavaScript objects to each other."
+    },
+    {
+        title: "Hermes",
+        href: {
+            app: null,
+            github: "https://github.com/SnapperGee/node-hermes-hrms"
+        },
+        description:
+            "An employee management application with a CLI."
     },
     {
         title: "Javascript Quiz",
