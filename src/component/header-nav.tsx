@@ -3,8 +3,6 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
-const EMAIL = "gauger1992@gmail.com";
-
 // Current: "bg-gray-900 text-white"
 // Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
 const INACTIVE_NAV_BTN_CLASSES = " text-gray-300 hover:bg-gray-700 hover:text-white";
@@ -111,7 +109,9 @@ const HeaderNav = () =>
                         </div>
                         <div className="ml-3">
                             <div className="text-base font-medium text-white">Graham Auger</div>
-                            <div className="text-sm font-medium text-gray-400">{EMAIL}</div>
+                            <div className="text-sm font-medium text-gray-400">
+                                <a className="hover:text-gray-300" href="mailto:contact@graham-auger.dev">contact@graham-auger.dev</a>
+                            </div>
                         </div>
                     </div>
                 </div>
