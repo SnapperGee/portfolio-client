@@ -98,7 +98,7 @@ const Portfolio = () =>
                         <AppGithubIconLinks {...{
                             ...project.href,
                             height: 8,
-                            classes: `mt-3 self-stretch justify-${project.href.app ? "between" : "center"}`
+                            classes: `flex mt-3 self-stretch justify-${project.href.app ? "between" : "center"}`
                         }} />
                     </div>
                 ))

@@ -4,7 +4,7 @@ type props = {classes: string, app: string | null, github: string, height: numbe
 
 export const AppGithubIconLinks = ({classes, app, github, height}: props) =>
 (
-    <div className={`flex ${classes ? classes : ""}`}>
+    <div className={classes ? classes : ""}>
     {
         app
         ? <>

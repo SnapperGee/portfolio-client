@@ -142,12 +142,13 @@ const Resume = () =>
                 projects.map((project, index) => {
                     return (
                         <li key={index}>
-                            <p className="font-semibold">{project.title}</p>
-                            <AppGithubIconLinks {...{
-                                ...project.href,
-                                height: 6,
-                                classes: `my-1.5 w-64 justify-${project.href.app ? "between" : "start"}`
-                            }} />
+                            <p><span className="font-semibold">{project.title}</span> | </p>
+                                <AppGithubIconLinks {...{
+                                    ...project.href,
+                                    inline: true,
+                                    height: 6,
+                                    classes: `inline-block w-64 justify-${project.href.app ? "between" : "start"}`
+                                }} />
                             <p>{project.description}</p>
                             <ul className="ms-10 sm:ms-14 list-disc space-y-2">
                                 {project.responsibilities.map((responsibility, index) =>
