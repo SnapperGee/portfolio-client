@@ -79,15 +79,15 @@ const Resume = () =>
                 productivity of a company&apos;s technical infrastructure while gaining valuable experience in an industry
                 I&apos;m passionate about.
             </p>
-            <p className="mt-10 font-bold text-lg text-gray-200">WORK EXPERIENCE</p>
-            <ul className="listSquare ms-20 space-y-4">
+            <p className="mt-10 font-bold sm:text-lg text-gray-200">WORK EXPERIENCE</p>
+            <ul className="listSquare ms-10 sm:ms-20 text-sm sm:text-base space-y-4">
             {
                 jobHistory.map((job, index) => {
                     const TitleSpan = () => <span className="font-semibold">{job.title} ({job.startDate}-{job.endDate}):</span>;
                     return (
                         <li key={index}>
                             <p><TitleSpan /> {job.summary}</p>
-                            <ul className="ms-20 list-disc space-y-2">
+                            <ul className="ms-10 sm:ms-20 list-disc space-y-2">
                                 {job.descriptions.map((description, index) =>
                                 (
                                     <li key={index}>{description}</li>
