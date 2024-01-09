@@ -1,6 +1,8 @@
 import { PlayCircleIcon } from "@heroicons/react/24/outline";
 
-export const AppGithubIconLinks = ({classes, app, github, height}) =>
+type props = {classes: string, app: string, github: string, height: string};
+
+export const AppGithubIconLinks = ({classes, app, github, height}: props) =>
 (
     <div className={`flex ${classes ? classes : ""}`}>
     {
