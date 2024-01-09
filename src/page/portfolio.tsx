@@ -9,7 +9,7 @@ const projects = [
 
         },
         description:
-            "Weather app to look up the weather conditions by city."
+            "Weather app to look up the weather conditions by city and country."
     },
     {
         title: "Bookworm",
