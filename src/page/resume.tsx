@@ -1,4 +1,16 @@
 import "../sass/contact.scss";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+
+const Hr = () => <hr className="h-px my-6 border-0 bg-gray-600"/>;
+
+const recentTechnologies = [
+    "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
+    "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "MariaDB", "MySQL", "PostgreSQL", "MongoDB"
+];
+
+const technologies = [
+    ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
+];
 
 const jobHistory = [
     {
@@ -74,20 +86,41 @@ const Resume = () =>
             </p>
         </div>
         <div className="mx-20 text-gray-300">
-            <p>
-                <span className="underline font-semibold">Objective:</span> To use my energy, skills, and work ethic to contribute to the development and
-                productivity of a company&apos;s technical infrastructure while gaining valuable experience in an industry
-                I&apos;m passionate about.
+            <p className="mb-1">
+                I&apos;ve extensively utilized the following technologies:
             </p>
-            <p className="mt-10 font-bold sm:text-lg text-gray-200">WORK EXPERIENCE</p>
-            <ul className="listSquare ms-10 sm:ms-20 text-sm sm:text-base space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-2">
+            {
+                recentTechnologies.map((technology, index) =>
+                <div key={index}>
+                    <ChevronRightIcon className="inline-block w-4 h-4 me-1" />
+                    <p className="inline-block">{technology}</p>
+                </div>)
+            }
+            </div>
+            <Hr />
+            <p className="mb-1">
+                I also have experience working with:
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-2">
+            {
+                technologies.map((technology, index) =>
+                <div key={index}>
+                    <ChevronRightIcon className="inline-block w-4 h-4 me-1" />
+                    <p className="inline-block">{technology}</p>
+                </div>)
+            }
+            </div>
+            <Hr />
+            <p className="mt-10 font-bold sm:text-lg text-gray-200">PROJECTS</p>
+            <ul className="listSquare mb-14 ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
             {
                 jobHistory.map((job, index) => {
                     const TitleSpan = () => <span className="font-semibold">{job.title} ({job.startDate}-{job.endDate}):</span>;
                     return (
                         <li key={index}>
                             <p><TitleSpan /> {job.summary}</p>
-                            <ul className="ms-10 sm:ms-20 list-disc space-y-2">
+                            <ul className="ms-10 sm:ms-14 list-disc space-y-2">
                                 {job.descriptions.map((description, index) =>
                                 (
                                     <li key={index}>{description}</li>
@@ -98,7 +131,26 @@ const Resume = () =>
                 })
             }
             </ul>
-            <p className="mt-10 mb-14 text-sm text-gray-400 opacity-60">References available on request.</p>
+            {/* <p className="mt-10 font-bold sm:text-lg text-gray-200">WORK EXPERIENCE</p>
+            <ul className="listSquare ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
+            {
+                jobHistory.map((job, index) => {
+                    const TitleSpan = () => <span className="font-semibold">{job.title} ({job.startDate}-{job.endDate}):</span>;
+                    return (
+                        <li key={index}>
+                            <p><TitleSpan /> {job.summary}</p>
+                            <ul className="ms-10 sm:ms-14 list-disc space-y-2">
+                                {job.descriptions.map((description, index) =>
+                                (
+                                    <li key={index}>{description}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    )
+                })
+            }
+            </ul>
+            <p className="mt-10 mb-14 text-sm text-gray-400 opacity-60">References available on request.</p> */}
         </div>
     </>
 );
