@@ -14,7 +14,7 @@ const About = () =>
         <div className="self-center sm:text-left text-gray-300">
             <h4 className="text-lg font-bold">Graham Auger</h4>
             <p className="mt-1">
-                I&apos;ve been a practicing software engineer for half a decade and have expierence ranging from
+                I&apos;ve been a practicing software engineer for half a decade and have experience ranging from
                 implementing front end client facing interfaces to back end server side logic and database
                 administration. This has involved working in a variety of environments including .NET, npm and node, and
                 Gradle. I have extensive experience with packages such as react, express, graphql, tailwind, and
