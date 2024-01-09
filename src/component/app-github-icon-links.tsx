@@ -1,6 +1,6 @@
 import { PlayCircleIcon } from "@heroicons/react/24/outline";
 
-type props = {classes: string, app: string, github: string, height: string};
+type props = {classes: string, app: string | null, github: string, height: number};
 
 export const AppGithubIconLinks = ({classes, app, github, height}: props) =>
 (
