@@ -1,3 +1,4 @@
+import { projects } from "./util/projects";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import "../sass/contact.scss";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
@@ -8,107 +9,6 @@ const recentTechnologies = [
     "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
     "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "prisma", "graphQL", "MariaDB", "MySQL",
     "PostgreSQL", "MongoDB", ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
-];
-
-const projects = [
-    {
-        title: "The Weather",
-        href: {
-            app: "https://snappergee.github.io/the-weather",
-            github: "https://github.com/SnapperGee/the-weather"
-
-        },
-        description:
-            "Weather app to look up the weather conditions by city.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Bookworm",
-        href: {
-            app: "https://snappergee.github.io/bookworm",
-            github: "https://github.com/SnapperGee/bookworm"
-
-        },
-        description:
-            "Find book recommendations based on best sellers and genre/topics.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Day Planner",
-        href: {
-            app: "https://snappergee.github.io/day-planner",
-            github: "https://github.com/SnapperGee/day-planner"
-        },
-        description:
-            "Daily event/reminder schedule manager.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Password Generator",
-        href: {
-            app: "https://snappergee.github.io/password-generator",
-            github: "https://github.com/SnapperGee/password-generator"
-        },
-        description:
-            "Generate a string of text with constraints.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Compare",
-        href: {
-            app: null,
-            github: "https://github.com/SnapLib/typescript-compare"
-        },
-        description:
-            "Compare 2 JavaScript objects to each other.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Hermes",
-        href: {
-            app: null,
-            github: "https://github.com/SnapperGee/node-hermes-hrms"
-        },
-        description:
-            "An employee management application with a CLI.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Javascript Quiz",
-        href: {
-            app: "https://snappergee.github.io/js-quiz",
-            github: "https://github.com/SnapperGee/js-quiz"
-        },
-        description:
-            "Web app that presents a timed quiz on JavaScript fundamentals to the user.",
-        responsibilities: [
-
-        ]
-    },
-    {
-        title: "Readme Generator",
-        href: {
-            app: null,
-            github: "https://github.com/SnapperGee/cli-readme-generator"
-        },
-        description:
-            "Generate a README markdown file via an interactive CLI.",
-        responsibilities: [
-
-        ]
-    }
 ];
 
 const Resume = () =>
@@ -142,13 +42,16 @@ const Resume = () =>
                 projects.map((project, index) => {
                     return (
                         <li key={index}>
-                            <p><span className="font-semibold">{project.title}</span> | </p>
+                            <div className="flex h-10 items-center">
+                            <p className="font-semibold">{project.title}</p>
+                            <p className="mx-4">|</p>
                                 <AppGithubIconLinks {...{
                                     ...project.href,
                                     inline: true,
                                     height: 6,
-                                    classes: `inline-block w-64 justify-${project.href.app ? "between" : "start"}`
+                                    classes: `w-64 justify-${project.href.app ? "between" : "start"}`
                                 }} />
+                            </div>
                             <p>{project.description}</p>
                             <ul className="ms-10 sm:ms-14 list-disc space-y-2">
                                 {project.responsibilities.map((responsibility, index) =>
