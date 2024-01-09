@@ -5,71 +5,107 @@ const Hr = () => <hr className="h-px my-6 border-0 bg-gray-600"/>;
 
 const recentTechnologies = [
     "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
-    "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "MariaDB", "MySQL", "PostgreSQL", "MongoDB"
+    "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "prisma", "graphQL", "MariaDB", "MySQL",
+    "PostgreSQL", "MongoDB", ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
 ];
 
-const technologies = [
-    ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
-];
+const projects = [
+    {
+        title: "The Weather",
+        href: {
+            app: "https://snappergee.github.io/the-weather",
+            github: "https://github.com/SnapperGee/the-weather"
 
-const jobHistory = [
-    {
-        title: "Best Buy Geek Squad Technician",
-        startDate: "2018",
-        endDate: "present",
-        summary: "Installed and repaired various AV equipment and kitchen appliances in clients' homes and businesses.",
-        descriptions: [
-            "Installed, uninstalled, repaired, and troubleshooted electronic devices such as televisions, receivers/amplifiers, surround sound systems, wireless networks, dishwashers, over the range venting microwaves.",
-            "Configured multi channel home theater audio systems and programmed universal remotes to work with such systems."
+        },
+        description:
+            "Weather app to look up the weather conditions by city.",
+        responsibilities: [
+
         ]
     },
     {
-        title: "Best Buy Project Team Specialist",
-        startDate: "2013",
-        endDate: "2018",
-        summary: "Set up and repaired various AV Equipment as well as retrieved and stocked product.",
-        descriptions: [
-            "Set up and maintained televisions, AV receivers, and sound bars displaying content from various sources.",
-            "Stored and retrieved various product which sometimes required using pallet jacks and mechanical equipment used for handling televisions and appliances such as stoves, refrigerators, and freezers."
+        title: "Bookworm",
+        href: {
+            app: "https://snappergee.github.io/bookworm",
+            github: "https://github.com/SnapperGee/bookworm"
+
+        },
+        description:
+            "Find book recommendations based on best sellers and genre/topics.",
+        responsibilities: [
+
         ]
     },
     {
-        title: "Shira Ridge Wealth Management Advisors",
-        startDate: "2013",
-        endDate: "2015",
-        summary: "Organized and maintained client information",
-        descriptions: [
-            "Input and referenced client data between web based CRM systems and data stored locally confirming data was up to date and synced.",
-            "Scanned, shredded, and mailed various documents, often digitizing and archiving hard copies of data."
+        title: "Day Planner",
+        href: {
+            app: "https://snappergee.github.io/day-planner",
+            github: "https://github.com/SnapperGee/day-planner"
+        },
+        description:
+            "Daily event/reminder schedule manager.",
+        responsibilities: [
+
         ]
     },
     {
-        title: "City of San Rafael Redevelopment Agency",
-        startDate: "2006",
-        endDate: "2011",
-        summary: "Had various responsibilities and tasks involved in setting up, running, and tearing down venues for various events held by San Rafael.",
-        descriptions: [
-            "Was responsible for setting up stages and concession stands for vendors. As well as putting up barricades and blocking roads off to manage vehicle and pedestrian traffic flow.",
-            "Managed intersections and parking lots, directing traffic and organizing parking."
+        title: "Password Generator",
+        href: {
+            app: "https://snappergee.github.io/password-generator",
+            github: "https://github.com/SnapperGee/password-generator"
+        },
+        description:
+            "Generate a string of text with constraints.",
+        responsibilities: [
+
         ]
     },
     {
-        title: "Comforts Fine City and Home-style Food",
-        startDate: "2008",
-        endDate: "2010",
-        summary: "Primarily responsible for deli and counter work.",
-        descriptions: [
-            "Responsibilities included interacting with customers and working the register. Chiefly taking orders from the customer, retrieving what was ordered, and charging them for it.",
-            "Other responsibilities involved taking inventory, restocking, and maintaining a sanitary working environment, as well as minor food preparation."
+        title: "Compare",
+        href: {
+            app: null,
+            github: "https://github.com/SnapLib/typescript-compare"
+        },
+        description:
+            "Compare 2 JavaScript objects to each other.",
+        responsibilities: [
+
         ]
     },
     {
-        title: "Far Horizons Archaeological & Cultural Trips",
-        startDate: "2006",
-        endDate: "2008",
-        summary: "Was part of temporary staffing at Far Horizons travel agency where mainly clerical tasks were assigned.",
-        descriptions: [
-            "Assignments involved cleaning up and a maintaining the company database, which involved organizing materials, as well as, printing, collating, and filing documents."
+        title: "Hermes",
+        href: {
+            app: null,
+            github: "https://github.com/SnapperGee/node-hermes-hrms"
+        },
+        description:
+            "An employee management application with a CLI.",
+        responsibilities: [
+
+        ]
+    },
+    {
+        title: "Javascript Quiz",
+        href: {
+            app: "https://snappergee.github.io/js-quiz",
+            github: "https://github.com/SnapperGee/js-quiz"
+        },
+        description:
+            "Web app that presents a timed quiz on JavaScript fundamentals to the user.",
+        responsibilities: [
+
+        ]
+    },
+    {
+        title: "Readme Generator",
+        href: {
+            app: null,
+            github: "https://github.com/SnapperGee/cli-readme-generator"
+        },
+        description:
+            "Generate a README markdown file via an interactive CLI.",
+        responsibilities: [
+
         ]
     }
 ];
@@ -87,7 +123,7 @@ const Resume = () =>
         </div>
         <div className="mx-20 text-gray-300">
             <p className="mb-1">
-                I&apos;ve extensively utilized the following technologies:
+                Experience with:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-2">
             {
@@ -99,58 +135,25 @@ const Resume = () =>
             }
             </div>
             <Hr />
-            <p className="mb-1">
-                I also have experience working with:
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-2">
-            {
-                technologies.map((technology, index) =>
-                <div key={index}>
-                    <ChevronRightIcon className="inline-block w-4 h-4 me-1" />
-                    <p className="inline-block">{technology}</p>
-                </div>)
-            }
-            </div>
-            <Hr />
             <p className="mt-10 font-bold sm:text-lg text-gray-200">PROJECTS</p>
-            <ul className="listSquare mb-14 ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
+            <ol className="list-decimal mb-14 ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
             {
-                jobHistory.map((job, index) => {
-                    const TitleSpan = () => <span className="font-semibold">{job.title} ({job.startDate}-{job.endDate}):</span>;
+                projects.map((project, index) => {
                     return (
                         <li key={index}>
-                            <p><TitleSpan /> {job.summary}</p>
+                            <p className="font-semibold">{project.title}</p>
+                            <p>{project.description}</p>
                             <ul className="ms-10 sm:ms-14 list-disc space-y-2">
-                                {job.descriptions.map((description, index) =>
+                                {project.responsibilities.map((responsibility, index) =>
                                 (
-                                    <li key={index}>{description}</li>
+                                    <li key={index}>{responsibility}</li>
                                 ))}
                             </ul>
                         </li>
                     )
                 })
             }
-            </ul>
-            {/* <p className="mt-10 font-bold sm:text-lg text-gray-200">WORK EXPERIENCE</p>
-            <ul className="listSquare ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
-            {
-                jobHistory.map((job, index) => {
-                    const TitleSpan = () => <span className="font-semibold">{job.title} ({job.startDate}-{job.endDate}):</span>;
-                    return (
-                        <li key={index}>
-                            <p><TitleSpan /> {job.summary}</p>
-                            <ul className="ms-10 sm:ms-14 list-disc space-y-2">
-                                {job.descriptions.map((description, index) =>
-                                (
-                                    <li key={index}>{description}</li>
-                                ))}
-                            </ul>
-                        </li>
-                    )
-                })
-            }
-            </ul>
-            <p className="mt-10 mb-14 text-sm text-gray-400 opacity-60">References available on request.</p> */}
+            </ol>
         </div>
     </>
 );
