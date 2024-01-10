@@ -1,6 +1,6 @@
 import { projects } from "./util/projects";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import "../sass/contact.scss";
+import "../sass/resume.scss";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const Hr = () => <hr className="h-px my-6 border-0 bg-gray-600"/>;
@@ -39,8 +39,8 @@ const Resume = () =>
             <p className="mt-10 font-bold sm:text-lg text-gray-200">PROJECTS</p>
             <ol className="list-decimal mb-14 ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
             {
-                projects.map((project, index) => {
-                    return (
+                projects.map((project, index) =>
+                    (
                         <li key={index}>
                             <div className="flex h-10 items-center">
                             <p className="font-semibold">{project.title}</p>
@@ -61,7 +61,7 @@ const Resume = () =>
                             </ul>
                         </li>
                     )
-                })
+                )
             }
             </ol>
         </div>
