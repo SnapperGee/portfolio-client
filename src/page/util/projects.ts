@@ -20,7 +20,13 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Weather app to look up the weather conditions by city and country.",
         responsibilities: [
-
+            "Utilize features of bootstrap to implement a modern looking responsive design.",
+            "Use the Openweathermap API to retrieve the current weather conditions and the 5 day forecast for a city.",
+            "Use DayJS to account for timezones so correct times would be displayed.",
+            "Configure the webpack development environment to build and bundle the application appropriately for development or distribution.",
+            "Validate input to ensure a valid query could be made using the Openweathermap API.",
+            "Implement query history feature so queries are stored and can be recalled.",
+            "Write application documentation."
         ]
     },
     {
