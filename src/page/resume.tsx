@@ -39,7 +39,7 @@ const Resume = () =>
                 projects.map((project, index) =>
                     (
                         <li key={index}>
-                            <div className="p-4 w-max border bg-gray-600/10 border-gray-600">
+                            <div className="p-4 w-fit border bg-gray-600/10 border-gray-600">
                                 <p className="font-semibold text-gray-300 text-lg">{project.title}</p>
                                 <hr className="h-px my-4 border-0 bg-gray-600"/>
                                 <AppGithubIconLinks {...{
@@ -55,7 +55,7 @@ const Resume = () =>
                                     <ul role="list" className="divide-y divide-gray-600">
                                         {project.responsibilities.map((responsibility, index) =>
                                         (
-                                            <li key={index} className="px-3.5 py-2.5 text-sm">{responsibility}</li>
+                                            <li key={index} className="px-3.5 py-2.5">{responsibility}</li>
                                         ))}
                                     </ul>
                                 </div>
