@@ -3,8 +3,6 @@ import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import "../sass/resume.scss";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
-const Hr = () => <hr className="h-px my-6 border-0 bg-gray-600"/>;
-
 const recentTechnologies = [
     "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
     "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "prisma", "graphQL", "MariaDB", "MySQL",
@@ -35,30 +33,30 @@ const Resume = () =>
                 </div>)
             }
             </div>
-            <Hr />
+            <hr className="h-px my-6 border-0 bg-gray-600"/>
             <p className="mt-10 font-bold sm:text-lg text-gray-200">PROJECTS</p>
             <ol className="list-decimal mb-14 ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
             {
                 projects.map((project, index) =>
                     (
                         <li key={index}>
-                            <div className="flex h-10 items-center">
-                            <p className="font-semibold">{project.title}</p>
-                            <p className="mx-4">|</p>
+                            <div className="p-4 w-max border border-gray-600">
+                                <p className="font-semibold text-gray-300 text-lg">{project.title}</p>
+                                <hr className="h-px my-4 border-0 bg-gray-600"/>
                                 <AppGithubIconLinks {...{
                                     ...project.href,
                                     inline: true,
                                     height: 6,
-                                    classes: `w-64 justify-${project.href.app ? "between" : "start"}`
+                                    classes: `w-64 mb-2 justify-${project.href.app ? "between" : "start"}`
                                 }} />
+                                <p className="text-gray-300">{project.description}</p>
+                                <ul className="ms-10 sm:ms-14 list-disc space-y-2">
+                                    {project.responsibilities.map((responsibility, index) =>
+                                    (
+                                        <li key={index}>{responsibility}</li>
+                                    ))}
+                                </ul>
                             </div>
-                            <p>{project.description}</p>
-                            <ul className="ms-10 sm:ms-14 list-disc space-y-2">
-                                {project.responsibilities.map((responsibility, index) =>
-                                (
-                                    <li key={index}>{responsibility}</li>
-                                ))}
-                            </ul>
                         </li>
                     )
                 )
