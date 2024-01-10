@@ -44,7 +44,6 @@ const Resume = () =>
                                 <hr className="h-px my-4 border-0 bg-gray-600"/>
                                 <AppGithubIconLinks {...{
                                     ...project.href,
-                                    inline: true,
                                     height: 6,
                                     classes: `w-64 mb-2 justify-${project.href.app ? "between" : "start"}`
                                 }} />
