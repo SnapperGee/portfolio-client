@@ -33,13 +33,13 @@ const Resume = () =>
             }
             </div>
             <hr className="h-px my-6 border-0 bg-gray-600"/>
-            <p className="mt-10 font-bold sm:text-lg text-gray-200">PROJECTS</p>
-            <ol className="list-decimal mb-14 ms-10 sm:ms-14 text-sm sm:text-base space-y-4">
+            <p className="mt-10 mb-3 font-bold text-xl text-gray-200">PROJECTS</p>
+            <ul className="mb-14 ms-14 space-y-4">
             {
                 projects.map((project, index) =>
                     (
                         <li key={index}>
-                            <div className="p-4 w-max border border-gray-600">
+                            <div className="p-4 w-max border bg-gray-600/10 border-gray-600">
                                 <p className="font-semibold text-gray-300 text-lg">{project.title}</p>
                                 <hr className="h-px my-4 border-0 bg-gray-600"/>
                                 <AppGithubIconLinks {...{
@@ -48,13 +48,14 @@ const Resume = () =>
                                     height: 6,
                                     classes: `w-64 mb-2 justify-${project.href.app ? "between" : "start"}`
                                 }} />
+                                <hr className="h-px mt-4 mb-3 border-0 bg-gray-600"/>
                                 <p className="text-gray-300">{project.description}</p>
                                 <p className="mt-1.5 mb-1 text-gray-300">Responsibilities/contributions included:</p>
                                 <div className="overflow-hidden rounded-md border border-gray-600">
                                     <ul role="list" className="divide-y divide-gray-600">
                                         {project.responsibilities.map((responsibility, index) =>
                                         (
-                                            <li key={index} className="px-4 py-3">{responsibility}</li>
+                                            <li key={index} className="px-3.5 py-2.5 text-sm">{responsibility}</li>
                                         ))}
                                     </ul>
                                 </div>
@@ -63,7 +64,7 @@ const Resume = () =>
                     )
                 )
             }
-            </ol>
+            </ul>
         </div>
     </>
 );
