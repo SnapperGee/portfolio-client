@@ -49,12 +49,15 @@ const Resume = () =>
                                     classes: `w-64 mb-2 justify-${project.href.app ? "between" : "start"}`
                                 }} />
                                 <p className="text-gray-300">{project.description}</p>
-                                <ul className="ms-10 sm:ms-14 list-disc space-y-2">
-                                    {project.responsibilities.map((responsibility, index) =>
-                                    (
-                                        <li key={index}>{responsibility}</li>
-                                    ))}
-                                </ul>
+                                <p className="mt-1.5 mb-1 text-gray-300">Responsibilities/contributions included:</p>
+                                <div className="overflow-hidden rounded-md border border-gray-600">
+                                    <ul role="list" className="divide-y divide-gray-600">
+                                        {project.responsibilities.map((responsibility, index) =>
+                                        (
+                                            <li key={index} className="px-4 py-3">{responsibility}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </li>
                     )
