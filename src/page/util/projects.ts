@@ -39,7 +39,11 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Find book recommendations based on best sellers and genre/topics.",
         responsibilities: [
-
+            "Use the OpenLibrary API to retrieve book information based on genre.",
+            "Use tailwind to create a responsive interface for getting book genre input from a user.",
+            "Use the user input to query the OpenLibrary API for books of that genre.",
+            "Manage the webpack configuration.",
+            "Manage and coordinate pull requests from project contributors.",
         ]
     },
     {
