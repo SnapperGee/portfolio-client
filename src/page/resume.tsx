@@ -1,6 +1,5 @@
 import { projects } from "./util/projects";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import "../sass/resume.scss";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const recentTechnologies = [
