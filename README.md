@@ -77,23 +77,20 @@ The error page is displayed when a user navigates to a page that does not exist.
 
 This package contains 4 scripts useful for development:
 
-1. `dev`
+- `npm run dev`
 
-    Executed via `$npm run dev`, this script starts a local web server with hot
-    module reloading.
+    This script starts a local web server with hot module reloading.
 
-1. `build`
+- `npm run build`
 
-    Executed via `$npm run build`, this script compiles the TypeScript source
-    code and then has Vite bundle it into a production distributable ready
-    format.
+    This script compiles the TypeScript source code and then has Vite bundle it
+    into a production distributable ready format.
 
-1. `lint`
+- `lint`
 
-    Executed via `$npm run lint`, this script runs the linter using the ESLint
-    on the TypeScript source code.
+    This script runs the linter using the ESLint on the TypeScript source code.
 
-1. `preview`
+- `preview`
 
     Executed via `$npm run preview`, this script starts a local web server using
     the built production distributable ready bundle.
