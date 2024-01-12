@@ -37,7 +37,7 @@ interests and a little bit about my history.
 <details>
 <summary>
 The Portfolio page contains a list of projects I have worked on with short
-descriptions of each project adn links to their respective GitHub repositories
+descriptions of each project and links to their respective GitHub repositories
 and deployed versions if applicable.
 </summary>
 
@@ -48,9 +48,10 @@ and deployed versions if applicable.
 
 <details>
 <summary>
-The Contact page contains a form that allows users to message me in addition to
+The Contact page provides a form that allows users to message me in addition to
 an email address I can be contacted at. The form requires a name, an
-email address and/or a phone number I can use to send a reply to and a message.
+email address and/or a phone number for reply purposes, and the message to be
+sent to me.
 </summary>
 
 ![contact page](./docs/contact_page.png)
@@ -78,24 +79,24 @@ This package contains 4 scripts useful for development:
 
 1. `dev`
 
-    The `dev` script executed via `$npm run dev` starts a local web server with
-    hot module reloading.
+    Executed via `$npm run dev`, this script starts a local web server with hot
+    module reloading.
 
 1. `build`
 
-    The `build` script executed via `$npm run build` compiles the TypeScript
-    source code and then has Vite bundle it into a production distributable
-    ready format.
+    Executed via `$npm run build`, this script compiles the TypeScript source
+    code and then has Vite bundle it into a production distributable ready
+    format.
 
 1. `lint`
 
-    The `lint` script executed via `$npm run lint` runs linter using the ESLint
+    Executed via `$npm run lint`, this script runs the linter using the ESLint
     on the TypeScript source code.
 
 1. `preview`
 
-    The `preview` script executed via `$npm run preview` starts a local web
-    using the built production distributable ready bundle.
+    Executed via `$npm run preview`, this script starts a local web server using
+    the built production distributable ready bundle.
 
 [node shield]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white "node"
 [node website]: https://nodejs.org/en/about "node"
