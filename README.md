@@ -86,14 +86,14 @@ This package contains 4 scripts useful for development:
     This script compiles the TypeScript source code and then has Vite bundle it
     into a production distributable ready format.
 
-- `lint`
+- `npm run lint`
 
     This script runs the linter using the ESLint on the TypeScript source code.
 
-- `preview`
+- `npm run preview`
 
-    Executed via `$npm run preview`, this script starts a local web server using
-    the built production distributable ready bundle.
+    This script starts a local web server using the built production
+    distributable ready bundle.
 
 [node shield]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white "node"
 [node website]: https://nodejs.org/en/about "node"
