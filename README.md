@@ -17,13 +17,13 @@ error page.
 
 ## Table of Contents
 
-- [Pages](#pages)
-  - [About](#about-page)
-  - [Portfolio](#portfolio-page)
-  - [Contact](#contact-page)
-  - [Resume](#resume-page)
-  - [Error](#error-page)
-- [Scripts](#scripts)
+1. [Pages](#pages)
+    - [About](#about-page)
+    - [Portfolio](#portfolio-page)
+    - [Contact](#contact-page)
+    - [Resume](#resume-page)
+    - [Error](#error-page)
+1. [Scripts](#scripts)
 
 ## Pages
 
