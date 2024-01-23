@@ -1,15 +1,10 @@
 import { projects } from "./util/projects";
+import { technologies } from "./util/technologies";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import { WorkHistory } from "../component/work-history";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { Disclosure } from "@headlessui/react";
-
-const recentTechnologies = [
-    "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
-    "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "prisma", "graphQL", "MariaDB", "MySQL",
-    "PostgreSQL", "MongoDB", ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
-];
 
 const Resume = () =>
 (
@@ -28,7 +23,7 @@ const Resume = () =>
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-2">
             {
-                recentTechnologies.map((technology, index) =>
+                technologies.map((technology, index) =>
                 <div key={index}>
                     <ChevronRightIcon className="inline-block w-4 h-4 me-1" />
                     <p className="inline-block">{technology}</p>
