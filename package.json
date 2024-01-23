@@ -16,6 +16,9 @@
     "preview": "vite preview"
   },
   "keywords": [
+    "portfolio",
+    "frontend",
+    "client",
     "react",
     "typescript",
     "vite",
