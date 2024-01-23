@@ -1,9 +1,9 @@
 #arrow {
-    transition: transform 400ms ease-in-out;
+    transition: transform 300ms ease-in-out;
     transform: rotate(0deg);
 
     &.rotateDown {
-      transform: rotate(180deg);
+      transform: rotate(-90deg);
     }
 
     &:not(.rotateDown) {

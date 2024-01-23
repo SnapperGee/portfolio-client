@@ -1,4 +1,3 @@
-import "../sass/about.scss";
 import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 
 const About = () =>

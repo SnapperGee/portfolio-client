@@ -1,6 +1,9 @@
 import { projects } from "./util/projects";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
+import { WorkHistory } from "../component/work-history";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import { ChevronLeftIcon } from "@heroicons/react/20/solid";
+import { Disclosure } from "@headlessui/react";
 
 const recentTechnologies = [
     "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
@@ -11,7 +14,7 @@ const recentTechnologies = [
 const Resume = () =>
 (
     <>
-        <div className="text-center text-gray-200 my-10">
+        <div className="text-center text-gray-200 mt-10">
             <p>Graham Auger</p>
             <p>Email:&#160;
                 <a className="hover:text-white underline" href="mailto:contact@graham-auger.dev">
@@ -64,6 +67,30 @@ const Resume = () =>
                 )
             }
             </ul>
+        </div>
+        <div className="my-10">
+            <Disclosure>
+                {({ open }) => (
+                    <>
+                        <Disclosure.Button
+                            className="flex w-96 ms-7 justify-between rounded-lg bg-indigo-600 px-4 py-2 text-left text-sm font-medium text-white hover:bg-indigo-500 focus:outline-none focus-visible:ring focus-visible:ring-indigo-500/75"
+                            aria-expanded={String(open)}
+                            aria-controls="additionalInfo"
+                        >
+                            <span>Additional work experience</span>
+                            <ChevronLeftIcon
+                                id="arrow"
+                                className={`${
+                                    open ? "rotateDown" : ""
+                                } h-5 w-5 text-white`}
+                            />
+                        </Disclosure.Button>
+                        <Disclosure.Panel className="px-4 pb-2 pt-4 text-md text-gray-300 space-y-4" id="additionalInfo">
+                            <WorkHistory />
+                        </Disclosure.Panel>
+                    </>
+                )}
+            </Disclosure>
         </div>
     </>
 );
