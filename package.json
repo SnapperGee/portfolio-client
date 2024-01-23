@@ -1,6 +1,6 @@
 {
   "name": "portfolio-client",
-  "description": "Client side of my portfolio website.",
+  "description": "Client frontend of my portfolio website.",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -15,6 +15,12 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss"
+  ],
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.1.1",
