@@ -3,11 +3,19 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
-// Current: "bg-gray-900 text-white"
-// Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
+/**
+ * Inactive state styling for navigation bar buttons.
+ */
 const INACTIVE_NAV_BTN_CLASSES = " text-gray-300 hover:bg-gray-700 hover:text-white";
+
+/**
+ * Active state styling for navigation bar buttons.
+ */
 const ACTIVE_NAV_BTN_CLASSES = " bg-gray-900 text-white";
 
+/**
+ * The links and their paths to display in the navigation bar.
+ */
 const NAV_LINKS = [
     {
         text: "About",
@@ -27,7 +35,12 @@ const NAV_LINKS = [
     }
 ];
 
-const HeaderNav = () =>
+/**
+ * The header navigation bar component.
+ *
+ * @returns The header navigation bar component.
+ */
+export const HeaderNav = () =>
 (
     <Disclosure as="nav" className="bg-gray-800 sm:flex">
         {({ open }) => (
