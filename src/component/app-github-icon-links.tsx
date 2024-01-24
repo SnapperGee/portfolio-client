@@ -1,7 +1,14 @@
 import { PlayCircleIcon } from "@heroicons/react/24/outline";
 
-type props = {classes: string, app: string | null, github: string, height: number};
+interface props {classes: string, app: string | null, github: string, height: number}
 
+/**
+ * The app and github icon links to display for each project on the projects page.
+ *
+ * @param props The classes to apply to the div, the app link, the github link, and the height of the icons.
+ *
+ * @returns the div used to display the app and github links on the projects page.
+ */
 export const AppGithubIconLinks = ({classes, app, github, height}: props) =>
 (
     <div className={`flex ${classes ? classes : ""}`}>
