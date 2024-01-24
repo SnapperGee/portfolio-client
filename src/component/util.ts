@@ -1,4 +1,16 @@
-export const jobHistory = [
+interface JobHistory
+{
+    title: string;
+    startDate: string;
+    endDate: string;
+    summary: string;
+    descriptions: string[];
+}
+
+/**
+ * Array of job history objects consisting of a title, start and end dates, summary, and string array of descriptions.
+ */
+export const jobHistory: readonly Readonly<JobHistory>[] = [
     {
         title: "Best Buy Geek Squad Technician",
         startDate: "2018",
