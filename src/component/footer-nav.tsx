@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 
+/**
+ * Contains the navigation and social media icon links
+ */
 const navigation = {
     main: [
         { name: "About", to: "/" },
@@ -54,7 +57,12 @@ const navigation = {
     ]
 };
 
-const FooterNav = () =>
+/**
+ * Footer that contains links to other pages of the website as well as social media icon links.
+ *
+ * @returns The footer navigation bar component.
+ */
+export const FooterNav = () =>
 (
     <div className="overflow-hidden px-6 py-10 sm:py-12 lg:px-8 bg-gray-800">
         <nav className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
