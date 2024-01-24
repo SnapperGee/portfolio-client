@@ -1,5 +1,10 @@
 import { jobHistory } from "./util";
 
+/**
+ * The work history section component of the resume.
+ *
+ * @returns The work history section of the resume.
+ */
 export const WorkHistory = () =>
 (
     <>
