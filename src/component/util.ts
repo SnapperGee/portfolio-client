@@ -1,3 +1,9 @@
+/**
+ * Contains utility functions and data used by components.
+ *
+ * @module component-util
+ */
+
 interface JobHistory
 {
     title: string;
