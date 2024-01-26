@@ -1,7 +1,16 @@
+/**
+ * Contains the Portfolio webpage component for showcasing projects I've worked on.
+ * @module portfolio
+ */
+
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import { projects } from "./util";
 
-const Portfolio = () =>
+/**
+ * The Portfolio webpage component for showcasing projects I've worked on.
+ * @returns The Portfolio webpage component.
+ */
+export const Portfolio = () =>
 (
     <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
