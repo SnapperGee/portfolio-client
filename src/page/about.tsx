@@ -1,6 +1,15 @@
+/**
+ * Contains the About webpage component that contains a profile image and general info about me.
+ * @module about
+ */
+
 import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 
-const About = () =>
+/**
+ * The About webpage component that contains a profile image and general info about me.
+ * @returns The About webpage component.
+ */
+export const About = () =>
 (
     <div className="flex flex-col sm:flex-row justify-center items-center px-8 my-24">
         <div className="mb-4 sm:mb-0 sm:mr-4">
