@@ -4,6 +4,9 @@ import { Fragment, useState } from "react";
 import { Transition } from "@headlessui/react";
 import isEmail from "validator/lib/isEmail";
 
+/**
+ * Contains the error messages displayed in the contact form when the user enters invalid input.
+ */
 const enum ErrorMessageText
 {
     MISSING_EMAIL = "A non-blank email address is required if no phone number is provided.",
@@ -12,13 +15,31 @@ const enum ErrorMessageText
     PHONE_NUMBER_FORMAT = "Only digit characters expected."
 }
 
+/**
+ * Event handler for when the contact form is submitted.
+ *
+ * @param setSendingMessage Used to set the flag that indicates whether or not the contact form submission is processing.
+ *
+ * @param setSentMsgNotificationIcon Sets the icon of the notification panel that appears indicating if the message
+ *                                   transmission from contact form submission is successful or fails.
+ *
+ * @param setSentMsgNotificationHeader Sets the header title text of the notification panel that appears indicating if
+ *                                     the message transmission from contact form submission is successful or fails.
+ *
+ * @param setSentMsgNotificationBody Sets the body text of the notification panel that appears indicating if the message
+ *                                   transmission from contact form submission is successful or fails.
+ *
+ * @param showMsgSentNotification
+ *
+ * @returns `void`
+ */
 const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
                                   setSentMsgNotificationIcon: (arg: boolean) => void,
                                   setSentMsgNotificationHeader: (arg: string) => void,
                                   setSentMsgNotificationBody: (arg: string) => void,
                                   showMsgSentNotification: (arg: boolean) => void ) =>
 {
-    return async (event: React.FormEvent<HTMLFormElement>) => {
+    return async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
         event.preventDefault();
 
         const form = new FormData(event.currentTarget);
@@ -178,7 +199,12 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
     };
 };
 
-const Contact = () =>
+/**
+ * Contact webpage component.
+ *
+ * @returns The contact webpage component.
+ */
+export const Contact = () =>
 {
     const [sendingMessage, setSendingMessage] = useState(false);
 
