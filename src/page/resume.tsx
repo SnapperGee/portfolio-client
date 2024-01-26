@@ -1,5 +1,5 @@
-import { projects } from "./util/projects";
-import { technologies } from "./util/technologies";
+import { projects } from "./util";
+import { technologies } from "./util";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import { WorkHistory } from "../component/work-history";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";

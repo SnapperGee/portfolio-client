@@ -1,3 +1,17 @@
+/**
+ * Contains utility functions for the webpages.
+ * @module util
+ */
+
+/**
+ * List of technologies to be listed on the resume page.
+ */
+export const technologies: readonly string[] = [
+    "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
+    "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "prisma", "graphQL", "MariaDB", "MySQL",
+    "PostgreSQL", "MongoDB", ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
+];
+
 interface Project
 {
     title: string;
@@ -9,6 +23,10 @@ interface Project
     responsibilities: readonly string[];
 }
 
+/**
+ * The project data for the projects page. This includes the title, links to the deployed app if applicable,
+ * description, and responsibilities for each project.
+ */
 export const projects: readonly Readonly<Project>[] = Object.freeze([
     {
         title: "The Weather",
@@ -119,5 +137,3 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         ]
     }
 ]);
-
-export default projects;

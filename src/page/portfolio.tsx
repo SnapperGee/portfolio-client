@@ -1,5 +1,5 @@
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import { projects } from "./util/projects";
+import { projects } from "./util";
 
 const Portfolio = () =>
 (
