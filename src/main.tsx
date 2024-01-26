@@ -1,3 +1,8 @@
+/**
+ * The main entry point for the client.
+ * @module main
+ */
+
 import ReactDOM from "react-dom/client";
 import router from "./router";
 import "./index.scss";
