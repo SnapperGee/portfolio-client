@@ -1,3 +1,8 @@
+/**
+ * This module contains the Contact webpage component that contains a form that can be used to contact me.
+ * @module contact
+ */
+
 import { EnvelopeIcon, ExclamationTriangleIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
@@ -200,7 +205,7 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
 };
 
 /**
- * Contact webpage component.
+ * Contact webpage component. Contains a form that can be used to contact me.
  *
  * @returns The contact webpage component.
  */
