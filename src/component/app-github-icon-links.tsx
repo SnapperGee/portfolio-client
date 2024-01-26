@@ -1,3 +1,10 @@
+/**
+ * Contains the component used to generate icon links to the deployed apps, if applicable, and github repo for each app
+ * in the {@link projects} component.
+ *
+ * @module app-github-icon-links
+ */
+
 import { PlayCircleIcon } from "@heroicons/react/24/outline";
 
 interface props {classes: string, app: string | null, github: string, height: number}

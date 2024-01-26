@@ -1,7 +1,13 @@
+/**
+ * Contains the component used to generate each work history section of the resume.
+ * @module work-history
+ */
+
 import { jobHistory } from "./util";
 
 /**
- * The work history section component of the resume.
+ * The work history section component of the resume. It contains the job title, dates of employment,
+ * and a summary of the job.
  *
  * @returns The work history section of the resume.
  */

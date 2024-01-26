@@ -1,3 +1,8 @@
+/**
+ * Contains the component used to generate the header located at the top of each page.
+ * @module header-nav
+ */
+
 import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -36,7 +41,7 @@ const NAV_LINKS = [
 ];
 
 /**
- * The header navigation bar component.
+ * The header navigation bar component. Contains links to each webpage.
  *
  * @returns The header navigation bar component.
  */

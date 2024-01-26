@@ -1,3 +1,8 @@
+/**
+ * Contains the component used to generate the footer located at the bottom of each page.
+ * @module footer-nav
+ */
+
 import { NavLink } from "react-router-dom";
 
 /**
@@ -58,7 +63,7 @@ const navigation = {
 };
 
 /**
- * Footer that contains links to other pages of the website as well as social media icon links.
+ * Footer at the bottom of each webpage that contains links to other pages of the website as well as social media icon links.
  *
  * @returns The footer navigation bar component.
  */
