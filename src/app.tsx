@@ -1,5 +1,5 @@
 /**
- * The root parent application component.
+ * The root parent component of the application (excluding the component rendered in {@link main}).
  * @module app
  */
 
@@ -8,8 +8,8 @@ import { FooterNav } from "./component/footer-nav";
 import { Outlet } from "react-router-dom";
 
 /**
- * The root parent application component.
- * @returns The root parent application component.
+ * The root parent component of the application (excluding the component rendered in {@link main}).
+ * @returns The root parent component of the application (excluding the component rendered in {@link main}).
  */
 export const App = () =>
 (
