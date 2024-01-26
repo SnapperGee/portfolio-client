@@ -4,7 +4,7 @@
  */
 
 import ReactDOM from "react-dom/client";
-import router from "./router";
+import { router } from "./router";
 import "./index.scss";
 import { StrictMode } from "react";
 import { RouterProvider } from "react-router-dom";
