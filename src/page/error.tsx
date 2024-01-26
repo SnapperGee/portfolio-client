@@ -1,7 +1,15 @@
+/**
+ * This module contains the Error webpage component that is displayed if an invalid route is attempted to be navigated.
+ * @module error
+ */
+
 import { Link } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/20/solid"
 import { BookOpenIcon, DocumentTextIcon, EnvelopeIcon, UserIcon } from "@heroicons/react/24/solid"
 
+/**
+ * Links to webpages that can be navigated to.
+ */
 const links = [
     {
         name: "About",
@@ -28,7 +36,12 @@ const links = [
     }
 ];
 
-const Error = () =>
+/**
+ * This module contains the Error webpage component that is displayed if an invalid route is attempted to be navigated.
+ *
+ * @returns The Error webpage component.
+ */
+export const Error = () =>
 (
     <div className="mx-auto w-full max-w-7xl px-6 pb-16 pt-10 sm:pb-24 lg:px-8">
         <div className="mx-auto mt-20 max-w-2xl text-center sm:mt-24">
