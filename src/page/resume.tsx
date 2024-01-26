@@ -1,3 +1,8 @@
+/**
+ * Contains the Resume webpage component showcasing the technologies tasks/responsibilities I've had experience with.
+ * @module resume
+ */
+
 import { projects } from "./util";
 import { technologies } from "./util";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
@@ -6,7 +11,11 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { Disclosure } from "@headlessui/react";
 
-const Resume = () =>
+/**
+ * The Resume webpage component showcasing the technologies tasks/responsibilities I've had experience with.
+ * @returns The Resume webpage component showcasing the technologies tasks/responsibilities I've had experience with.
+ */
+export const Resume = () =>
 (
     <>
         <div className="text-center text-gray-200 mt-10">
