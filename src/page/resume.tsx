@@ -44,7 +44,7 @@ export const Resume = () =>
             <ul className="mb-14 ms-14 space-y-4">
             {
                 projects.map((project, index) =>
-                    <li key={index} className="p-4 w-fit border bg-gray-600/10 border-gray-600">
+                    <li key={index} className="p-4 w-full border bg-gray-600/10 border-gray-600">
                         <p className="font-semibold text-gray-300 text-lg">{project.title}</p>
                         <hr className="h-px my-4 border-0 bg-gray-600"/>
                         <AppGithubIconLinks {...{
