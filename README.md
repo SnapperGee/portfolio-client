@@ -65,9 +65,15 @@ sent to me.
 
 ### Resume page
 
+<details>
+<summary>
 The Resume page contains more specific information about which technologies I
 have experience with, what features I implemented and was responsible for in
 the projects I worked on, and my qualifications and work experience.
+</summary>
+
+![resume page](./docs/resume_page.png "Resume page")
+</details>
 
 ### Error page
 
