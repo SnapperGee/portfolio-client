@@ -24,7 +24,7 @@ export const About = () =>
             <p className="mt-1">
                 I&apos;ve been a practicing software engineer for half a decade and have experience ranging from
                 implementing front end client facing interfaces to back end server side logic and database
-                administration. This has involved working in a variety of environments including .NET, npm and node, and
+                administration. This has involved working in a variety of environments including npm and node, .NET, and
                 Gradle. I have extensive experience with packages such as react, express, graphql, tailwind, and
                 bootstrap. Utilizing all these technologies has involved languages such as C#, Java, Python, SQL, NoSQL,
                 Typescript, Javascript, sass, css, and html.
