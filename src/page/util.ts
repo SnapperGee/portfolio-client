@@ -73,7 +73,10 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Daily event/reminder schedule manager.",
         responsibilities: [
-
+            "Utilize DayJS to account for time zone corrections.",
+            "Implement an interface with sass and bootstrap.",
+            "Use JQuery and typescript to implement the application logic and add further interactivity to the interface.",
+            "Persist data to local storage."
         ]
     },
     {
@@ -85,7 +88,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Generate a string of text with constraints.",
         responsibilities: [
-
+            "Use vanilla JavaScript to implement the application logic and additional interface interactivity.",
+            "Implement custom styling via vanilla CSS."
         ]
     },
     {
@@ -97,7 +101,11 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Compare 2 JavaScript objects to each other.",
         responsibilities: [
-
+            "Implement unit tests with the Mocha testing framework and Chai assertion library.",
+            "Generate test reports with Mochaewsome.",
+            "Generate documentation with Typedoc.",
+            "Use typescript to implement the application logic.",
+            "Use eslint and editor config to enforce code style and formatting."
         ]
     },
     {
@@ -107,13 +115,15 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             github: "https://github.com/SnapperGee/node-hermes-hrms"
         },
         description:
-            "An employee management application with a CLI.",
+            "An CLI based employee management application.",
         responsibilities: [
-
+            "Create MySQL database for tracking and managing company employee.",
+            "Use MySQL2 package to create an API for interacting with database.",
+            "Use inquirer package to create a CLI interface for interacting with the API."
         ]
     },
     {
-        title: "Javascript Quiz",
+        title: "JS Quiz",
         href: {
             app: "https://snappergee.github.io/js-quiz",
             github: "https://github.com/SnapperGee/js-quiz"
@@ -121,7 +131,9 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Web app that presents a timed quiz on JavaScript fundamentals to the user.",
         responsibilities: [
-
+            "Use sass and bootstrap to create a responsive interface.",
+            "Use typescript to implement the application logic.",
+            "Use eslint to enforce code style and formatting."
         ]
     },
     {
@@ -133,7 +145,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
         description:
             "Generate a README markdown file via an interactive CLI.",
         responsibilities: [
-
+            "Use inquirer package to create a CLI interface for getting user input.",
+            "Use vanilla ESM JavaScript to implement the application logic."
         ]
     }
 ]);
