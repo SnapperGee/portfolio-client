@@ -85,21 +85,21 @@ This package contains 4 scripts useful for development:
 
 - `npm run dev`
 
-    Starts a local web server with hot module reloading.
+  Starts a local web server with hot module reloading.
 
 - `npm run build`
 
-    Compiles the TypeScript source code and then has Vite bundle it into a
-    production distributable ready format.
+  Compiles the TypeScript source code and then has Vite bundle it into a
+  production distributable ready format.
 
 - `npm run lint`
 
-    Runs the linter using the ESLint on the TypeScript source code.
+  Runs the linter using the ESLint on the TypeScript source code.
 
 - `npm run preview`
 
-    Starts a local web server using the built production distributable ready
-    bundle.
+  Starts a local web server using the built production distributable ready
+  bundle.
 
 [node shield]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white "node"
 [node website]: https://nodejs.org/en/about "node"
