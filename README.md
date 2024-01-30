@@ -29,8 +29,14 @@ error page.
 
 ### About page
 
+<details>
+<summary>
 The About page contains a short relatively candid description of myself and
 interests and a little bit about my history.
+</summary>
+
+![about page](./docs/about_page.png "About page")
+</details>
 
 ### Portfolio page
 
@@ -41,7 +47,7 @@ descriptions of each project and links to their respective GitHub repositories
 and deployed versions if applicable.
 </summary>
 
-![portfolio page](./docs/portfolio_page.png)
+![portfolio page](./docs/portfolio_page.png "Portfolio page")
 </details>
 
 ### Contact page
@@ -54,7 +60,7 @@ email address and/or a phone number for reply purposes, and the message to be
 sent to me.
 </summary>
 
-![contact page](./docs/contact_page.png)
+![contact page](./docs/contact_page.png "Contact page")
 </details>
 
 ### Resume page
@@ -70,7 +76,7 @@ the projects I worked on, and my qualifications and work experience.
 The error page is displayed when a user navigates to a page that does not exist.
 </summary>
 
-![error page](./docs/error_page.png)
+![error page](./docs/error_page.png "Error page")
 </details>
 
 ## Scripts
