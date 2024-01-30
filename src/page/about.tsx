@@ -1,5 +1,6 @@
 /**
  * Contains the About webpage component that contains a profile image and general info about me.
+ *
  * @module about
  */
 
