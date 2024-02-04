@@ -1,1 +1,3 @@
 User-agent: *
+
+Sitemap: https://ga-portfolio-ac6e971b35af.herokuapp.com/sitemap.xml
