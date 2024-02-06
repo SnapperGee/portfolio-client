@@ -41,7 +41,7 @@ export const Resume = () =>
             </div>
             <hr className="h-px my-6 border-0 bg-gray-600"/>
             <p className="mt-10 mb-3 font-bold text-xl text-gray-200">PROJECTS</p>
-            <ul className="mb-14 ms-14 space-y-4">
+            <ul className="mb-14 ms-3 sm:ms-14 min-w-fit space-y-4">
             {
                 projects.map((project, index) =>
                     <li key={index} className="p-4 w-full border bg-gray-600/10 border-gray-600">
