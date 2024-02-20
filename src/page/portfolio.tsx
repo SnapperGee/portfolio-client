@@ -20,7 +20,7 @@ export const Portfolio = () =>
                     Below are links to projects I have created and/or worked on.
                 </p>
             </div>
-            <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-800 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 border-t border-gray-800 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
             {
                 projects.map((project, index) => (
                     <div key={index} className="flex max-w-xl flex-col items-start justify-between p-4 border border-gray-600">
