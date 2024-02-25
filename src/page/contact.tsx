@@ -174,7 +174,7 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
                 })
             });
 
-            if (res?.ok && res?.status === 200)
+            if (res.ok && res.status === 200)
             {
                 setSentMsgNotificationIcon(true);
                 setSentMsgNotificationHeader("Message sent");
