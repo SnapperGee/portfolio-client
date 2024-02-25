@@ -209,7 +209,7 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
  *
  * @returns The contact webpage component.
  */
-export const Contact = () =>
+export default function Contact()
 {
     const [sendingMessage, setSendingMessage] = useState(false);
 
@@ -453,6 +453,4 @@ export const Contact = () =>
             </div>
         </>
     );
-};
-
-export default Contact;
+}

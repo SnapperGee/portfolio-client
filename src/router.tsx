@@ -7,7 +7,7 @@ import { App } from "./app";
 import { Error } from "./page/error";
 import { About } from "./page/about";
 import { Portfolio } from "./page/portfolio";
-import { Contact } from "./page/contact";
+import Contact from "./page/contact";
 import { Resume } from "./page/resume";
 import { createBrowserRouter } from "react-router-dom";
 
