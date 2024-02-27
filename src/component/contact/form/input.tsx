@@ -33,6 +33,7 @@ const Input: React.FC<Readonly<Props>> = ({name, predicate, invalidMessage, form
                 <input
                     type={type}
                     name={name}
+                    id={name}
                     value={inputValue}
                     onChange={(e) => setInputValue(format(e.currentTarget.value))}
                     className={`block w-full rounded-md border-0 ${inputValueIsValid ? StyleClasses.INVALID : StyleClasses.VALID } bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6`}
