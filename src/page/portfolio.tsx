@@ -4,7 +4,7 @@
  */
 
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import { projects } from "./util";
+import { PROJECTS } from "../constant/projects";
 
 /**
  * The Portfolio webpage component for showcasing projects I've worked on.
@@ -22,7 +22,7 @@ export const Portfolio = () =>
             </div>
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 border-t border-gray-800 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
             {
-                projects.map((project, index) => (
+                PROJECTS.map((project, index) => (
                     <div key={index} className="flex max-w-xl flex-col items-start justify-between p-4 border border-gray-600">
                         <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-200">
                             {project.title}

@@ -1,34 +1,20 @@
-/**
- * Contains utility functions for the webpages.
- * @module util
- */
-
-/**
- * List of technologies to be listed on the resume page.
- */
-export const technologies: readonly string[] = [
-    "node", "npm", "react", "express", "handlebars", "jquery", "webpack", "vite", "tailwind", "bootstrap", "mocha",
-    "chai", "typedoc", "typescript", "javascript", "sass", "css", "html", "prisma", "graphQL", "MariaDB", "MySQL",
-    "PostgreSQL", "MongoDB", ".NET", "C#", "Gradle", "Java", "JavaFX", "JUnit", "Python", "bash"
-];
-
 interface Project
 {
-    title: string;
-    href: {
-        app: string | null;
-        github: string;
+    readonly title: string;
+    readonly href: {
+        readonly app: string | null;
+        readonly github: string;
     };
-    description: string;
-    responsibilities: readonly string[];
+    readonly description: string;
+    readonly responsibilities: readonly string[];
 }
 
 /**
  * The project data for the projects page. This includes the title, links to the deployed app if applicable,
  * description, and responsibilities for each project.
  */
-export const projects: readonly Readonly<Project>[] = Object.freeze([
-    {
+export const PROJECTS: readonly Readonly<Project>[] = Object.freeze([
+    Object.freeze({
         title: "The Weather",
         href: {
             app: "https://snappergee.github.io/the-weather",
@@ -46,8 +32,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Implement query history feature so queries are stored and can be recalled.",
             "Write application documentation."
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "Bookworm",
         href: {
             app: "https://snappergee.github.io/bookworm",
@@ -63,8 +49,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Manage the webpack configuration.",
             "Manage and coordinate pull requests from project contributors.",
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "Day Planner",
         href: {
             app: "https://snappergee.github.io/day-planner",
@@ -78,8 +64,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Use JQuery and typescript to implement the application logic and add further interactivity to the interface.",
             "Persist data to local storage."
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "Password Generator",
         href: {
             app: "https://snappergee.github.io/password-generator",
@@ -91,8 +77,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Use vanilla JavaScript to implement the application logic and additional interface interactivity.",
             "Implement custom styling via vanilla CSS."
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "Compare",
         href: {
             app: null,
@@ -107,8 +93,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Use typescript to implement the application logic.",
             "Use eslint and editor config to enforce code style and formatting."
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "Hermes",
         href: {
             app: null,
@@ -121,8 +107,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Use MySQL2 package to create an API for interacting with database.",
             "Use inquirer package to create a CLI interface for interacting with the API."
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "JS Quiz",
         href: {
             app: "https://snappergee.github.io/js-quiz",
@@ -135,8 +121,8 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Use typescript to implement the application logic.",
             "Use eslint to enforce code style and formatting."
         ]
-    },
-    {
+    }),
+    Object.freeze({
         title: "Readme Generator",
         href: {
             app: null,
@@ -148,5 +134,7 @@ export const projects: readonly Readonly<Project>[] = Object.freeze([
             "Use inquirer package to create a CLI interface for getting user input.",
             "Use vanilla ESM JavaScript to implement the application logic."
         ]
-    }
+    })
 ]);
+
+export default PROJECTS;

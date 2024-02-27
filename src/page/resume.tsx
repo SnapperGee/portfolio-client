@@ -3,10 +3,10 @@
  * @module resume
  */
 
-import { projects } from "./util";
-import { technologies } from "./util";
+import { PROJECTS } from "../constant/projects";
+import { TECHNOLOGIES } from "../constant/technologies";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import { WorkHistory } from "../component/work-history";
+import EmploymentHistory from "../component/employment-history";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { Disclosure } from "@headlessui/react";
@@ -32,7 +32,7 @@ export const Resume = () =>
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-2">
             {
-                technologies.map((technology, index) =>
+                TECHNOLOGIES.map((technology, index) =>
                 <div key={index}>
                     <ChevronRightIcon className="inline-block w-4 h-4 me-1" />
                     <p className="inline-block">{technology}</p>
@@ -43,7 +43,7 @@ export const Resume = () =>
             <p className="mt-10 mb-3 font-bold text-xl text-gray-200">PROJECTS</p>
             <ul className="mb-14 ms-3 sm:ms-14 min-w-fit space-y-4">
             {
-                projects.map((project, index) =>
+                PROJECTS.map((project, index) =>
                     <li key={index} className="p-4 w-full border bg-gray-600/10 border-gray-600">
                         <p className="font-semibold text-gray-300 text-lg">{project.title}</p>
                         <hr className="h-px my-4 border-0 bg-gray-600"/>
@@ -86,7 +86,7 @@ export const Resume = () =>
                             />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pb-2 pt-4 text-md text-gray-300 space-y-4" id="additionalInfo">
-                            <WorkHistory />
+                            <EmploymentHistory />
                         </Disclosure.Panel>
                     </>
                 )}
