@@ -6,7 +6,7 @@
 import { PROJECTS } from "../util/projects";
 import { TECHNOLOGIES } from "../util/technologies";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import { WorkHistory } from "../component/work-history";
+import EmploymentHistory from "../component/employment-history";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { Disclosure } from "@headlessui/react";
@@ -86,7 +86,7 @@ export const Resume = () =>
                             />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pb-2 pt-4 text-md text-gray-300 space-y-4" id="additionalInfo">
-                            <WorkHistory />
+                            <EmploymentHistory />
                         </Disclosure.Panel>
                     </>
                 )}
