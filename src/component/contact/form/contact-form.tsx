@@ -1,4 +1,4 @@
-import NameInput from "./input/name-text";
+import NameInput from "./input/name";
 
 export default function ContactForm()
 {

@@ -7,12 +7,12 @@ const enum NameInputClasses
     NOT_BLANK = "ring-white/10 focus:ring-indigo-500"
 }
 
-interface NameTextInputProps
+interface NameInputProps
 {
     readonly name?: string | undefined;
 }
 
-const NameTextInput: React.FC<NameTextInputProps> = ({name = "name"}) =>
+const NameInput: React.FC<NameInputProps> = ({name = "name"}) =>
 {
     const [ inputValue, setInputValue ] = useState("");
     const inputValueIsBlank = inputValue.length !== 0 && inputValue.trim().length === 0;
@@ -44,4 +44,4 @@ const NameTextInput: React.FC<NameTextInputProps> = ({name = "name"}) =>
     );
 }
 
-export default NameTextInput;
+export default NameInput;
