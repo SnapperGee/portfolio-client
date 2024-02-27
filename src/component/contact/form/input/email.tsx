@@ -2,12 +2,12 @@ import { InputStyleClasses } from "../../../../constant/contact-form";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 
-interface NameInputProps
+interface EmailInputProps
 {
     readonly name?: string | undefined;
 }
 
-const NameInput: React.FC<NameInputProps> = ({name = "name"}) =>
+const EmailInput: React.FC<EmailInputProps> = ({name = "email"}) =>
 {
     const [ inputValue, setInputValue ] = useState("");
     const inputValueIsBlank = inputValue.length !== 0 && inputValue.trim().length === 0;
@@ -39,4 +39,4 @@ const NameInput: React.FC<NameInputProps> = ({name = "name"}) =>
     );
 }
 
-export default NameInput;
+export default EmailInput;
