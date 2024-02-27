@@ -9,7 +9,7 @@ export default function ContactForm()
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <Input
                         name = "name"
-                        format = {(input) => input.trimStart().replace(/\s{2,}/, "\u0020")}
+                        format = {(input) => input.trimStart().replace(/\s{2,}/g, "\u0020")}
                         predicate = {(input) => input.trim().length !== 0}
                         invalidMessage = "A non-blank name is required."
                     />
@@ -18,7 +18,15 @@ export default function ContactForm()
                         type = "email"
                         format = {(input) => input.trim().toLowerCase()}
                         predicate = {isEmail}
-                        invalidMessage = "Invalid email format."
+                        invalidMessage = "Invalid email."
+                    />
+                    <Input
+                        name = "phoneNumber"
+                        type = "tel"
+                        label = "Phone number"
+                        format = {(input) => input.trim().replace(/\D/g, "")}
+                        predicate = {(input) => input.length >= 7}
+                        invalidMessage = "Invalid phone number. Only numbers are allowed and must be at least 7 digits."
                     />
                 </div>
             </div>
