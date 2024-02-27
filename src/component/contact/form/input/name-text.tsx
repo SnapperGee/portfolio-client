@@ -15,12 +15,11 @@ interface NameTextInputProps
 const NameTextInput: React.FC<NameTextInputProps> = ({name = "name"}) =>
 {
     const [ inputValue, setInputValue ] = useState("");
-    const [ inputValueIsBlank, setInputValueIsBlank ] = useState(false);
+    const inputValueIsBlank = inputValue.length !== 0 && inputValue.trim().length === 0;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     {
         setInputValue(e.currentTarget.value);
-        setInputValueIsBlank(e.currentTarget.value.length !== 0 && e.currentTarget.value.trim().length === 0);
     }
 
     return (
