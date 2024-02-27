@@ -3,7 +3,7 @@
  * @module resume
  */
 
-import { projects } from "./util";
+import { PROJECTS } from "../util/projects";
 import { TECHNOLOGIES } from "../util/technologies";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import { WorkHistory } from "../component/work-history";
@@ -43,7 +43,7 @@ export const Resume = () =>
             <p className="mt-10 mb-3 font-bold text-xl text-gray-200">PROJECTS</p>
             <ul className="mb-14 ms-3 sm:ms-14 min-w-fit space-y-4">
             {
-                projects.map((project, index) =>
+                PROJECTS.map((project, index) =>
                     <li key={index} className="p-4 w-full border bg-gray-600/10 border-gray-600">
                         <p className="font-semibold text-gray-300 text-lg">{project.title}</p>
                         <hr className="h-px my-4 border-0 bg-gray-600"/>
