@@ -1,5 +1,4 @@
 import NameInput from "./input/name";
-import EmailInput from "./input/email";
 
 export default function ContactForm()
 {
@@ -8,7 +7,6 @@ export default function ContactForm()
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <NameInput />
-                    <EmailInput />
                 </div>
             </div>
         </form>
