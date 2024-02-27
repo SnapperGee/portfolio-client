@@ -8,7 +8,7 @@ export default function ContactForm()
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <Input
                         name = "name"
-                        formatter = {(input) =>  input.trimStart().replace(/\s{2,}/, "\u0020")}
+                        format = {(input) =>  input.trimStart().replace(/\s{2,}/, "\u0020")}
                         predicate = {(inputValue) => inputValue.length !== 0 && inputValue.trim().length === 0}
                         invalidMessage = "A non-blank name is required."
                     />
