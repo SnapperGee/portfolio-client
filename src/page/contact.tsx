@@ -327,7 +327,7 @@ export default function Contact()
                                     </label>
                                     <div className="mt-2.5">
                                         <input
-                                            type="text"
+                                            type="email"
                                             name="email"
                                             id="email"
                                             value={email}
