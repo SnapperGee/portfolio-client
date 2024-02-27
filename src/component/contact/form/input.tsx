@@ -1,11 +1,6 @@
+import { StyleClasses } from "../../../constant/contact-form";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
-
-const enum StyleClasses
-{
-    INVALID = "ring-red-700/80 focus:ring-red-700",
-    VALID = "ring-white/10 focus:ring-indigo-500"
-}
 
 interface Props
 {
