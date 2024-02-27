@@ -15,6 +15,7 @@ export default function ContactForm()
                     />
                     <Input
                         name = "email"
+                        type = "email"
                         format = {(input) => input.trim().toLowerCase()}
                         predicate = {isEmail}
                         invalidMessage = "Invalid email format."
