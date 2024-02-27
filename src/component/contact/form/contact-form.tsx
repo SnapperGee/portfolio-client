@@ -1,4 +1,5 @@
 import Input from "./input";
+import isEmail from "validator/lib/isEmail";
 
 export default function ContactForm()
 {
@@ -8,9 +9,15 @@ export default function ContactForm()
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <Input
                         name = "name"
-                        format = {(input) =>  input.trimStart().replace(/\s{2,}/, "\u0020")}
-                        predicate = {(inputValue) => inputValue.length !== 0 && inputValue.trim().length === 0}
+                        format = {(input) => input.trimStart().replace(/\s{2,}/, "\u0020")}
+                        predicate = {(input) => input.trim().length !== 0}
                         invalidMessage = "A non-blank name is required."
+                    />
+                    <Input
+                        name = "email"
+                        format = {(input) => input.trim().toLowerCase()}
+                        predicate = {isEmail}
+                        invalidMessage = "Invalid email format."
                     />
                 </div>
             </div>
