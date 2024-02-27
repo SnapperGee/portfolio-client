@@ -4,7 +4,7 @@
  */
 
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
-import { PROJECTS } from "../util/projects";
+import { PROJECTS } from "../constant/projects";
 
 /**
  * The Portfolio webpage component for showcasing projects I've worked on.

@@ -3,7 +3,7 @@
  * @module work-history
  */
 
-import { EMPLOYMENT_HISTORY } from "../util/employment-history";
+import { EMPLOYMENT_HISTORY } from "../constant/employment-history";
 
 /**
  * The work history section component of the resume. It contains the job title, dates of employment,

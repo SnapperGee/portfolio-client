@@ -3,8 +3,8 @@
  * @module resume
  */
 
-import { PROJECTS } from "../util/projects";
-import { TECHNOLOGIES } from "../util/technologies";
+import { PROJECTS } from "../constant/projects";
+import { TECHNOLOGIES } from "../constant/technologies";
 import { AppGithubIconLinks } from "../component/app-github-icon-links";
 import EmploymentHistory from "../component/employment-history";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
