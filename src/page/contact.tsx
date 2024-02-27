@@ -301,81 +301,73 @@ export default function Contact()
                     </div>
                     <form onSubmit={handleContactFormSubmit(setSendingMessage, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setMsgSentNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-                            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="name" className="block text-sm font-semibold leading-6 text-white">
-                                        Name
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            id="name"
-                                            value={name}
-                                            onChange={handleNameChange}
-                                            className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                        />
-                                        <div className="hidden mt-2 ps-4 text-red-600" id="nameErrorMessage">
-                                            <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                            <p className="inline ps-2 text-sm">A non-blank name is required.</p>
-                                        </div>
+                            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
+                                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-white">
+                                    Name
+                                </label>
+                                <div className="mt-2.5">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        value={name}
+                                        onChange={handleNameChange}
+                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                    />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="nameErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm">A non-blank name is required.</p>
                                     </div>
                                 </div>
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
-                                        Email
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            value={email}
-                                            onChange={handleEmailChange}
-                                            className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                        />
-                                        <div className="hidden mt-2 ps-4 text-red-600" id="emailErrorMessage">
-                                            <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                            <p className="inline ps-2 text-sm"></p>
-                                        </div>
+                                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
+                                    Email
+                                </label>
+                                <div className="mt-2.5">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        value={email}
+                                        onChange={handleEmailChange}
+                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                    />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="emailErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm"></p>
                                     </div>
                                 </div>
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-white">
-                                        Phone number
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="tel"
-                                            name="phoneNumber"
-                                            id="phoneNumber"
-                                            value={phoneNumber}
-                                            onChange={handlePhoneNumberChange}
-                                            className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                        />
-                                        <div className="hidden mt-2 ps-4 text-red-600" id="phoneNumberErrorMessage">
-                                            <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                            <p className="inline ps-2 text-sm"></p>
-                                        </div>
+                                <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-white">
+                                    Phone number
+                                </label>
+                                <div className="mt-2.5">
+                                    <input
+                                        type="tel"
+                                        name="phoneNumber"
+                                        id="phoneNumber"
+                                        value={phoneNumber}
+                                        onChange={handlePhoneNumberChange}
+                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                    />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="phoneNumberErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm"></p>
                                     </div>
                                 </div>
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
-                                        Message
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <textarea
-                                            name="message"
-                                            id="message"
-                                            value={message}
-                                            onChange={handleMessageChange}
-                                            rows={4}
-                                            className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                        />
-                                        <div className="hidden mt-2 ps-4 text-red-600" id="messageErrorMessage">
-                                            <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                            <p className="inline ps-2 text-sm">A non-blank message is required.</p>
-                                        </div>
+                                <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
+                                    Message
+                                </label>
+                                <div className="mt-2.5">
+                                    <textarea
+                                        name="message"
+                                        id="message"
+                                        value={message}
+                                        onChange={handleMessageChange}
+                                        rows={4}
+                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                    />
+                                    <div className="hidden mt-2 ps-4 text-red-600" id="messageErrorMessage">
+                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
+                                        <p className="inline ps-2 text-sm">A non-blank message is required.</p>
                                     </div>
                                 </div>
                             </div>
