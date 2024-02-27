@@ -6,7 +6,7 @@ interface Props
 {
     readonly name: string;
     readonly predicate: (input: string) => boolean;
-    readonly invalidInputMessage: string;
+    readonly invalidMessage: string;
     readonly formatter?: ((input: string) => string) | undefined;
     readonly type?: string | undefined;
     readonly label?: string | undefined;
@@ -14,7 +14,7 @@ interface Props
 
 const defaultInputFormatter = (input: string) => input;
 
-const Input: React.FC<Readonly<Props>> = ({name, predicate, invalidInputMessage, formatter = defaultInputFormatter, type = "text", label = name}) =>
+const Input: React.FC<Readonly<Props>> = ({name, predicate, invalidMessage, formatter = defaultInputFormatter, type = "text", label}) =>
 {
     const [ inputValue, setInputValue ] = useState("");
     const inputValueIsValid = predicate(inputValue);
@@ -22,7 +22,7 @@ const Input: React.FC<Readonly<Props>> = ({name, predicate, invalidInputMessage,
     return (
         <>
             <label htmlFor={name} className={`block${label ? "\u0020" : " capitalize "}text-sm font-semibold leading-6 text-white`}>
-                {label}
+                {label ?? name}
             </label>
             <div className="mt-2.5">
                 <input
@@ -34,7 +34,7 @@ const Input: React.FC<Readonly<Props>> = ({name, predicate, invalidInputMessage,
                 />
                 <div className={`${inputValueIsValid ? "" : "hidden "}mt-2 ps-4 text-red-600`}>
                     <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                    <p className="inline ps-2 text-sm">{invalidInputMessage}</p>
+                    <p className="inline ps-2 text-sm">{invalidMessage}</p>
                 </div>
             </div>
         </>
