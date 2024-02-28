@@ -1,4 +1,5 @@
 import Input from "./input";
+import MessageTextarea from "./message-textarea";
 import isEmail from "validator/lib/isEmail";
 
 export default function ContactForm()
@@ -28,6 +29,7 @@ export default function ContactForm()
                         predicate = {(input) => input.length >= 7}
                         invalidMessage = "Invalid phone number. Only numbers are allowed and must be at least 7 digits."
                     />
+                    <MessageTextarea />
                 </div>
             </div>
         </form>
