@@ -1,9 +1,13 @@
 import Input from "./input";
 import MessageTextarea from "./message-textarea";
+import SubmitButton from "./submit-button";
 import isEmail from "validator/lib/isEmail";
+import { useState } from "react";
 
 export default function ContactForm()
 {
+    const [ pending, setPending ] = useState(false);
+
     return (
         <form className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -32,6 +36,7 @@ export default function ContactForm()
                     />
                     <MessageTextarea />
                 </div>
+                <SubmitButton pending={pending} />
             </div>
         </form>
     );
