@@ -2,7 +2,7 @@ import { StyleClasses } from "../../../constant/contact-form";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 
-interface Props
+interface InputProps
 {
     readonly name: string;
     readonly predicate: (input: string) => boolean;
@@ -15,7 +15,7 @@ interface Props
 
 const defaultInputFormatter = (input: string) => input;
 
-const Input: React.FC<Readonly<Props>> = ({
+const Input: React.FC<Readonly<InputProps>> = ({
     name,
     predicate,
     invalidMessage,
