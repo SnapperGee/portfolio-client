@@ -13,6 +13,7 @@ export default function ContactForm()
                         format = {(input) => input.trimStart().replace(/\s{2,}/g, "\u0020")}
                         predicate = {(input) => input.trim().length !== 0}
                         invalidMessage = "A non-blank name is required."
+                        required
                     />
                     <Input
                         name = "email"
