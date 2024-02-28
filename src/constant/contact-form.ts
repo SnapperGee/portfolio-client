@@ -4,4 +4,9 @@ export const enum StyleClasses
     VALID = "ring-white/10 focus:ring-indigo-500"
 }
 
-export default StyleClasses;
+export const enum FormStatus
+{
+    ACTIVE = "active",
+    INACTIVE = "inactive",
+    PENDING = "pending"
+}
