@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const NAME = "message";
 
-export default function MessageTextarea({validState, setValidState}: {validState: boolean | null, setValidState: (validState: boolean | null) => void})
+export default function MessageTextarea({validState, setValidState, invalidMessage}: {validState: boolean | null, setValidState: (validState: boolean | null) => void, invalidMessage: string})
 {
     const [ inputValue, setInputValue ] = useState("");
 
@@ -31,7 +31,7 @@ export default function MessageTextarea({validState, setValidState}: {validState
                     validState === false &&
                     <div className="mt-2 ps-4 text-red-600">
                         <ExclamationTriangleIcon className="inline-block size-5" aria-hidden="true" />
-                        <p className="inline ps-2 text-xs">A non-blank message is required.</p>
+                        <p className="inline ps-2 text-xs">{invalidMessage}</p>
                     </div>
                 }
             </div>
