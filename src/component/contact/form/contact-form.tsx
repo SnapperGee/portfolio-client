@@ -56,7 +56,7 @@ export default function ContactForm()
                 </div>
                 <p className="text-gray-400 text-xs mt-2">
                     - fields marked with asterisk (*) required.<br/>
-                    - at least an email or phone number is required.
+                    - an email or phone number is required.
                 </p>
                 <SubmitButton active={submitBtnActiveState}/>
             </div>
