@@ -2,7 +2,7 @@ import Input from "./input";
 import MessageTextarea from "./message-textarea";
 import SubmitButton from "./submit-button";
 import isEmail from "validator/lib/isEmail";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ContactForm()
 {
@@ -10,6 +10,12 @@ export default function ContactForm()
     const [ emailValidState, setEmailValidState ] = useState<boolean | null>(null);
     const [ phoneNumberValidState, setPhoneNumberValidState ] = useState<boolean | null>(null);
     const [ messageValidState, setMessageValidState ] = useState<boolean | null>(null);
+    const [submitBtnActiveState, setSubmitBtnActiveState] = useState<boolean | null>(false);
+
+    useEffect(() => {
+        setSubmitBtnActiveState(( nameValidState && messageValidState && (emailValidState || phoneNumberValidState) ) ?? false)
+    },
+    [nameValidState, emailValidState, phoneNumberValidState, messageValidState]);
 
     return (
         <form className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
@@ -53,7 +59,7 @@ export default function ContactForm()
                     - fields marked with asterisk (*) required.<br/>
                     - at least an email or phone number is required.
                 </p>
-                <SubmitButton disabled={false}/>
+                <SubmitButton active={submitBtnActiveState}/>
             </div>
         </form>
     );
