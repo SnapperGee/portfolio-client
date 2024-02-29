@@ -11,6 +11,11 @@ export default function ContactForm()
     const [ phoneNumberValidState, setPhoneNumberValidState ] = useState(null);
     const [ messageValidState, setMessageValidState ] = useState(null);
 
+    const [ nameIsValid, setNameIsValid ] = useState(false);
+    const [ emailIsValid, setEmailIsValid ] = useState(false);
+    const [ phoneNumberIsValid, setPhoneNumberIsValid ] = useState(false);
+    const [ messageIsValid, setMessageIsValid ] = useState(false);
+
     return (
         <form className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
