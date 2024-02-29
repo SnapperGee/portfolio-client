@@ -33,7 +33,6 @@ export default function ContactForm()
                     <Input
                         validState = {emailValidState}
                         name = "email"
-                        type = "email"
                         setValidState = {setEmailValidState}
                         format = {(input) => input.trim().toLowerCase()}
                         predicate = {isEmail}
