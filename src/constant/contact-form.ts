@@ -1,9 +1,3 @@
-export const enum FormState
-{
-    INVALID = "invalid",
-    VALID = "valid"
-}
-
 export const enum StyleClasses
 {
     EMPTY = "ring-white/10 focus:ring-indigo-500",

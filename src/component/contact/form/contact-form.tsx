@@ -1,4 +1,3 @@
-import { FormState } from "../../../constant/contact-form";
 import Input from "./input";
 import MessageTextarea from "./message-textarea";
 import SubmitButton from "./submit-button";
@@ -17,7 +16,7 @@ export default function ContactForm()
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <Input
-                        state = {nameState}
+                        valid = {nameState}
                         name = "name"
                         format = {(input) => input.trimStart().replace(/\s{2,}/g, "\u0020")}
                         predicate = {(input) => input.trim().length !== 0}
@@ -25,7 +24,7 @@ export default function ContactForm()
                         required
                     />
                     <Input
-                        state = {emailState}
+                        valid = {emailState}
                         name = "email"
                         type = "email"
                         format = {(input) => input.trim().toLowerCase()}
@@ -33,7 +32,7 @@ export default function ContactForm()
                         invalidMessage = "Invalid email."
                     />
                     <Input
-                        state = {phoneNumberState}
+                        valid = {phoneNumberState}
                         name = "phoneNumber"
                         type = "tel"
                         label = "Phone number"
