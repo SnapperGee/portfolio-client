@@ -1,11 +1,12 @@
-import { StyleClasses } from "../../../constant/contact-form";
+import { FormState, StyleClasses } from "../../../constant/contact-form";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface InputProps
 {
     readonly name: string;
     readonly predicate: (input: string) => boolean;
+    readonly state: FormState | null;
     readonly invalidMessage: string;
     readonly format?: ((input: string) => string) | undefined;
     readonly type?: string | undefined;
@@ -16,6 +17,7 @@ interface InputProps
 const defaultInputFormatter = (input: string) => input;
 
 const Input: React.FC<Readonly<InputProps>> = ({
+    state,
     name,
     predicate,
     invalidMessage,
@@ -26,8 +28,24 @@ const Input: React.FC<Readonly<InputProps>> = ({
 }) =>
 {
     const [ inputValue, setInputValue ] = useState("");
-    const inputValueIsEmpty = inputValue.length === 0;
-    const inputValueIsValid = predicate(inputValue);
+    const [ status, setStatus ] = useState(state);
+
+    const inputIsValid = predicate(inputValue);
+
+    useEffect(() => {
+        if (inputValue.length === 0)
+        {
+            setStatus(null);
+        }
+        else if (inputIsValid)
+        {
+            setStatus(FormState.VALID);
+        }
+        else
+        {
+            setStatus(FormState.INVALID);
+        }
+    }, [inputValue, inputIsValid]);
 
     return (
         <>
@@ -41,10 +59,10 @@ const Input: React.FC<Readonly<InputProps>> = ({
                     id={name}
                     value={inputValue}
                     onChange={(e) => setInputValue(format(e.currentTarget.value))}
-                    className={`block w-full rounded-md border-0 ${inputValueIsEmpty ? StyleClasses.EMPTY : inputValueIsValid ? StyleClasses.VALID : StyleClasses.INVALID } bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6`}
+                    className={`block w-full rounded-md border-0 ${status === FormState.VALID ? StyleClasses.VALID : status === FormState.INVALID ? StyleClasses.INVALID : StyleClasses.EMPTY} bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6`}
                     required={required}
                 />
-                <div className={`${inputValueIsEmpty || inputValueIsValid ? "hidden " : ""}mt-2 ps-4 text-red-600`}>
+                <div className={`${status !== FormState.INVALID ? "hidden " : ""}mt-2 ps-4 text-red-600`}>
                     <ExclamationTriangleIcon className="inline-block size-5" aria-hidden="true" />
                     <p className="inline ps-2 text-xs">{invalidMessage}</p>
                 </div>
