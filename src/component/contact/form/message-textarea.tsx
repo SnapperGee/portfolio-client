@@ -25,7 +25,7 @@ export default function MessageTextarea({valid}: {valid: boolean | null})
     return (
         <>
             <label htmlFor={NAME} className="block text-sm font-semibold leading-6 text-white">
-                Message
+                Message<sup className="ms-0.5">*</sup>
             </label>
             <div>
                 <textarea

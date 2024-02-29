@@ -11,6 +11,7 @@ interface InputProps
     readonly format?: ((input: string) => string) | undefined;
     readonly type?: string | undefined;
     readonly label?: string | undefined;
+    readonly subLabel?: string | undefined;
     readonly required?: boolean | undefined;
 }
 
@@ -24,6 +25,7 @@ const Input: React.FC<Readonly<InputProps>> = ({
     format = defaultInputFormatter,
     type = "text",
     label = name.charAt(0).toUpperCase() + name.substring(1),
+    subLabel,
     required = false
 }) =>
 {
@@ -46,7 +48,7 @@ const Input: React.FC<Readonly<InputProps>> = ({
     return (
         <>
             <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
-                {label ?? name}
+                {label ?? name}{required && <sup className="ms-0.5">*</sup>}{subLabel && <span className="text-xs text-gray-400">{subLabel}</span>}
             </label>
             <div>
                 <input
