@@ -5,7 +5,7 @@ export const enum StyleClasses
     VALID = "ring-green-700/60 focus:ring-green-600/80"
 }
 
-export const enum FormStatus
+export enum FormStatus
 {
     ACTIVE = "active",
     INACTIVE = "inactive",
