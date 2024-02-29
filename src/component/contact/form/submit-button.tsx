@@ -1,16 +1,17 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import { FormStatus } from "../../../constant/contact-form";
 
-export default function SubmitButton({formStatus}: {formStatus: typeof FormStatus[keyof typeof FormStatus]})
+export default function SubmitButton()
 {
+    const rand = Math.random() >= 0.5;
+
     return (
         <div className="mt-8 flex justify-end">
             <button
                 type="submit"
-                className={`flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${formStatus === FormStatus.PENDING ? "cursor-wait": "hover:bg-indigo-400"}`} disabled={formStatus === FormStatus.PENDING || formStatus === FormStatus.INACTIVE ? true : false}
+                className={`flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${rand ? "cursor-wait": "hover:bg-indigo-400"}`} disabled={false}
             >
             {
-                formStatus === FormStatus.PENDING
+                rand
                 ? <>
                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

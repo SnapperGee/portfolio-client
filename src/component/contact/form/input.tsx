@@ -34,7 +34,7 @@ const Input: React.FC<Readonly<InputProps>> = ({
             <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
                 {label ?? name}
             </label>
-            <div className="mt-2.5">
+            <div>
                 <input
                     type={type}
                     name={name}

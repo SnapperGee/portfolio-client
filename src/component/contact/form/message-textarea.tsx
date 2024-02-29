@@ -15,7 +15,7 @@ export default function MessageTextarea()
             <label htmlFor={NAME} className="block text-sm font-semibold leading-6 text-white">
                 Message
             </label>
-            <div className="mt-2.5">
+            <div>
                 <textarea
                     name={NAME}
                     id={NAME}
