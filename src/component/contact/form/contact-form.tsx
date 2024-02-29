@@ -4,7 +4,7 @@ import SubmitButton from "./submit-button";
 import isEmail from "validator/lib/isEmail";
 import { useState, useEffect } from "react";
 
-export default function ContactForm()
+export default function ContactForm({onSubmit}: {onSubmit: (event: React.FormEvent<HTMLFormElement>) => void})
 {
     const [ nameValidState, setNameValidState ] = useState<boolean | null>(null);
     const [ emailValidState, setEmailValidState ] = useState<boolean | null>(null);
@@ -18,7 +18,7 @@ export default function ContactForm()
     [nameValidState, emailValidState, phoneNumberValidState, messageValidState]);
 
     return (
-        <form className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
+        <form onSubmit={onSubmit} className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <Input
