@@ -3,7 +3,7 @@ import { StyleClasses } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
 
-export default function MessageTextarea(
+export default function Textarea(
     {
         name,
         value,

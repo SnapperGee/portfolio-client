@@ -1,6 +1,6 @@
 import handleContactFormSubmit from "./handle-contact-form-submit";
 import Input from "./input";
-import MessageTextarea from "./message-textarea";
+import Textarea from "./textarea";
 import SubmitButton from "./submit-button";
 import { InputPredicate, FormFieldName } from "./util";
 import { useState, useEffect } from "react";
@@ -108,7 +108,7 @@ export default function ContactForm(
                         predicate = {InputPredicate.phoneNumber}
                         invalidMessage = "Invalid phone number. Only numbers are allowed and must be at least 7 digits."
                     />
-                    <MessageTextarea
+                    <Textarea
                         name = {FormFieldName.MESSAGE}
                         value = {messageValue}
                         setValue = {setMessageValue}
