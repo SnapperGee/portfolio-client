@@ -35,15 +35,17 @@ export default function ContactForm(
         <form
             className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off"
             onSubmit={async (event) => {
+                event.preventDefault();
+
+                setSubmitButtonActiveState(null);
+
                 const wasSuccessful = await handleContactFormSubmit({
-                    event,
-                    setSubmitButtonActiveState,
+                    formElement: event.currentTarget,
                     setNameValidState,
                     setEmailValidState,
                     setPhoneNumberValidState,
                     setMessageValidState,
-                    setMessageSentSuccess,
-                    setShowSentMessageNotificationModal
+                    setMessageSentSuccess
                 });
 
                 if (wasSuccessful)
@@ -59,7 +61,15 @@ export default function ContactForm(
 
                     setMessageValue("");
                     setMessageValidState(null);
+
+                    setSubmitButtonActiveState(false);
                 }
+
+                setSubmitButtonActiveState(true);
+
+                setShowSentMessageNotificationModal(true);
+
+                setTimeout(() => setShowSentMessageNotificationModal(false), 6000);
             }}
         >
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">

@@ -1,29 +1,23 @@
 import { FormFieldName } from "./util";
 
 export default async function handleContactFormSubmit( {
-    event,
-    setSubmitButtonActiveState,
+    formElement,
     setNameValidState,
     setEmailValidState,
     setPhoneNumberValidState,
     setMessageValidState,
     setMessageSentSuccess,
-    setShowSentMessageNotificationModal
 }:
     {
-        event: React.FormEvent<HTMLFormElement>,
-        setSubmitButtonActiveState: (submitButtonActiveState: boolean | null ) => void,
+        formElement: HTMLFormElement,
         setNameValidState: (nameValidState: boolean | boolean) => void,
         setEmailValidState: (emailValidState: boolean | boolean) => void,
         setPhoneNumberValidState: (phoneNumberValidState: boolean | boolean) => void,
         setMessageValidState: (nameMessageState: boolean | boolean) => void,
-        setMessageSentSuccess: (messageSentSuccess: boolean | null) => void,
-        setShowSentMessageNotificationModal: (showSentMessageNotificationModal: boolean) => void
+        setMessageSentSuccess: (messageSentSuccess: boolean | null) => void
     }) : Promise<boolean>
 {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(formElement);
 
     const formattedName = formData.get(FormFieldName.NAME)?.toString().trim().replace(/\s+/g, "\u0020");
 
@@ -62,8 +56,6 @@ export default async function handleContactFormSubmit( {
 
     if (formattedName && formattedMessage && (formattedEmail || formattedPhoneNumber))
     {
-        setSubmitButtonActiveState(null);
-
         const res = await fetch("/api/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -84,20 +76,11 @@ export default async function handleContactFormSubmit( {
         {
             setMessageSentSuccess(null);
         }
-
-        setSubmitButtonActiveState(false);
     }
     else
     {
         setMessageSentSuccess(false);
     }
-
-    setShowSentMessageNotificationModal(true);
-
-    setTimeout(
-        () => setShowSentMessageNotificationModal(false),
-        6000
-    );
 
     return success;
 }
