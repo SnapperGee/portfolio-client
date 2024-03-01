@@ -4,6 +4,7 @@ import Textarea from "./textarea";
 import SubmitButton from "./submit-button";
 import { InputPredicate, FormFieldName } from "./util";
 import { useState, useEffect } from "react";
+import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 
 export default function ContactForm(
     {
@@ -117,10 +118,20 @@ export default function ContactForm(
                         invalidMessage = "A non-blank message is required."
                     />
                 </div>
-                <p className="text-gray-400 text-xs mt-2">
-                    - an email or phone number is required.
-                </p>
-                <SubmitButton active={submitBtnActiveState}/>
+                <div className="mt-8 w-full ps-8 flex justify-between items-center">
+                    <ul>
+                        <li className={`text-sm ${nameValidState ? "text-green-500/80" : "text-red-500/80"}`}>
+                            {nameValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} name required.
+                        </li>
+                        <li className={`text-sm ${emailValidState || phoneNumberValidState ? "text-green-500/80" : "text-red-500/80"}`}>
+                            {emailValidState || phoneNumberValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} email or phone number required.
+                        </li>
+                        <li className={`text-sm ${messageValidState ? "text-green-500/80" : "text-red-500/80"}`}>
+                            {messageValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} message required.
+                        </li>
+                    </ul>
+                    <SubmitButton active={submitBtnActiveState}/>
+                </div>
             </div>
         </form>
     );

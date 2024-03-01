@@ -11,23 +11,21 @@ const Spinner = () =>
 export default function SubmitButton({active}: {active: boolean | null})
 {
     return (
-        <div className="mt-8 flex justify-end">
-            <button
-                type="submit"
-                className={`flex items-center gap-x-1.5 rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${active ? "bg-indigo-500 hover:bg-indigo-400 " : active === false ? "cursor-default bg-gray-500" : "cursor-wait bg-indigo-500"}`} disabled={ ! active ?? true}
-            >
-            {
-                active === null
-                ? <>
-                        <Spinner />
-                        <span className="animate-pulse">Sending...</span>
-                    </>
-                : <>
-                    <EnvelopeIcon className="-ml-0.5 size-5" aria-hidden="true" />
-                    Send message
+        <button
+            type="submit"
+            className={`flex items-center gap-x-1.5 rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${active ? "bg-indigo-500 hover:bg-indigo-400 " : active === false ? "cursor-default bg-gray-500" : "cursor-wait bg-indigo-500"}`} disabled={ ! active ?? true}
+        >
+        {
+            active === null
+            ? <>
+                    <Spinner />
+                    <span className="animate-pulse">Sending...</span>
                 </>
-            }
-            </button>
-        </div>
+            : <>
+                <EnvelopeIcon className="-ml-0.5 size-5" aria-hidden="true" />
+                Send message
+            </>
+        }
+        </button>
     );
 }
