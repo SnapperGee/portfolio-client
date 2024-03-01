@@ -29,7 +29,7 @@ export default function ContactForm(
     useEffect(() => {
         setSubmitButtonActiveState(( nameValidState && messageValidState && (emailValidState || phoneNumberValidState) ) ?? false)
     },
-    [nameValidState, emailValidState, phoneNumberValidState, messageValidState]);
+    [submitBtnActiveState, nameValidState, emailValidState, phoneNumberValidState, messageValidState]);
 
     return (
         <form
