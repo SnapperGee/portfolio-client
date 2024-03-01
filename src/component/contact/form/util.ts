@@ -15,7 +15,7 @@ export const enum StyleClasses
     VALID = "ring-green-700/60 focus:ring-green-600/80"
 }
 
-export function namePredicate(aString: string): boolean { return aString.length !== 0; }
+export function namePredicate(aString: string): boolean { return aString.trim().length !== 0; }
 
 export function emailPredicate(aString: string): boolean { return aString.length !== 0 && isEmail(aString); }
 
