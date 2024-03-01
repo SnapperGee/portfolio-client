@@ -8,7 +8,6 @@ import { Error } from "./page/error";
 import { About } from "./page/about";
 import { Portfolio } from "./page/portfolio";
 import Contact from "./page/contact";
-import ContactNew from "./page/contact-new";
 import { Resume } from "./page/resume";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -32,10 +31,6 @@ export const router = createBrowserRouter([
         {
           path: "contact",
           element: <Contact />,
-        },
-        {
-          path: "contactnew",
-          element: <ContactNew />,
         },
         {
           path: "resume",
