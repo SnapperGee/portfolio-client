@@ -118,7 +118,7 @@ export default function ContactForm(
                         invalidMessage = "A non-blank message is required."
                     />
                 </div>
-                <div className="mt-8 w-full ps-8 flex justify-between items-center">
+                <div className="mt-8 w-full lg:ps-7 flex justify-between items-center">
                     <ul>
                         <li className={`text-sm ${nameValidState ? "text-green-500/80" : "text-red-500/80"}`}>
                             {nameValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} name required.
