@@ -42,7 +42,7 @@ const Input: React.FC<Readonly<InputProps>> = ({
     return (
         <>
             <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
-                {label ?? name}{required && <sup className="ms-0.5">*</sup>}{subLabel && <span className="text-xs text-gray-400">{subLabel}</span>}
+                {label ?? name}{subLabel && <span className="text-xs text-gray-400">{subLabel}</span>}
             </label>
             <div>
                 <input

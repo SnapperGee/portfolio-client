@@ -28,7 +28,7 @@ export default function MessageTextarea(
     return (
         <>
             <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
-                Message<sup className="ms-0.5">*</sup>
+                Message
             </label>
             <div>
                 <textarea
