@@ -3,7 +3,7 @@
  * @module contact
  */
 
-import SubmitResultModal from "../component/contact/submit-result-modal";
+import SubmitResultNotificationModal from "../component/contact/submit-result-notification-modal";
 import { EnvelopeIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import isEmail from "validator/lib/isEmail";
@@ -395,7 +395,7 @@ export default function Contact()
                     </form>
                 </div>
             </div>
-            <SubmitResultModal
+            <SubmitResultNotificationModal
                 header={sentMsgNotificationHeader}
                 body={msgSentNotificationBody}
                 success={sentMsgNotificationIcon}

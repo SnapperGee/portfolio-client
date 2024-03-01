@@ -3,7 +3,7 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-export default function SubmitResultModal({header, body, success, show, setShow}: {header: string, body: string, success: boolean, show: boolean, setShow: (show: boolean) => void})
+export default function SubmitResultNotificationModal({header, body, success, show, setShow}: {header: string, body: string, success: boolean, show: boolean, setShow: (show: boolean) => void})
 {
     return (
         <div
