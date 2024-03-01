@@ -3,7 +3,7 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-export default function SubmitResultNotificationModal({header, body, success, show, setShow}: {header: string, body: string, success: boolean, show: boolean, setShow: (show: boolean) => void})
+export default function SentMessageNotificationModal({success, show, setShow}: {success: boolean | null, show: boolean, setShow: (show: boolean) => void})
 {
     return (
         <div
@@ -32,8 +32,14 @@ export default function SubmitResultNotificationModal({header, body, success, sh
                                 }
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
-                                    <p className="text-sm font-medium text-gray-900">{header}</p>
-                                    <p className="mt-1 text-sm text-gray-400">{body}</p>
+                                    <p className="text-sm font-medium text-gray-900">{success ? "Message sent" : "Unable to send message"}</p>
+                                    <p className="mt-1 text-sm text-gray-400">
+                                        {
+                                              success ? "Your message has been successfully sent."
+                                            : success === false ? "Please ensure that all required message form fields are filled out correctly and try again."
+                                            : "Your message could not be sent. Please try again later."
+                                        }
+                                    </p>
                                 </div>
                                 <div className="ml-4 flex flex-shrink-0">
                                     <button

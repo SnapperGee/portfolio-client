@@ -3,205 +3,10 @@
  * @module contact
  */
 
-import SubmitResultNotificationModal from "../component/contact/submit-result-notification-modal";
-import { EnvelopeIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import ContactForm from "../component/contact/form/contact-form";
+import SentMessageNotificationModal from "../component/contact/sent-message-notification-modal";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import isEmail from "validator/lib/isEmail";
-
-/**
- * Contains the error messages displayed in the contact form when the user enters invalid input.
- */
-const enum ErrorMessageText
-{
-    MISSING_EMAIL = "A non-blank email address is required if no phone number is provided.",
-    EMAIL_FORMAT = 'Email in the format of "address@domain.com" expected.',
-    MISSING_PHONE_NUMBER = "A non-blank phone number is required if no email address is provided.",
-    PHONE_NUMBER_FORMAT = "Only digit characters expected."
-}
-
-/**
- * Event handler for when the contact form is submitted.
- *
- * @param setSendingMessage Used to set the flag that indicates whether or not the contact form submission is processing.
- *
- * @param setSentMsgNotificationIcon Sets the icon of the notification panel that appears indicating if the message
- *                                   transmission from contact form submission is successful or fails.
- *
- * @param setSentMsgNotificationHeader Sets the header title text of the notification panel that appears indicating if
- *                                     the message transmission from contact form submission is successful or fails.
- *
- * @param setSentMsgNotificationBody Sets the body text of the notification panel that appears indicating if the message
- *                                   transmission from contact form submission is successful or fails.
- *
- * @param showMsgSentNotification
- *
- * @returns `void`
- */
-const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
-                                  setSentMsgNotificationIcon: (arg: boolean) => void,
-                                  setSentMsgNotificationHeader: (arg: string) => void,
-                                  setSentMsgNotificationBody: (arg: string) => void,
-                                  showMsgSentNotification: (arg: boolean) => void ) =>
-{
-    return async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
-        event.preventDefault();
-
-        const form = new FormData(event.currentTarget);
-
-        const formattedName = form.get("name")?.toString().trim().replace(/\s+/g, "\u0020");
-        const nameInput = event.currentTarget.querySelector<HTMLInputElement>("#name");
-        const nameErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#nameErrorMessage");
-
-        if (formattedName === undefined || formattedName.length === 0)
-        {
-            nameInput?.classList.replace("ring-1", "ring-2");
-            nameInput?.classList.add("ring-red-600/80");
-            nameErrMsg?.classList.remove("hidden");
-        }
-        else
-        {
-            nameInput?.classList.replace("ring-2", "ring-1");
-            nameInput?.classList.remove("ring-red-600/80");
-            nameErrMsg?.classList.add("hidden");
-        }
-
-        const emailInputValue = form.get("email")?.toString();
-        const phoneNumberInputValue = form.get("phoneNumber")?.toString();
-        const emailInput = event.currentTarget.querySelector<HTMLInputElement>("#email");
-        const phoneNumberInput = event.currentTarget.querySelector<HTMLInputElement>("#phoneNumber");
-        const emailErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#emailErrorMessage");
-        const phoneNumberErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#phoneNumberErrorMessage");
-        const emailErrMsgParagraph = emailErrMsg?.querySelector("p");
-        const phoneNumberErrMsgParagraph = phoneNumberErrMsg?.querySelector("p");
-
-        const formattedEmail = emailInputValue?.toLowerCase().trim();
-        const formattedPhoneNumber = phoneNumberInputValue?.replace(/\D/g, "");
-
-        if (emailInputValue?.length === 0 && phoneNumberInputValue?.length === 0)
-        {
-            emailInput?.classList.replace("ring-1", "ring-2");
-            emailInput?.classList.add("ring-red-600/80");
-            phoneNumberInput?.classList.replace("ring-1", "ring-2");
-            phoneNumberInput?.classList.add("ring-red-600/80");
-            emailErrMsgParagraph!.textContent = ErrorMessageText.MISSING_EMAIL;
-            phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.MISSING_PHONE_NUMBER;
-            emailErrMsg?.classList.remove("hidden");
-            phoneNumberErrMsg?.classList.remove("hidden");
-        }
-        else
-        {
-            if (formattedEmail?.length !== 0)
-            {
-                if (formattedEmail === undefined || ! isEmail(formattedEmail))
-                {
-                    emailInput?.classList.replace("ring-1", "ring-2");
-                    emailInput?.classList.add("ring-red-600/80");
-                    emailErrMsgParagraph!.textContent = ErrorMessageText.EMAIL_FORMAT;
-                    emailErrMsg?.classList.remove("hidden");
-                }
-                else
-                {
-                    emailInput?.classList.replace("ring-2", "ring-1");
-                    emailInput?.classList.remove("ring-red-600/80");
-                    emailErrMsg?.classList.add("hidden");
-                    emailErrMsgParagraph!.textContent = "";
-                }
-            }
-            else
-            {
-                emailInput?.classList.replace("ring-2", "ring-1");
-                emailInput?.classList.remove("ring-red-600/80");
-                emailErrMsg?.classList.add("hidden");
-                emailErrMsgParagraph!.textContent = "";
-            }
-
-            if (formattedPhoneNumber?.length !== 0)
-            {
-                if (formattedPhoneNumber === undefined || /^.*\D.*$/g.test(formattedPhoneNumber))
-                {
-                    phoneNumberInput?.classList.replace("ring-1", "ring-2");
-                    phoneNumberInput?.classList.add("ring-red-600/80");
-                    phoneNumberErrMsgParagraph!.textContent = ErrorMessageText.PHONE_NUMBER_FORMAT;
-                    phoneNumberErrMsg?.classList.remove("hidden");
-                }
-                else
-                {
-                    phoneNumberInput?.classList.replace("ring-2", "ring-1");
-                    phoneNumberInput?.classList.remove("ring-red-600/80");
-                    phoneNumberErrMsg?.classList.add("hidden");
-                    phoneNumberErrMsgParagraph!.textContent = "";
-                }
-            }
-            else
-            {
-                phoneNumberInput?.classList.replace("ring-2", "ring-1");
-                phoneNumberInput?.classList.remove("ring-red-600/80");
-                phoneNumberErrMsg?.classList.add("hidden");
-                phoneNumberErrMsgParagraph!.textContent = "";
-            }
-        }
-
-        const formattedMessage = form.get("message")?.toString().trim();
-        const messageInput = event.currentTarget.querySelector<HTMLTextAreaElement>("#message");
-        const msgErrMsg = event.currentTarget.querySelector<HTMLDivElement>("#messageErrorMessage");
-
-        if (formattedMessage === undefined || formattedMessage.length === 0)
-        {
-            messageInput?.classList.replace("ring-1", "ring-2");
-            messageInput?.classList.add("ring-red-600/80");
-            msgErrMsg?.classList.remove("hidden");
-        }
-        else
-        {
-            messageInput?.classList.replace("ring-2", "ring-1");
-            messageInput?.classList.remove("ring-red-600/80");
-            msgErrMsg?.classList.add("hidden");
-        }
-
-        if (formattedName && formattedMessage && (formattedEmail || formattedPhoneNumber))
-        {
-            setSendingMessage(true);
-
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: formattedName,
-                    email: formattedEmail,
-                    phoneNumber: formattedPhoneNumber,
-                    message: formattedMessage
-                })
-            });
-
-            if (res.ok && res.status === 200)
-            {
-                setSentMsgNotificationIcon(true);
-                setSentMsgNotificationHeader("Message sent");
-                setSentMsgNotificationBody("Your message has been successfully sent.");
-            }
-            else
-            {
-                setSentMsgNotificationIcon(false);
-                setSentMsgNotificationHeader("Unable to send message");
-                setSentMsgNotificationBody("Your message could not be sent. Please try again later.");
-            }
-
-            setSendingMessage(false);
-        }
-        else
-        {
-            setSentMsgNotificationIcon(false);
-            setSentMsgNotificationHeader("Message is missing required fields");
-            setSentMsgNotificationBody("Please ensure that all required message form fields are filled out correctly and try again.");
-        }
-
-        showMsgSentNotification(true);
-
-        setTimeout(
-            () => showMsgSentNotification(false),
-            6000);
-    };
-};
 
 /**
  * Contact webpage component. Contains a form that can be used to contact me.
@@ -210,33 +15,8 @@ const handleContactFormSubmit = ( setSendingMessage: (arg: boolean) => void,
  */
 export default function Contact()
 {
-    const [sendingMessage, setSendingMessage] = useState(false);
-
-    // Sets contents of contact form submission notification panel
-    const [sentMsgNotificationIcon, setSentMsgNotificationIcon] = useState(true);
-    const [sentMsgNotificationHeader, setSentMsgNotificationHeader] = useState("");
-    const [msgSentNotificationBody, setMsgSentNotificationBody] = useState("");
-
-    // State for contact form inputs
-    const [ name, setName ] = useState("");
-    const [ email, setEmail ] = useState("");
-    const [ phoneNumber, setPhoneNumber ] = useState("");
-    const [ message, setMessage ] = useState("");
-
-    // Visibility state for contact form submission notification panel
-    const [show, setShow] = useState(false);
-
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setName(event.currentTarget.value);
-
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setEmail(event.currentTarget.value.trim().toLowerCase());
-
-    const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setPhoneNumber(event.currentTarget.value.trim().replace(/\D/g, ""));
-
-    const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
-        setMessage(event.currentTarget.value);
+    const [messageSentSuccess, setMessageSentSuccess] = useState<boolean | null>(false);
+    const [showSentMessageNotificationModal, setShowSentMessageNotificationModal] = useState(false);
 
     return (
         <>
@@ -298,109 +78,16 @@ export default function Contact()
                             </dl>
                         </div>
                     </div>
-                    <form onSubmit={handleContactFormSubmit(setSendingMessage, setSentMsgNotificationIcon, setSentMsgNotificationHeader, setMsgSentNotificationBody, setShow)} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" autoComplete="off">
-                        <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-                            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
-                                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-white">
-                                    Name
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        value={name}
-                                        onChange={handleNameChange}
-                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                    />
-                                    <div className="hidden mt-2 ps-4 text-red-600" id="nameErrorMessage">
-                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                        <p className="inline ps-2 text-sm">A non-blank name is required.</p>
-                                    </div>
-                                </div>
-                                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
-                                    Email
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        value={email}
-                                        onChange={handleEmailChange}
-                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                    />
-                                    <div className="hidden mt-2 ps-4 text-red-600" id="emailErrorMessage">
-                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                        <p className="inline ps-2 text-sm"></p>
-                                    </div>
-                                </div>
-                                <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-white">
-                                    Phone number
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        type="tel"
-                                        name="phoneNumber"
-                                        id="phoneNumber"
-                                        value={phoneNumber}
-                                        onChange={handlePhoneNumberChange}
-                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                    />
-                                    <div className="hidden mt-2 ps-4 text-red-600" id="phoneNumberErrorMessage">
-                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                        <p className="inline ps-2 text-sm"></p>
-                                    </div>
-                                </div>
-                                <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
-                                    Message
-                                </label>
-                                <div className="mt-2.5">
-                                    <textarea
-                                        name="message"
-                                        id="message"
-                                        value={message}
-                                        onChange={handleMessageChange}
-                                        rows={4}
-                                        className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                                    />
-                                    <div className="hidden mt-2 ps-4 text-red-600" id="messageErrorMessage">
-                                        <ExclamationTriangleIcon className="inline-block h-5" aria-hidden="true" />
-                                        <p className="inline ps-2 text-sm">A non-blank message is required.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mt-8 flex justify-end">
-                                <button
-                                    type="submit"
-                                    className={`flex items-center gap-x-1.5 rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${sendingMessage ? "cursor-wait": "hover:bg-indigo-400"}`} disabled={sendingMessage ? true : false}
-                                >
-                                {
-                                    sendingMessage
-                                    ? <>
-                                          <svg className="animate-spin -ml-1 mr-3 size-5 text-white" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                          </svg>
-                                          <span className="animate-pulse">Sending...</span>
-                                      </>
-                                    : <>
-                                          <EnvelopeIcon className="-ml-0.5 size-5" aria-hidden="true" />
-                                          Send message
-                                      </>
-                                }
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <ContactForm
+                        setMessageSentSuccess = {setMessageSentSuccess}
+                        setShowSentMessageNotificationModal = {setShowSentMessageNotificationModal}
+                    />
                 </div>
             </div>
-            <SubmitResultNotificationModal
-                header={sentMsgNotificationHeader}
-                body={msgSentNotificationBody}
-                success={sentMsgNotificationIcon}
-                show={show}
-                setShow={setShow}
+            <SentMessageNotificationModal
+                success={messageSentSuccess}
+                show={showSentMessageNotificationModal}
+                setShow={setShowSentMessageNotificationModal}
             />
         </>
     );

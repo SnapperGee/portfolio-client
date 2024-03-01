@@ -1,13 +1,15 @@
 import { StyleClasses, type FormFieldName } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 interface InputProps
 {
     readonly name: FormFieldName;
     readonly predicate: (input: string) => boolean;
+    readonly value: string;
     readonly validState: boolean | null;
     readonly invalidMessage: string;
+    readonly setValue: (value: string) => void;
     readonly setValidState: (validState: boolean | null) => void;
     readonly format?: ((input: string) => string) | undefined;
     readonly type?: string | undefined;
@@ -21,6 +23,8 @@ const defaultInputFormatter = (input: string) => input;
 const Input: React.FC<Readonly<InputProps>> = ({
     validState,
     name,
+    value,
+    setValue,
     predicate,
     invalidMessage,
     setValidState,
@@ -31,11 +35,9 @@ const Input: React.FC<Readonly<InputProps>> = ({
     required = false
 }) =>
 {
-    const [ inputValue, setInputValue ] = useState("");
-
     useEffect(() => {
-        setValidState(inputValue.length === 0 ? null : predicate(inputValue));
-    }, [inputValue, predicate, setValidState]);
+        setValidState(value.length === 0 ? null : predicate(value));
+    }, [value, predicate, setValidState]);
 
     return (
         <>
@@ -47,8 +49,8 @@ const Input: React.FC<Readonly<InputProps>> = ({
                     type={type}
                     name={name}
                     id={name}
-                    value={inputValue}
-                    onChange={(e) => setInputValue(format(e.currentTarget.value))}
+                    value={value}
+                    onChange={(e) => setValue(format(e.currentTarget.value))}
                     className={`block w-full rounded-md border-0 ${validState === true ? StyleClasses.VALID : validState === false ? StyleClasses.INVALID : StyleClasses.EMPTY} bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6`}
                     required={required}
                 />
