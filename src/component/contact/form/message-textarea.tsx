@@ -1,11 +1,9 @@
-import { messagePredicate } from "./util";
+import { messagePredicate, type FormFieldName } from "./util";
 import { StyleClasses } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 
-const NAME = "message";
-
-export default function MessageTextarea({validState, setValidState, invalidMessage}: {validState: boolean | null, setValidState: (validState: boolean | null) => void, invalidMessage: string})
+export default function MessageTextarea({name, validState, setValidState, invalidMessage}: {name: FormFieldName, validState: boolean | null, setValidState: (validState: boolean | null) => void, invalidMessage: string})
 {
     const [ inputValue, setInputValue ] = useState("");
 
@@ -15,13 +13,13 @@ export default function MessageTextarea({validState, setValidState, invalidMessa
 
     return (
         <>
-            <label htmlFor={NAME} className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
                 Message<sup className="ms-0.5">*</sup>
             </label>
             <div>
                 <textarea
-                    name={NAME}
-                    id={NAME}
+                    name={name}
+                    id={name}
                     value={inputValue}
                     rows={4}
                     onChange={(e) => setInputValue(e.currentTarget.value)}

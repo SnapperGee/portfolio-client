@@ -1,7 +1,7 @@
 import Input from "./input";
 import MessageTextarea from "./message-textarea";
 import SubmitButton from "./submit-button";
-import { InputPredicate } from "./util";
+import { InputPredicate, FormFieldName } from "./util";
 import { useState, useEffect } from "react";
 
 export default function ContactForm()
@@ -23,7 +23,7 @@ export default function ContactForm()
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 [&>label+div]:sm:col-span-2">
                     <Input
                         validState = {nameValidState}
-                        name = "name"
+                        name = {FormFieldName.NAME}
                         setValidState = {setNameValidState}
                         format = {(input) => input.trimStart().replace(/\s+/g, "\u0020")}
                         predicate = {InputPredicate.name}
@@ -32,7 +32,7 @@ export default function ContactForm()
                     />
                     <Input
                         validState = {emailValidState}
-                        name = "email"
+                        name = {FormFieldName.EMAIL}
                         setValidState = {setEmailValidState}
                         format = {(input) => input.trim().toLowerCase()}
                         predicate = {InputPredicate.email}
@@ -40,7 +40,7 @@ export default function ContactForm()
                     />
                     <Input
                         validState = {phoneNumberValidState}
-                        name = "phoneNumber"
+                        name = {FormFieldName.PHONE_NUMBER}
                         subLabel = " (numbers only)"
                         type = "tel"
                         setValidState = {setPhoneNumberValidState}
@@ -50,6 +50,7 @@ export default function ContactForm()
                         invalidMessage = "Invalid phone number. Only numbers are allowed and must be at least 7 digits."
                     />
                     <MessageTextarea
+                        name = {FormFieldName.MESSAGE}
                         validState = {messageValidState}
                         setValidState = {setMessageValidState}
                         invalidMessage = "A non-blank message is required."

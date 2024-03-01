@@ -1,10 +1,10 @@
-import { StyleClasses } from "./util";
+import { StyleClasses, type FormFieldName } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import React, { useState, useEffect } from "react";
 
 interface InputProps
 {
-    readonly name: string;
+    readonly name: FormFieldName;
     readonly predicate: (input: string) => boolean;
     readonly validState: boolean | null;
     readonly invalidMessage: string;

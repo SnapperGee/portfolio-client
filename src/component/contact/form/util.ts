@@ -1,5 +1,13 @@
 import isEmail from "validator/lib/isEmail";
 
+export const enum FormFieldName
+{
+    NAME = "name",
+    EMAIL = "email",
+    PHONE_NUMBER = "phoneNumber",
+    MESSAGE = "message"
+}
+
 export const enum StyleClasses
 {
     EMPTY = "ring-white/10 focus:ring-indigo-500",
