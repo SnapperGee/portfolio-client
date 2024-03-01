@@ -1,6 +1,6 @@
 import isEmail from "validator/lib/isEmail";
 
-export const enum FormFieldName
+export enum FormFieldName
 {
     NAME = "name",
     EMAIL = "email",
