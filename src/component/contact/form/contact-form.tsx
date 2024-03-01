@@ -25,7 +25,7 @@ export default function ContactForm()
                         validState = {nameValidState}
                         name = "name"
                         setValidState = {setNameValidState}
-                        format = {(input) => input.trimStart().replace(/\s{2,}/g, "\u0020")}
+                        format = {(input) => input.trimStart().replace(/\s+/g, "\u0020")}
                         predicate = {InputPredicate.name}
                         invalidMessage = "A non-blank name is required."
                         required
