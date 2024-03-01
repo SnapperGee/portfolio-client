@@ -1,4 +1,5 @@
-import { StyleClasses } from "../../../constant/contact-form";
+import { message as messagePredicate } from "../../../util/string-predicate";
+import { StyleClasses } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 
@@ -9,7 +10,7 @@ export default function MessageTextarea({validState, setValidState, invalidMessa
     const [ inputValue, setInputValue ] = useState("");
 
     useEffect(() => {
-        setValidState(inputValue.length === 0 ? null : inputValue.length !== 0 && inputValue.trim().length !== 0);
+        setValidState(inputValue.length === 0 ? null : inputValue.length !== 0 && messagePredicate(inputValue));
     }, [inputValue, setValidState]);
 
     return (

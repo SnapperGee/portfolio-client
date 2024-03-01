@@ -1,7 +1,7 @@
 import Input from "./input";
 import MessageTextarea from "./message-textarea";
 import SubmitButton from "./submit-button";
-import isEmail from "validator/lib/isEmail";
+import { ContactInputPredicate } from "../../../util/string-predicate";
 import { useState, useEffect } from "react";
 
 export default function ContactForm()
@@ -10,7 +10,7 @@ export default function ContactForm()
     const [ emailValidState, setEmailValidState ] = useState<boolean | null>(null);
     const [ phoneNumberValidState, setPhoneNumberValidState ] = useState<boolean | null>(null);
     const [ messageValidState, setMessageValidState ] = useState<boolean | null>(null);
-    const [submitBtnActiveState, setSubmitBtnActiveState] = useState<boolean | null>(false);
+    const [ submitBtnActiveState, setSubmitBtnActiveState ] = useState<boolean | null>(false);
 
     useEffect(() => {
         setSubmitBtnActiveState(( nameValidState && messageValidState && (emailValidState || phoneNumberValidState) ) ?? false)
@@ -26,7 +26,7 @@ export default function ContactForm()
                         name = "name"
                         setValidState = {setNameValidState}
                         format = {(input) => input.trimStart().replace(/\s{2,}/g, "\u0020")}
-                        predicate = {(input) => input.trim().length !== 0}
+                        predicate = {ContactInputPredicate.name}
                         invalidMessage = "A non-blank name is required."
                         required
                     />
@@ -35,7 +35,7 @@ export default function ContactForm()
                         name = "email"
                         setValidState = {setEmailValidState}
                         format = {(input) => input.trim().toLowerCase()}
-                        predicate = {isEmail}
+                        predicate = {ContactInputPredicate.email}
                         invalidMessage = "Invalid email."
                     />
                     <Input
@@ -46,7 +46,7 @@ export default function ContactForm()
                         setValidState = {setPhoneNumberValidState}
                         label = "Phone number"
                         format = {(input) => input.trim().replace(/\D/g, "")}
-                        predicate = {(input) => input.length >= 7}
+                        predicate = {ContactInputPredicate.phoneNumber}
                         invalidMessage = "Invalid phone number. Only numbers are allowed and must be at least 7 digits."
                     />
                     <MessageTextarea
