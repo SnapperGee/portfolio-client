@@ -1,7 +1,7 @@
 import Input from "./input";
 import MessageTextarea from "./message-textarea";
 import SubmitButton from "./submit-button";
-import { ContactInputPredicate } from "../../../util/string-predicate";
+import { InputPredicate } from "./util";
 import { useState, useEffect } from "react";
 
 export default function ContactForm()
@@ -26,7 +26,7 @@ export default function ContactForm()
                         name = "name"
                         setValidState = {setNameValidState}
                         format = {(input) => input.trimStart().replace(/\s{2,}/g, "\u0020")}
-                        predicate = {ContactInputPredicate.name}
+                        predicate = {InputPredicate.name}
                         invalidMessage = "A non-blank name is required."
                         required
                     />
@@ -35,7 +35,7 @@ export default function ContactForm()
                         name = "email"
                         setValidState = {setEmailValidState}
                         format = {(input) => input.trim().toLowerCase()}
-                        predicate = {ContactInputPredicate.email}
+                        predicate = {InputPredicate.email}
                         invalidMessage = "Invalid email."
                     />
                     <Input
@@ -46,7 +46,7 @@ export default function ContactForm()
                         setValidState = {setPhoneNumberValidState}
                         label = "Phone number"
                         format = {(input) => input.trim().replace(/\D/g, "")}
-                        predicate = {ContactInputPredicate.phoneNumber}
+                        predicate = {InputPredicate.phoneNumber}
                         invalidMessage = "Invalid phone number. Only numbers are allowed and must be at least 7 digits."
                     />
                     <MessageTextarea
