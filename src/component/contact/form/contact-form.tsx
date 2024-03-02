@@ -52,21 +52,15 @@ export default function ContactForm(
                 if (wasSuccessful)
                 {
                     setNameValue("");
-                    setNameValidState(null);
-
                     setEmailValue("");
-                    setEmailValidState(null);
-
                     setPhoneNumberValue("");
-                    setPhoneNumberValidState(null);
-
                     setMessageValue("");
-                    setMessageValidState(null);
-
-                    setSubmitButtonActiveState(false);
+                }
+                else
+                {
+                    setSubmitButtonActiveState(true);
                 }
 
-                setSubmitButtonActiveState(true);
 
                 setShowSentMessageNotificationModal(true);
 
