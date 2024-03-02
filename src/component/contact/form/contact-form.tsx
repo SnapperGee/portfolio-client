@@ -118,15 +118,15 @@ export default function ContactForm(
                         invalidMessage = "A non-blank message is required."
                     />
                 </div>
-                <div className="mt-8 w-full lg:ps-7 flex justify-between items-center">
-                    <ul>
-                        <li className={`text-sm ${nameValidState ? "text-green-500/80" : "text-red-500/80"}`}>
+                <div className="mt-8 w-full flex justify-between items-center">
+                    <ul className="text-sm">
+                        <li className={`${nameValidState ? "text-green-500/80" : "text-red-500/80"}`}>
                             {nameValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} name required.
                         </li>
-                        <li className={`text-sm ${emailValidState || phoneNumberValidState ? "text-green-500/80" : "text-red-500/80"}`}>
+                        <li className={`${emailValidState || phoneNumberValidState ? "text-green-500/80" : "text-red-500/80"}`}>
                             {emailValidState || phoneNumberValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} email or phone number required.
                         </li>
-                        <li className={`text-sm ${messageValidState ? "text-green-500/80" : "text-red-500/80"}`}>
+                        <li className={`${messageValidState ? "text-green-500/80" : "text-red-500/80"}`}>
                             {messageValidState ? <CheckCircleIcon className="inline size-5"/> : <XCircleIcon className="inline size-5"/>} message required.
                         </li>
                     </ul>
