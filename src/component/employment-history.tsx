@@ -14,7 +14,7 @@ import { EMPLOYMENT_HISTORY } from "../constant/employment-history";
 export default function WorkHistory()
 {
     return (
-        <div className="mx-20 text-gray-300">
+        <div className="text-gray-300">
             <ul className="listSquare ms-10 sm:ms-20 text-sm sm:text-base space-y-4">
             {
                 EMPLOYMENT_HISTORY.map((job, index) => {
@@ -22,7 +22,7 @@ export default function WorkHistory()
                     return (
                         <li key={index}>
                             <p><TitleSpan /> {job.summary}</p>
-                            <ul className="ms-10 sm:ms-20 list-disc space-y-2">
+                            <ul className="ms-10 sm:ms-15 list-disc space-y-2">
                                 {job.descriptions.map((description, index) =>
                                 (
                                     <li key={index}>{description}</li>
