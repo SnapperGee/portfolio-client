@@ -70,7 +70,7 @@ const navigation = {
 export const FooterNav = () =>
 (
     <div className="overflow-hidden px-6 py-10 sm:py-12 lg:px-8 bg-gray-800">
-        <nav className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+        <nav className="-mb-6 text-center columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         {
             navigation.main.map((item) => (
                 <div key={item.name} className="pb-6">
