@@ -3,8 +3,8 @@
  * @module app
  */
 
-import { HeaderNav } from "./component/header-nav";
-import { FooterNav } from "./component/footer-nav";
+import HeaderNav from "./component/header-nav";
+import FooterNav from "./component/footer-nav";
 import { Outlet } from "react-router-dom";
 
 /**

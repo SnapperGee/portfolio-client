@@ -3,18 +3,13 @@
  * @module footer-nav
  */
 
+import {NAV_LINKS} from "../constant/nav-links";
 import { NavLink } from "react-router-dom";
 
 /**
  * Contains the navigation and social media icon links
  */
 const navigation = {
-    main: [
-        { name: "About", to: "/" },
-        { name: "Portfolio", to: "/portfolio" },
-        { name: "Contact", to: "/contact" },
-        { name: "Resume", to: "/resume" }
-    ],
     social: [
         {
             name: "GitHub",
@@ -67,29 +62,29 @@ const navigation = {
  *
  * @returns The footer navigation bar component.
  */
-export const FooterNav = () =>
-(
-    <div className="overflow-hidden px-6 py-10 sm:py-12 lg:px-8 bg-gray-800">
-        <nav className="-mb-6 text-center columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
-        {
-            navigation.main.map((item) => (
-                <div key={item.name} className="pb-6">
-                    <NavLink to={item.to} className={({isActive}) => `text-sm leading-6 ${isActive ? "text-gray-500" : "text-gray-300 hover:text-gray-100"}`}>
-                        {item.name}
-                    </NavLink>
-                </div>
-        ))}
-        </nav>
-        <div className="mt-10 flex justify-center space-x-10">
-        {
-            navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300 hover:scale-110 active:scale-100">
-                    <span className="sr-only">{item.name}</span>
-                    <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
-        ))}
+export default function FooterNav()
+{
+    return (
+        <div className="overflow-hidden px-6 py-10 sm:py-12 lg:px-8 bg-gray-800">
+            <nav className="-mb-6 text-center columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+            {
+                NAV_LINKS.map((navLink) => (
+                    <div key={navLink.text} className="pb-6">
+                        <NavLink to={navLink.href} className={({isActive}) => `text-sm leading-6 ${isActive ? "text-gray-500" : "text-gray-300 hover:text-gray-100"}`}>
+                            {navLink.text}
+                        </NavLink>
+                    </div>
+            ))}
+            </nav>
+            <div className="mt-10 flex justify-center space-x-10">
+            {
+                navigation.social.map((item) => (
+                    <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300 hover:scale-110 active:scale-100">
+                        <span className="sr-only">{item.name}</span>
+                        <item.icon className="h-6 w-6" aria-hidden="true" />
+                    </a>
+            ))}
+            </div>
         </div>
-    </div>
-);
-
-  export default FooterNav;
+    );
+}
