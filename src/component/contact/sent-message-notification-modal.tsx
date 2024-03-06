@@ -3,8 +3,15 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-export default function SentMessageNotificationModal({success, show, setShow}: {success: boolean | null, show: boolean, setShow: (show: boolean) => void})
-{
+export default function SentMessageNotificationModal({
+    success,
+    show,
+    setShow
+}: {
+    success: boolean | null;
+    show: boolean;
+    setShow: (show: boolean) => void;
+}) {
     return (
         <div
             aria-live="assertive"
@@ -25,30 +32,45 @@ export default function SentMessageNotificationModal({success, show, setShow}: {
                         <div className="p-4">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0">
-                                {
-                                    success
-                                    ? <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
-                                    : <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
-                                }
+                                    {success ? (
+                                        <CheckCircleIcon
+                                            className="h-6 w-6 text-green-400"
+                                            aria-hidden="true"
+                                        />
+                                    ) : (
+                                        <XCircleIcon
+                                            className="h-6 w-6 text-red-400"
+                                            aria-hidden="true"
+                                        />
+                                    )}
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
-                                    <p className="text-sm font-medium text-gray-900">{success ? "Message sent" : "Unable to send message"}</p>
+                                    <p className="text-sm font-medium text-gray-900">
+                                        {success
+                                            ? "Message sent"
+                                            : "Unable to send message"}
+                                    </p>
                                     <p className="mt-1 text-sm text-gray-400">
-                                        {
-                                              success ? "Your message has been successfully sent."
-                                            : success === false ? "Please ensure that all required message form fields are filled out correctly and try again."
-                                            : "Your message could not be sent. Please try again later."
-                                        }
+                                        {success
+                                            ? "Your message has been successfully sent."
+                                            : success === false
+                                              ? "Please ensure that all required message form fields are filled out correctly and try again."
+                                              : "Your message could not be sent. Please try again later."}
                                     </p>
                                 </div>
                                 <div className="ml-4 flex flex-shrink-0">
                                     <button
                                         type="button"
                                         className="inline-flex rounded-md text-gray-300 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                        onClick={() => { setShow(false) }}
+                                        onClick={() => {
+                                            setShow(false);
+                                        }}
                                     >
                                         <span className="sr-only">Close</span>
-                                        <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                                        <XMarkIcon
+                                            className="h-5 w-5"
+                                            aria-hidden="true"
+                                        />
                                     </button>
                                 </div>
                             </div>

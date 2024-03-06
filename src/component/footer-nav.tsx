@@ -3,7 +3,7 @@
  * @module footer-nav
  */
 
-import {NAV_LINKS} from "../constant/nav-links";
+import { NAV_LINKS } from "../constant/nav-links";
 import { NavLink } from "react-router-dom";
 
 /**
@@ -29,8 +29,16 @@ const navigation = {
             href: "https://stackoverflow.com/users/7993601",
             icon: (props: Record<string, unknown>) => (
                 <svg fill="currentColor" viewBox="0 0 145 115" {...props}>
-                    <polygon clipRule="evenodd" fillRule="evenodd" points="88 80 99 80 99 124 0 124 0 80 11 80 11 113 88 113"/>
-                    <path clipRule="evenodd" fillRule="evenodd" d="M22.9878906,76.73 L77.0128906,88.085 L79.2838906,77.285 L25.2588906,65.925 L22.9878906,76.73 Z M30.1368906,50.861 L80.1828906,74.169 L84.8448906,64.16 L34.7978906,40.852 L30.1368906,50.861 Z M43.9848906,26.308 L86.4128906,61.639 L93.4788906,53.154 L51.0508906,17.824 L43.9848906,26.308 Z M71.3718906,0.192 L62.5118906,6.782 L95.4598906,51.082 L104.319891,44.493 L71.3718906,0.192 Z M22,102 L77,102 L77,91 L22,91 L22,102 Z"/>
+                    <polygon
+                        clipRule="evenodd"
+                        fillRule="evenodd"
+                        points="88 80 99 80 99 124 0 124 0 80 11 80 11 113 88 113"
+                    />
+                    <path
+                        clipRule="evenodd"
+                        fillRule="evenodd"
+                        d="M22.9878906,76.73 L77.0128906,88.085 L79.2838906,77.285 L25.2588906,65.925 L22.9878906,76.73 Z M30.1368906,50.861 L80.1828906,74.169 L84.8448906,64.16 L34.7978906,40.852 L30.1368906,50.861 Z M43.9848906,26.308 L86.4128906,61.639 L93.4788906,53.154 L51.0508906,17.824 L43.9848906,26.308 Z M71.3718906,0.192 L62.5118906,6.782 L95.4598906,51.082 L104.319891,44.493 L71.3718906,0.192 Z M22,102 L77,102 L77,91 L22,91 L22,102 Z"
+                    />
                 </svg>
             )
         },
@@ -40,7 +48,13 @@ const navigation = {
             icon: (props: Record<string, unknown>) => (
                 <svg viewBox="0 0 86 72" {...props}>
                     <mask id="myMask">
-                        <rect x="0" y="0" width="100%" height="100%" fill="#000"/>
+                        <rect
+                            x="0"
+                            y="0"
+                            width="100%"
+                            height="100%"
+                            fill="#000"
+                        />
                         <path
                             d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z"
                             fill="#fff"
@@ -48,9 +62,16 @@ const navigation = {
                         <path
                             d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z"
                             fill="#000"
-                            />
+                        />
                     </mask>
-                    <rect x="0" y="0" width="100%" height="100%" fill="currentColor" mask="url(#myMask)"/>
+                    <rect
+                        x="0"
+                        y="0"
+                        width="100%"
+                        height="100%"
+                        fill="currentColor"
+                        mask="url(#myMask)"
+                    />
                 </svg>
             )
         }
@@ -62,28 +83,37 @@ const navigation = {
  *
  * @returns The footer navigation bar component.
  */
-export default function FooterNav()
-{
+export default function FooterNav() {
     return (
-        <div className="overflow-hidden px-6 py-10 sm:py-12 lg:px-8 bg-gray-800">
-            <nav className="-mb-6 text-center columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
-            {
-                NAV_LINKS.map((navLink) => (
+        <div className="overflow-hidden bg-gray-800 px-6 py-10 sm:py-12 lg:px-8">
+            <nav
+                className="-mb-6 columns-2 text-center sm:flex sm:justify-center sm:space-x-12"
+                aria-label="Footer"
+            >
+                {NAV_LINKS.map((navLink) => (
                     <div key={navLink.text} className="pb-6">
-                        <NavLink to={navLink.href} className={({isActive}) => `text-sm leading-6 ${isActive ? "text-gray-500" : "text-gray-300 hover:text-gray-100"}`}>
+                        <NavLink
+                            to={navLink.href}
+                            className={({ isActive }) =>
+                                `text-sm leading-6 ${isActive ? "text-gray-500" : "text-gray-300 hover:text-gray-100"}`
+                            }
+                        >
                             {navLink.text}
                         </NavLink>
                     </div>
-            ))}
+                ))}
             </nav>
             <div className="mt-10 flex justify-center space-x-10">
-            {
-                navigation.social.map((item) => (
-                    <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300 hover:scale-110 active:scale-100">
+                {navigation.social.map((item) => (
+                    <a
+                        key={item.name}
+                        href={item.href}
+                        className="text-gray-400 hover:scale-110 hover:text-gray-300 active:scale-100"
+                    >
                         <span className="sr-only">{item.name}</span>
                         <item.icon className="h-6 w-6" aria-hidden="true" />
                     </a>
-            ))}
+                ))}
             </div>
         </div>
     );

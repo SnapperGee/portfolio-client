@@ -11,8 +11,7 @@ import { Outlet } from "react-router-dom";
  * The root parent component of the application (excluding the component rendered in {@link main}).
  * @returns The root parent component of the application (excluding the component rendered in {@link main}).
  */
-export const App = () =>
-(
+export const App = () => (
     <>
         <header className="shrink-0">
             <HeaderNav />

@@ -16,31 +16,31 @@ import { createBrowserRouter } from "react-router-dom";
  */
 export const router = createBrowserRouter([
     {
-      path: "/",
-      element: <App />,
-      errorElement: <Error />,
-      children: [
-        {
-          index: true,
-          element: <About />,
-        },
-        {
-          path: "portfolio",
-          element: <Portfolio />,
-        },
-        {
-          path: "contact",
-          element: <Contact />,
-        },
-        {
-          path: "resume",
-          element: <Resume />,
-        },
-        {
-          path: "*",
-          element: <Error />,
-        }
-      ]
+        path: "/",
+        element: <App />,
+        errorElement: <Error />,
+        children: [
+            {
+                index: true,
+                element: <About />
+            },
+            {
+                path: "portfolio",
+                element: <Portfolio />
+            },
+            {
+                path: "contact",
+                element: <Contact />
+            },
+            {
+                path: "resume",
+                element: <Resume />
+            },
+            {
+                path: "*",
+                element: <Error />
+            }
+        ]
     }
 ]);
 

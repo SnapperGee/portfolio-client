@@ -13,10 +13,14 @@ import { useState } from "react";
  *
  * @returns The contact webpage component.
  */
-export default function Contact()
-{
-    const [messageSentSuccess, setMessageSentSuccess] = useState<boolean | null>(false);
-    const [showSentMessageNotificationModal, setShowSentMessageNotificationModal] = useState(false);
+export default function Contact() {
+    const [messageSentSuccess, setMessageSentSuccess] = useState<
+        boolean | null
+    >(false);
+    const [
+        showSentMessageNotificationModal,
+        setShowSentMessageNotificationModal
+    ] = useState(false);
 
     return (
         <>
@@ -38,39 +42,63 @@ export default function Contact()
                                             y={-1}
                                             patternUnits="userSpaceOnUse"
                                         >
-                                            <path d="M130 200V.5M.5 .5H200" fill="none" />
+                                            <path
+                                                d="M130 200V.5M.5 .5H200"
+                                                fill="none"
+                                            />
                                         </pattern>
                                     </defs>
-                                    <svg x="100%" y={-1} className="overflow-visible fill-gray-800/20">
-                                        <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
+                                    <svg
+                                        x="100%"
+                                        y={-1}
+                                        className="overflow-visible fill-gray-800/20"
+                                    >
+                                        <path
+                                            d="M-470.5 0h201v201h-201Z"
+                                            strokeWidth={0}
+                                        />
                                     </svg>
-                                    <rect width="100%" height="100%" strokeWidth={0} fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
+                                    <rect
+                                        width="100%"
+                                        height="100%"
+                                        strokeWidth={0}
+                                        fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)"
+                                    />
                                 </svg>
-                            <div
-                                className="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]"
-                                aria-hidden="true"
-                            >
                                 <div
-                                    className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20"
-                                    style={{
-                                        clipPath:
-                                        "polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)",
-                                    }}
-                                />
+                                    className="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]"
+                                    aria-hidden="true"
+                                >
+                                    <div
+                                        className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20"
+                                        style={{
+                                            clipPath:
+                                                "polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)"
+                                        }}
+                                    />
                                 </div>
                             </div>
-                            <h2 className="text-3xl font-bold tracking-tight text-white">Contact</h2>
+                            <h2 className="text-3xl font-bold tracking-tight text-white">
+                                Contact
+                            </h2>
                             <p className="mt-6 text-lg leading-8 text-gray-300">
-                                Feel free to contact me via the provided form and/or email address provided below.
+                                Feel free to contact me via the provided form
+                                and/or email address provided below.
                             </p>
                             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
                                 <div className="flex gap-x-4">
                                     <dt className="flex-none">
                                         <span className="sr-only">Email</span>
-                                        <EnvelopeIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
+                                        <EnvelopeIcon
+                                            className="h-7 w-6 text-gray-400"
+                                            aria-hidden="true"
+                                        />
                                     </dt>
                                     <dd>
-                                        <a className="hover:text-white" href="mailto:contact@graham-auger.dev">
+                                        <a
+                                            className="hover:text-white"
+                                            href="mailto:contact@graham-auger.dev"
+                                        >
                                             contact@graham-auger.dev
                                         </a>
                                     </dd>
@@ -79,8 +107,10 @@ export default function Contact()
                         </div>
                     </div>
                     <ContactForm
-                        setMessageSentSuccess = {setMessageSentSuccess}
-                        setShowSentMessageNotificationModal = {setShowSentMessageNotificationModal}
+                        setMessageSentSuccess={setMessageSentSuccess}
+                        setShowSentMessageNotificationModal={
+                            setShowSentMessageNotificationModal
+                        }
                     />
                 </div>
             </div>
