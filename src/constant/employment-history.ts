@@ -1,5 +1,4 @@
-interface EmploymentHistory
-{
+interface EmploymentHistory {
     readonly title: string;
     readonly startDate: string;
     readonly endDate: string;
@@ -15,7 +14,8 @@ export const EMPLOYMENT_HISTORY: readonly Readonly<EmploymentHistory>[] = [
         title: "Best Buy Geek Squad Technician",
         startDate: "2018",
         endDate: "present",
-        summary: "Installed and repaired various AV equipment and kitchen appliances in clients' homes and businesses.",
+        summary:
+            "Installed and repaired various AV equipment and kitchen appliances in clients' homes and businesses.",
         descriptions: [
             "Installed, uninstalled, repaired, and troubleshooted electronic devices such as televisions, receivers/amplifiers, surround sound systems, wireless networks, dishwashers, over the range venting microwaves.",
             "Configured multi channel home theater audio systems and programmed universal remotes to work with such systems."
@@ -25,7 +25,8 @@ export const EMPLOYMENT_HISTORY: readonly Readonly<EmploymentHistory>[] = [
         title: "Best Buy Project Team Specialist",
         startDate: "2013",
         endDate: "2018",
-        summary: "Set up and repaired various AV Equipment as well as retrieved and stocked product.",
+        summary:
+            "Set up and repaired various AV Equipment as well as retrieved and stocked product.",
         descriptions: [
             "Set up and maintained televisions, AV receivers, and sound bars displaying content from various sources.",
             "Stored and retrieved various product which sometimes required using pallet jacks and mechanical equipment used for handling televisions and appliances such as stoves, refrigerators, and freezers."
@@ -45,7 +46,8 @@ export const EMPLOYMENT_HISTORY: readonly Readonly<EmploymentHistory>[] = [
         title: "City of San Rafael Redevelopment Agency",
         startDate: "2006",
         endDate: "2011",
-        summary: "Had various responsibilities and tasks involved in setting up, running, and tearing down venues for various events held by San Rafael.",
+        summary:
+            "Had various responsibilities and tasks involved in setting up, running, and tearing down venues for various events held by San Rafael.",
         descriptions: [
             "Was responsible for setting up stages and concession stands for vendors. As well as putting up barricades and blocking roads off to manage vehicle and pedestrian traffic flow.",
             "Managed intersections and parking lots, directing traffic and organizing parking."
@@ -65,7 +67,8 @@ export const EMPLOYMENT_HISTORY: readonly Readonly<EmploymentHistory>[] = [
         title: "Far Horizons Archaeological & Cultural Trips",
         startDate: "2006",
         endDate: "2008",
-        summary: "Was part of temporary staffing at Far Horizons travel agency where mainly clerical tasks were assigned.",
+        summary:
+            "Was part of temporary staffing at Far Horizons travel agency where mainly clerical tasks were assigned.",
         descriptions: [
             "Assignments involved cleaning up and a maintaining the company database, which involved organizing materials, as well as, printing, collating, and filing documents."
         ]
