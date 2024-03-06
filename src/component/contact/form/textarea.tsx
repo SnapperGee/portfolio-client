@@ -19,19 +19,12 @@ export default function Textarea({
     invalidMessage: string;
 }) {
     useEffect(() => {
-        setValidState(
-            value.length === 0
-                ? null
-                : value.length !== 0 && messagePredicate(value)
-        );
+        setValidState(value.length === 0 ? null : value.length !== 0 && messagePredicate(value));
     }, [value, setValidState]);
 
     return (
         <>
-            <label
-                htmlFor={name}
-                className="block text-sm font-semibold leading-6 text-white"
-            >
+            <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
                 Message
             </label>
             <div>

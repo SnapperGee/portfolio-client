@@ -14,13 +14,8 @@ import { useState } from "react";
  * @returns The contact webpage component.
  */
 export default function Contact() {
-    const [messageSentSuccess, setMessageSentSuccess] = useState<
-        boolean | null
-    >(false);
-    const [
-        showSentMessageNotificationModal,
-        setShowSentMessageNotificationModal
-    ] = useState(false);
+    const [messageSentSuccess, setMessageSentSuccess] = useState<boolean | null>(false);
+    const [showSentMessageNotificationModal, setShowSentMessageNotificationModal] = useState(false);
 
     return (
         <>
@@ -42,10 +37,7 @@ export default function Contact() {
                                             y={-1}
                                             patternUnits="userSpaceOnUse"
                                         >
-                                            <path
-                                                d="M130 200V.5M.5 .5H200"
-                                                fill="none"
-                                            />
+                                            <path d="M130 200V.5M.5 .5H200" fill="none" />
                                         </pattern>
                                     </defs>
                                     <svg
@@ -53,10 +45,7 @@ export default function Contact() {
                                         y={-1}
                                         className="overflow-visible fill-gray-800/20"
                                     >
-                                        <path
-                                            d="M-470.5 0h201v201h-201Z"
-                                            strokeWidth={0}
-                                        />
+                                        <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
                                     </svg>
                                     <rect
                                         width="100%"
@@ -82,8 +71,8 @@ export default function Contact() {
                                 Contact
                             </h2>
                             <p className="mt-6 text-lg leading-8 text-gray-300">
-                                Feel free to contact me via the provided form
-                                and/or email address provided below.
+                                Feel free to contact me via the provided form and/or email address
+                                provided below.
                             </p>
                             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
                                 <div className="flex gap-x-4">
@@ -108,9 +97,7 @@ export default function Contact() {
                     </div>
                     <ContactForm
                         setMessageSentSuccess={setMessageSentSuccess}
-                        setShowSentMessageNotificationModal={
-                            setShowSentMessageNotificationModal
-                        }
+                        setShowSentMessageNotificationModal={setShowSentMessageNotificationModal}
                     />
                 </div>
             </div>

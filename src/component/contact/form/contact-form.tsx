@@ -11,9 +11,7 @@ export default function ContactForm({
     setShowSentMessageNotificationModal
 }: {
     setMessageSentSuccess: (messageSentSuccess: boolean | null) => void;
-    setShowSentMessageNotificationModal: (
-        showSentMessageNotificationModal: boolean
-    ) => void;
+    setShowSentMessageNotificationModal: (showSentMessageNotificationModal: boolean) => void;
 }) {
     const [nameValue, setNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
@@ -21,32 +19,17 @@ export default function ContactForm({
     const [messageValue, setMessageValue] = useState("");
 
     const [nameValidState, setNameValidState] = useState<boolean | null>(null);
-    const [emailValidState, setEmailValidState] = useState<boolean | null>(
-        null
-    );
-    const [phoneNumberValidState, setPhoneNumberValidState] = useState<
-        boolean | null
-    >(null);
-    const [messageValidState, setMessageValidState] = useState<boolean | null>(
-        null
-    );
-    const [submitBtnActiveState, setSubmitButtonActiveState] = useState<
-        boolean | null
-    >(false);
+    const [emailValidState, setEmailValidState] = useState<boolean | null>(null);
+    const [phoneNumberValidState, setPhoneNumberValidState] = useState<boolean | null>(null);
+    const [messageValidState, setMessageValidState] = useState<boolean | null>(null);
+    const [submitBtnActiveState, setSubmitButtonActiveState] = useState<boolean | null>(false);
 
     useEffect(() => {
         setSubmitButtonActiveState(
-            (nameValidState &&
-                messageValidState &&
-                (emailValidState || phoneNumberValidState)) ??
+            (nameValidState && messageValidState && (emailValidState || phoneNumberValidState)) ??
                 false
         );
-    }, [
-        nameValidState,
-        emailValidState,
-        phoneNumberValidState,
-        messageValidState
-    ]);
+    }, [nameValidState, emailValidState, phoneNumberValidState, messageValidState]);
 
     return (
         <form
@@ -77,10 +60,7 @@ export default function ContactForm({
 
                 setShowSentMessageNotificationModal(true);
 
-                setTimeout(
-                    () => setShowSentMessageNotificationModal(false),
-                    6000
-                );
+                setTimeout(() => setShowSentMessageNotificationModal(false), 6000);
             }}
         >
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -91,9 +71,7 @@ export default function ContactForm({
                         value={nameValue}
                         setValue={setNameValue}
                         setValidState={setNameValidState}
-                        format={(input) =>
-                            input.trimStart().replace(/\s+/g, "\u0020")
-                        }
+                        format={(input) => input.trimStart().replace(/\s+/g, "\u0020")}
                         predicate={InputPredicate.name}
                         invalidMessage="A non-blank name is required."
                         required

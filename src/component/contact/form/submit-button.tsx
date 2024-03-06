@@ -37,10 +37,7 @@ export default function SubmitButton({ active }: { active: boolean | null }) {
                 </>
             ) : (
                 <>
-                    <EnvelopeIcon
-                        className="-ml-0.5 size-5"
-                        aria-hidden="true"
-                    />
+                    <EnvelopeIcon className="-ml-0.5 size-5" aria-hidden="true" />
                     Send message
                 </>
             )}

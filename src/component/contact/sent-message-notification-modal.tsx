@@ -46,9 +46,7 @@ export default function SentMessageNotificationModal({
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
                                     <p className="text-sm font-medium text-gray-900">
-                                        {success
-                                            ? "Message sent"
-                                            : "Unable to send message"}
+                                        {success ? "Message sent" : "Unable to send message"}
                                     </p>
                                     <p className="mt-1 text-sm text-gray-400">
                                         {success
@@ -67,10 +65,7 @@ export default function SentMessageNotificationModal({
                                         }}
                                     >
                                         <span className="sr-only">Close</span>
-                                        <XMarkIcon
-                                            className="h-5 w-5"
-                                            aria-hidden="true"
-                                        />
+                                        <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                                     </button>
                                 </div>
                             </div>

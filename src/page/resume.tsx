@@ -41,18 +41,14 @@ export default function Resume() {
                     ))}
                 </div>
                 <hr className="my-6 h-px border-0 bg-gray-600" />
-                <p className="mb-3 mt-10 text-xl font-bold text-gray-200">
-                    PROJECTS
-                </p>
+                <p className="mb-3 mt-10 text-xl font-bold text-gray-200">PROJECTS</p>
                 <ul className="mb-14 ms-3 min-w-fit space-y-4 sm:ms-14">
                     {PROJECTS.map((project, index) => (
                         <li
                             key={index}
                             className="w-full border border-gray-600 bg-gray-600/10 p-4"
                         >
-                            <p className="text-lg font-semibold text-gray-300">
-                                {project.title}
-                            </p>
+                            <p className="text-lg font-semibold text-gray-300">{project.title}</p>
                             <hr className="my-4 h-px border-0 bg-gray-600" />
                             <AppGithubIconLinks
                                 {...{
@@ -67,20 +63,12 @@ export default function Resume() {
                                 Responsibilities/contributions included:
                             </p>
                             <div className="overflow-hidden rounded-md border border-gray-600">
-                                <ul
-                                    role="list"
-                                    className="divide-y divide-gray-600"
-                                >
-                                    {project.responsibilities.map(
-                                        (responsibility, index) => (
-                                            <li
-                                                key={index}
-                                                className="px-3.5 py-2.5"
-                                            >
-                                                {responsibility}
-                                            </li>
-                                        )
-                                    )}
+                                <ul role="list" className="divide-y divide-gray-600">
+                                    {project.responsibilities.map((responsibility, index) => (
+                                        <li key={index} className="px-3.5 py-2.5">
+                                            {responsibility}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </li>
@@ -99,9 +87,7 @@ export default function Resume() {
                                 <span>Additional work experience</span>
                                 <ChevronLeftIcon
                                     id="arrow"
-                                    className={`${
-                                        open ? "rotateDown" : ""
-                                    } h-5 w-5 text-white`}
+                                    className={`${open ? "rotateDown" : ""} h-5 w-5 text-white`}
                                 />
                             </Disclosure.Button>
                             <Disclosure.Panel

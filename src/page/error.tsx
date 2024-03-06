@@ -5,12 +5,7 @@
 
 import { Link } from "react-router-dom";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import {
-    BookOpenIcon,
-    DocumentTextIcon,
-    EnvelopeIcon,
-    UserIcon
-} from "@heroicons/react/24/solid";
+import { BookOpenIcon, DocumentTextIcon, EnvelopeIcon, UserIcon } from "@heroicons/react/24/solid";
 
 /**
  * Links to webpages that can be navigated to.
@@ -51,9 +46,7 @@ export default function Error() {
     return (
         <div className="mx-auto w-full max-w-7xl px-6 pb-16 pt-10 sm:pb-24 lg:px-8">
             <div className="mx-auto mt-20 max-w-2xl text-center sm:mt-24">
-                <p className="text-5xl font-semibold leading-8 text-indigo-600">
-                    404
-                </p>
+                <p className="text-5xl font-semibold leading-8 text-indigo-600">404</p>
                 <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                     This page does not exist
                 </h1>
@@ -69,18 +62,12 @@ export default function Error() {
                     {links.map((link) => (
                         <li key={link.to} className="relative flex gap-x-6 py-6">
                             <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg shadow-sm ring-1 ring-gray-900/10">
-                                <link.icon
-                                    className="h-6 w-6 text-indigo-600"
-                                    aria-hidden="true"
-                                />
+                                <link.icon className="h-6 w-6 text-indigo-600" aria-hidden="true" />
                             </div>
                             <div className="flex-auto">
                                 <h3 className="text-sm font-semibold leading-6 text-gray-900">
                                     <Link to={link.to}>
-                                        <span
-                                            className="absolute inset-0"
-                                            aria-hidden="true"
-                                        />
+                                        <span className="absolute inset-0" aria-hidden="true" />
                                         {link.name}
                                     </Link>
                                 </h3>
