@@ -31,8 +31,8 @@ error page.
 
 <details>
 <summary>
-The About page contains a short relatively candid description of myself and
-interests and a little bit about my history.
+  The About page contains a short relatively candid description of myself and
+  interests and a little bit about my history.
 </summary>
 
 ![about page](./docs/about_page.png "About page")
@@ -42,9 +42,9 @@ interests and a little bit about my history.
 
 <details>
 <summary>
-The Portfolio page contains a list of projects I have worked on with short
-descriptions of each project and links to their respective GitHub repositories
-and deployed versions if applicable.
+  The Portfolio page contains a list of projects I have worked on with short
+  descriptions of each project and links to their respective GitHub repositories
+  and deployed versions if applicable.
 </summary>
 
 ![portfolio page](./docs/portfolio_page.png "Portfolio page")
@@ -54,10 +54,10 @@ and deployed versions if applicable.
 
 <details>
 <summary>
-The Contact page provides a form that allows users to message me in addition to
-an email address I can be contacted at. The form requires a name, an
-email address and/or a phone number for reply purposes, and the message to be
-sent to me.
+  The Contact page provides a form that allows users to message me in addition to
+  an email address I can be contacted at. The form requires a name, an email
+  address and/or a phone number for reply purposes, and the message to be sent
+  to me.
 </summary>
 
 ![contact page](./docs/contact_page.png "Contact page")
@@ -67,9 +67,9 @@ sent to me.
 
 <details>
 <summary>
-The Resume page contains more specific information about which technologies I
-have experience with, what features I implemented and was responsible for in
-the projects I worked on, and my qualifications and work experience.
+  The Resume page contains more specific information about which technologies I
+  have experience with, what features I implemented and was responsible for in
+  the projects I worked on, and my qualifications and work experience.
 </summary>
 
 ![resume page](./docs/resume_page.png "Resume page")
@@ -79,7 +79,7 @@ the projects I worked on, and my qualifications and work experience.
 
 <details>
 <summary>
-The error page is displayed when a user navigates to a page that does not exist.
+  The error page is displayed when a user navigates to a page that does not exist.
 </summary>
 
 ![error page](./docs/error_page.png "Error page")
