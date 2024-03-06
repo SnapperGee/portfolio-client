@@ -10,6 +10,7 @@ error page.
 [![SASS][sass shield]][sass website]
 [![TailwindCSS][tailwind shield]][tailwind website]
 [![Vite][vite shield]][vite website]
+[![Prettier][prettier shield]][prettier website]
 [![ESLint][eslint shield]][typescript eslint website]
 [![npm][npm shield]][npm website]
 ![Git][git shield]
@@ -120,6 +121,8 @@ This package contains 4 scripts useful for development:
 [tailwind website]: https://tailwindcss.com "TailwindCSS"
 [vite shield]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white "Vite"
 [vite website]: https://vitejs.dev "Vite"
+[prettier shield]: https://img.shields.io/badge/prettier-ff69b4.svg?style=for-the-badge&logo=prettier&logoColor=white "Prettier"
+[prettier website]: https://prettier.io/ "Prettier"
 [eslint shield]: https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white "TypeScript ESLint"
 [typescript eslint website]: https://typescript-eslint.io/ "TypeScript ESLint"
 [npm shield]: https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white "npm"
