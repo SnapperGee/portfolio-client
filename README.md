@@ -56,8 +56,7 @@ error page.
 <summary>
   The Contact page provides a form that allows users to message me in addition to
   an email address I can be contacted at. The form requires a name, an email
-  address and/or a phone number for reply purposes, and the message to be sent
-  to me.
+  address and/or a phone number for reply purposes, and the message to be sent.
 </summary>
 
 ![contact page](./docs/contact_page.png "Contact page")
