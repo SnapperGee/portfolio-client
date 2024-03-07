@@ -1,4 +1,4 @@
-import { XMarkIcon } from "@heroicons/react/20/solid";
+import XMarkIcon from "../../assets/x_mark_icon.svg";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -65,7 +65,7 @@ export default function SentMessageNotificationModal({
                                         }}
                                     >
                                         <span className="sr-only">Close</span>
-                                        <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                                        <img src={XMarkIcon} alt="Close" height={20} width={20} className="size-5" aria-hidden="true" />
                                     </button>
                                 </div>
                             </div>
