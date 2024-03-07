@@ -4,7 +4,7 @@ import { Config } from "tailwindcss";
 const config: Config = {
   content: [
     "./index.html",
-    "./src/**/*.{tsx,ts}"
+    "./src/{page,component}/**/*.{tsx,ts}"
   ],
   theme: {
     extend: {},
