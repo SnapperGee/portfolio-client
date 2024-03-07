@@ -1,5 +1,6 @@
 import XMarkIcon from "../../assets/x_mark_icon.svg";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import CheckCircleIcon from "../../assets/check_circle_icon.svg";
+import XCircleIcon from "../../assets/x_circle_icon.svg";
 import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
@@ -33,15 +34,9 @@ export default function SentMessageNotificationModal({
                             <div className="flex items-start">
                                 <div className="flex-shrink-0">
                                     {success ? (
-                                        <CheckCircleIcon
-                                            className="size-6 text-green-400"
-                                            aria-hidden="true"
-                                        />
+                                        <img src={CheckCircleIcon} alt="Check" height={24} width={24} className="size-6" aria-hidden="true" />
                                     ) : (
-                                        <XCircleIcon
-                                            className="size-6 text-red-400"
-                                            aria-hidden="true"
-                                        />
+                                        <img src={XCircleIcon} alt="X" height={24} width={24} className="size-6" aria-hidden="true" />
                                     )}
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
