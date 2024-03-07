@@ -34,12 +34,12 @@ export default function SentMessageNotificationModal({
                                 <div className="flex-shrink-0">
                                     {success ? (
                                         <CheckCircleIcon
-                                            className="h-6 w-6 text-green-400"
+                                            className="size-6 text-green-400"
                                             aria-hidden="true"
                                         />
                                     ) : (
                                         <XCircleIcon
-                                            className="h-6 w-6 text-red-400"
+                                            className="size-6 text-red-400"
                                             aria-hidden="true"
                                         />
                                     )}
