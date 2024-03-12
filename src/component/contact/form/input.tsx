@@ -1,6 +1,6 @@
 import { StyleClasses, type FormFieldName } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import React, { useEffect } from "react";
+import React from "react";
 
 interface InputProps {
     readonly name: FormFieldName;
@@ -33,9 +33,13 @@ const Input: React.FC<Readonly<InputProps>> = ({
     subLabel,
     required = false
 }) => {
-    useEffect(() => {
-        setValidState(value.length === 0 ? null : predicate(value));
-    }, [value, predicate, setValidState]);
+
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    {
+        const formattedValue = format(e.currentTarget.value);
+        setValue(formattedValue);
+        setValidState(formattedValue.length === 0 ? null : predicate(formattedValue));
+    };
 
     return (
         <>
@@ -49,7 +53,7 @@ const Input: React.FC<Readonly<InputProps>> = ({
                     name={name}
                     id={name}
                     value={value}
-                    onChange={(e) => setValue(format(e.currentTarget.value))}
+                    onChange={handleOnChange}
                     className={`block w-full rounded-md border-0 ${validState === true ? StyleClasses.VALID : validState === false ? StyleClasses.INVALID : StyleClasses.EMPTY} bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6`}
                     required={required}
                 />
