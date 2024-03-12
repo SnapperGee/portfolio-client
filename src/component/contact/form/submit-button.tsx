@@ -28,7 +28,7 @@ export default function SubmitButton({ active }: { active: boolean | null }) {
         <button
             type="submit"
             className={`flex items-center gap-x-1.5 rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${active ? "bg-indigo-500 hover:bg-indigo-400 " : active === false ? "cursor-default bg-gray-500" : "cursor-wait bg-indigo-500"}`}
-            disabled={!active ?? true}
+            disabled={!active}
         >
             {active === null ? (
                 <>
