@@ -32,7 +32,7 @@ export default function Resume() {
             </div>
             <div className="mx-20 text-gray-300">
                 <p className="mb-1">Experience with:</p>
-                <div className="grid grid-cols-2 gap-y-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7">
+                <div className="grid grid-cols-2 gap-y-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
                     {TECHNOLOGIES.map((technology, index) => (
                         <div key={index}>
                             <ChevronRightIcon className="me-1 inline-block h-4 w-4" />
