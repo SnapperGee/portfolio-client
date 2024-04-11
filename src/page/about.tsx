@@ -12,15 +12,15 @@ import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
  */
 export default function About() {
     return (
-        <div className="my-24 flex flex-col items-center justify-around px-8 sm:flex-row">
-            <div className="mb-4 sm:mb-0 sm:mr-4">
+        <div className="my-24 flex flex-col items-center justify-around px-8 md:flex-row">
+            <div className="mb-4 md:mb-0 md:mr-4">
                 <img
                     className="h-96 min-w-96 rounded-lg bg-white"
                     src={SnapperGeeIcon}
                     alt="Snapper G profile icon picture"
                 />
             </div>
-            <div className="text-gray-300 sm:text-left">
+            <div className="text-gray-300 md:text-left">
                 <h4 className="text-lg font-bold">Graham Auger</h4>
                 <p className="my-1">
                     I&apos;ve been a practicing software engineer for half a decade and have experience ranging from
