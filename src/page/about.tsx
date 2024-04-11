@@ -4,7 +4,7 @@
  * @module about
  */
 
-import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
+import ProfilePic from "../assets/pfp.webp";
 
 /**
  * The About webpage component that contains a profile image and general info about me.
@@ -15,8 +15,10 @@ export default function About() {
         <div className="my-24 flex flex-col items-center justify-around px-8 md:flex-row">
             <div className="mb-4 md:mb-0 md:mr-4">
                 <img
-                    className="h-96 min-w-96 rounded-lg bg-white"
-                    src={SnapperGeeIcon}
+                    className="rounded-lg bg-white"
+                    height={600}
+                    width={600}
+                    src={ProfilePic}
                     alt="Snapper G profile icon picture"
                 />
             </div>
