@@ -9,7 +9,6 @@ export const TECHNOLOGIES: readonly string[] = Object.freeze([
     "Handlebars",
     "jQuery",
     "Webpack",
-    "Vite",
     "TailwindCSS",
     "Bootstrap",
     "Mocha",
