@@ -39,7 +39,7 @@ export default function About() {
                     <li>SQL & NoSQL</li>
                     <li>Python</li>
                 </ul>
-                <p className="my-1 sm:pe-40">
+                <p className="my-1">
                     In addition to software development, I love art and being able to see and experience the
                     creativity of others and the the worlds and characters an artist creates. Particularly through
                     drawings, animations, music, and photography. The Studio Ghibli films are perfect examples of
