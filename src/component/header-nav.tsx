@@ -34,7 +34,7 @@ export default function HeaderNav() {
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">
                                     <img
-                                        className="h-8 w-auto rounded-full bg-white"
+                                        className="h-9 w-auto rounded-full bg-white"
                                         src={SnapperGeeIcon}
                                         alt="Snapper G"
                                     />
@@ -48,7 +48,7 @@ export default function HeaderNav() {
                                                 key={navLink.text}
                                                 to={navLink.href}
                                                 className={({ isActive }) =>
-                                                    `rounded-md px-3 py-2 text-sm font-medium active:scale-95${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
+                                                    `rounded-md px-3 py-2 text-lg font-medium active:scale-95${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
                                                 }
                                             >
                                                 {navLink.text}
@@ -81,7 +81,7 @@ export default function HeaderNav() {
                                     key={navLink.text}
                                     to={navLink.href}
                                     className={({ isActive }) =>
-                                        `block rounded-md px-3 py-2 text-sm font-medium${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
+                                        `block rounded-md px-3 py-2 text-lg font-medium${isActive ? ACTIVE_NAV_BTN_CLASSES : INACTIVE_NAV_BTN_CLASSES}`
                                     }
                                 >
                                     {navLink.text}
@@ -101,7 +101,7 @@ export default function HeaderNav() {
                                     <div className="text-base font-medium text-white">
                                         Graham Auger
                                     </div>
-                                    <div className="text-sm font-medium text-gray-400">
+                                    <div className="text-lg font-medium text-gray-400">
                                         <a
                                             className="hover:text-gray-300"
                                             href="mailto:contact@graham-auger.dev"
