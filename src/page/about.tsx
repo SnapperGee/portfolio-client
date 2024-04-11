@@ -15,7 +15,7 @@ export default function About() {
         <div className="my-24 flex flex-col items-center justify-around px-8 md:flex-row">
             <div className="mb-4 md:mb-0 md:mr-4">
                 <img
-                    className="rounded-lg bg-white"
+                    className="min-w-96 rounded-lg bg-white"
                     height={600}
                     width={600}
                     src={ProfilePic}
