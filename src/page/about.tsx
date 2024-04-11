@@ -12,7 +12,7 @@ import SnapperGeeIcon from "../assets/snapper_g_icon.svg";
  */
 export default function About() {
     return (
-        <div className="my-24 flex flex-col items-center px-8 sm:flex-row">
+        <div className="my-24 flex flex-col items-center justify-around px-8 sm:flex-row">
             <div className="mb-4 sm:mb-0 sm:mr-4">
                 <img
                     className="h-64 min-w-64 rounded-lg bg-white"
