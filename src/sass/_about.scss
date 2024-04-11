@@ -1,3 +1,9 @@
 #aboutText {
-    max-width: 40rem;
+    max-width: 50rem;
+}
+
+@media (min-width: 1280px) {
+    #aboutText {
+        max-width: 40rem;
+    }
 }
