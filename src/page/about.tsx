@@ -15,7 +15,7 @@ export default function About() {
         <div className="my-24 flex flex-col items-center justify-around px-8 sm:flex-row">
             <div className="mb-4 sm:mb-0 sm:mr-4">
                 <img
-                    className="h-64 min-w-64 rounded-lg bg-white"
+                    className="h-96 min-w-96 rounded-lg bg-white"
                     src={SnapperGeeIcon}
                     alt="Snapper G profile icon picture"
                 />
