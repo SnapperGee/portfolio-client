@@ -20,7 +20,7 @@ export default function About() {
                     alt="Snapper G profile icon picture"
                 />
             </div>
-            <div className="self-center text-gray-300 sm:text-left">
+            <div className="text-gray-300 sm:text-left">
                 <h4 className="text-lg font-bold">Graham Auger</h4>
                 <p className="my-1">
                     I&apos;ve been a practicing software engineer for half a decade and have experience ranging from
