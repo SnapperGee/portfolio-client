@@ -41,7 +41,15 @@ export default function Resume() {
                     ))}
                 </div>
                 <hr className="my-6 h-px border-0 bg-gray-600" />
-                <p className="mb-3 mt-10 text-xl font-bold text-gray-200">PROJECTS</p>
+                <a
+                    href="https://www.parchment.com/u/s/2AT6"
+                    className="text-2xl underline"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    UC Berkeley Full Stack Development Certification
+                </a>
+                <p className="mb-3 mt-8 text-2xl font-bold text-gray-200">PROJECTS</p>
                 <ul className="mb-14 ms-3 min-w-fit space-y-4 sm:ms-14">
                     {PROJECTS.map((project, index) => (
                         <li
