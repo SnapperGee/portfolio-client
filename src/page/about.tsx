@@ -12,7 +12,7 @@ import ProfilePic from "../assets/pfp.webp";
  */
 export default function About() {
     return (
-        <div className="my-24 flex flex-col items-center justify-around px-8 xl:flex-row">
+        <div className="my-24 flex flex-col items-center justify-around 2xl:justify-center 2xl:gap-x-24 px-8 xl:flex-row">
             <div className="mb-4 xl:mb-0 xl:mr-4">
                 <img
                     className="min-w-96 rounded-lg bg-white"
