@@ -50,7 +50,7 @@ export default function SentMessageNotificationModal({
                                     </p>
                                     <p className="mt-1 text-sm text-gray-400">
                                         {success
-                                            ? "Your message has been successfully sent."
+                                            ? "Your message has been sent."
                                             : success === false
                                               ? "Please ensure that all required message form fields are filled out correctly and try again."
                                               : "Your message could not be sent. Please try again later."}
