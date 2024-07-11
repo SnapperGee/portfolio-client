@@ -24,7 +24,7 @@ export default function Textarea({
 
     return (
         <>
-            <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white select-none">
                 Message
             </label>
             <div>

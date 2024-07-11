@@ -108,7 +108,7 @@ export default function ContactForm({
                         invalidMessage="A non-blank message is required."
                     />
                 </div>
-                <div className="mt-8 flex w-full items-center justify-between">
+                <div className="mt-8 flex w-full items-center justify-between cursor-default select-none">
                     <ul className="text-sm">
                         <li
                             className={`${nameValidState ? "text-green-500/80" : "text-red-500/80"}`}

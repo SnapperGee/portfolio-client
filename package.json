@@ -2,7 +2,7 @@
   "name": "portfolio-client",
   "description": "Client frontend of my portfolio website.",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.02",
   "type": "module",
   "author": "Snap <XxSnapperGeexX@gmail.com> (https://github.com/SnapperGee)",
   "repository": "github:SnapperGee/portfolio-client",
