@@ -4,14 +4,24 @@ import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
 export default function SentMessageNotificationModal({
+    successHeaderText,
+    failureHeaderText,
+    successBodyText,
+    failureBodyText,
+    errorText,
     success,
     show,
     setShow
-}: {
+}: Readonly<{
+    successHeaderText: string;
+    failureHeaderText: string;
+    successBodyText: string;
+    failureBodyText: string;
+    errorText: string;
     success: boolean | null;
     show: boolean;
     setShow: (show: boolean) => void;
-}) {
+}>) {
     return (
         <div
             aria-live="assertive"
@@ -46,23 +56,23 @@ export default function SentMessageNotificationModal({
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
                                     <p className="text-sm font-medium text-gray-900">
-                                        {success ? "Message sent" : "Unable to send message"}
+                                        {success ? successHeaderText : failureHeaderText}
                                     </p>
                                     <p className="mt-1 text-sm text-gray-400">
-                                        {success
-                                            ? "Your message has been sent."
-                                            : success === false
-                                              ? "Please ensure that all required message form fields are filled out correctly and try again."
-                                              : "Your message could not be sent. Please try again later."}
+                                        {
+                                            success
+                                                ? successBodyText
+                                                : success === false
+                                                    ? failureBodyText
+                                                    : errorText
+                                        }
                                     </p>
                                 </div>
                                 <div className="ml-4 flex flex-shrink-0">
                                     <button
                                         type="button"
                                         className="inline-flex rounded-md text-gray-300 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                        onClick={() => {
-                                            setShow(false);
-                                        }}
+                                        onClick={() => setShow(false)}
                                     >
                                         <span className="sr-only">Close</span>
                                         <XMarkIcon className="size-5" aria-hidden="true" />

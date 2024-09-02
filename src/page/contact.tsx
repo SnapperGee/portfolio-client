@@ -102,6 +102,11 @@ export default function Contact() {
                 </div>
             </div>
             <SentMessageNotificationModal
+                successHeaderText="Message sent"
+                failureHeaderText="Unable to send message"
+                successBodyText="Your message has been sent."
+                failureBodyText="Please ensure that all required message form fields are filled out correctly and try again."
+                errorText="Your message could not be sent. Please try again later."
                 success={messageSentSuccess}
                 show={showSentMessageNotificationModal}
                 setShow={setShowSentMessageNotificationModal}
