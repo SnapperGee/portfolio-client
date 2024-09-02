@@ -1,25 +1,8 @@
 import { StyleClasses, type FormFieldName } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { FC, HTMLInputTypeAttribute, useEffect } from "react";
+import { HTMLInputTypeAttribute, useEffect } from "react";
 
-interface InputProps {
-    readonly name: FormFieldName;
-    readonly predicate: (input: string) => boolean;
-    readonly value: string;
-    readonly validState: boolean | null;
-    readonly invalidMessage: string;
-    readonly setValue: (value: string) => void;
-    readonly setValidState: (validState: boolean | null) => void;
-    readonly format?: ((input: string) => string) | undefined;
-    readonly type?: HTMLInputTypeAttribute | undefined;
-    readonly label?: string | undefined;
-    readonly subLabel?: string | undefined;
-    readonly required?: boolean | undefined;
-}
-
-const defaultInputFormatter = (input: string) => input;
-
-const Input: FC<Readonly<InputProps>> = ({
+export default function Input({
     validState,
     name,
     value,
@@ -27,12 +10,25 @@ const Input: FC<Readonly<InputProps>> = ({
     predicate,
     invalidMessage,
     setValidState,
-    format = defaultInputFormatter,
+    format = (input: string) => input,
     type = "text",
     label = name.charAt(0).toUpperCase() + name.substring(1),
     subLabel,
     required = false
-}) => {
+}: Readonly<{
+    name: FormFieldName;
+    predicate: (input: string) => boolean;
+    value: string;
+    validState: boolean | null;
+    invalidMessage: string;
+    setValue: (value: string) => void;
+    setValidState: (validState: boolean | null) => void;
+    format?: ((input: string) => string) | undefined;
+    type?: HTMLInputTypeAttribute | undefined;
+    label?: string | undefined;
+    subLabel?: string | undefined;
+    required?: boolean | undefined;
+}>) {
     useEffect(() => {
         setValidState(value.length === 0 ? null : predicate(value));
     }, [value, predicate, setValidState]);
@@ -66,5 +62,3 @@ const Input: FC<Readonly<InputProps>> = ({
         </>
     );
 };
-
-export default Input;
