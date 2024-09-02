@@ -1,6 +1,6 @@
 import { StyleClasses, type FormFieldName } from "./util";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import React, { useEffect } from "react";
+import { FC, HTMLInputTypeAttribute, useEffect } from "react";
 
 interface InputProps {
     readonly name: FormFieldName;
@@ -11,7 +11,7 @@ interface InputProps {
     readonly setValue: (value: string) => void;
     readonly setValidState: (validState: boolean | null) => void;
     readonly format?: ((input: string) => string) | undefined;
-    readonly type?: string | undefined;
+    readonly type?: HTMLInputTypeAttribute | undefined;
     readonly label?: string | undefined;
     readonly subLabel?: string | undefined;
     readonly required?: boolean | undefined;
@@ -19,7 +19,7 @@ interface InputProps {
 
 const defaultInputFormatter = (input: string) => input;
 
-const Input: React.FC<Readonly<InputProps>> = ({
+const Input: FC<Readonly<InputProps>> = ({
     validState,
     name,
     value,
