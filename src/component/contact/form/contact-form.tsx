@@ -106,6 +106,7 @@ export default function ContactForm({
                         validState={messageValidState}
                         setValidState={setMessageValidState}
                         invalidMessage="A non-blank message is required."
+                        required
                     />
                 </div>
                 <div className="mt-8 flex w-full items-center justify-between cursor-default select-none">
