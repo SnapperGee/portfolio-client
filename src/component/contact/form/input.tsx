@@ -40,7 +40,7 @@ const Input: FC<Readonly<InputProps>> = ({
     return (
         <>
             <label htmlFor={name} className="block text-sm font-semibold leading-6 text-white select-none">
-                {label ?? name}
+                {required && <span className="text-red-500">* </span>}{label ?? name}
                 {subLabel && <span className="text-xs text-gray-400">{subLabel}</span>}
             </label>
             <div>
