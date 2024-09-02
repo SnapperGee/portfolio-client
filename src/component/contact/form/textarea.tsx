@@ -22,7 +22,7 @@ export default function Textarea({
     invalidMessage: string;
     label?: string | undefined;
     subLabel?: string | undefined;
-    required?: boolean;
+    required?: boolean | undefined;
 }) {
     useEffect(() => {
         setValidState(value.length === 0 ? null : value.length !== 0 && messagePredicate(value));
